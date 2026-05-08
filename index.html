@@ -227,6 +227,17 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
     <div class="empty-state" id="empty-jobb">Ingen verktøy matcher søket ditt.</div>
   </div>
   <div class="tab-panel" id="tab-privat">
+    <div class="wx-card">
+      <div class="wx-top" onclick="toggleWx()">
+        <div class="wx-em" id="wx-em-p">⏳</div>
+        <div class="wx-info" id="wx-info-p"><span class="wx-loading">Laster vær for Oslo...</span></div>
+        <div class="wx-chev" id="wx-chev-p"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+      </div>
+      <div id="wx-expand-p" style="display:none">
+        <div class="wx-divider"></div>
+        <div class="wx-scroll" id="wx-scroll-p"></div>
+      </div>
+    </div>
     <div class="bm-section"><div class="bm-hdr"><span class="bm-label">Bokmerker</span><div class="bm-divider"></div><button class="bm-add" onclick="openModal('bm-add','privat')">+</button></div><div class="bm-grid" id="bm-privat"></div></div>
     <div id="cards-privat"></div>
     <button class="add-card-btn" onclick="openModal('card-add','privat')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Legg til kort</button>
@@ -305,14 +316,36 @@ async function loadWeather(){
   try{
     const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=59.9139&longitude=10.7522&hourly=temperature_2m,precipitation_probability,weather_code&current=temperature_2m,weather_code,wind_speed_10m,relative_humidity_2m&forecast_days=1&timezone=Europe%2FOslo');
     const d=await r.json();const cu=d.current,w=wmo(cu.weather_code);
-    document.getElementById('wx-em').textContent=w.e;
-    document.getElementById('wx-info').innerHTML=`<span class="wx-city">Oslo</span><span class="wx-temp">${Math.round(cu.temperature_2m)}°C</span><span class="wx-cond">${w.l}</span><div class="wx-meta"><span>💨 ${Math.round(cu.wind_speed_10m)} km/h</span><span>💧 ${cu.relative_humidity_2m}%</span></div>`;
+    const topHTML=`<span class="wx-city">Oslo</span><span class="wx-temp">${Math.round(cu.temperature_2m)}°C</span><span class="wx-cond">${w.l}</span><div class="wx-meta"><span>💨 ${Math.round(cu.wind_speed_10m)} km/h</span><span>💧 ${cu.relative_humidity_2m}%</span></div>`;
     const nowH=new Date().getHours();
     const hrs=d.hourly.time.map((t,i)=>({h:new Date(t).getHours(),temp:d.hourly.temperature_2m[i],pr:d.hourly.precipitation_probability[i],code:d.hourly.weather_code[i]})).filter((_,i)=>i%2===0);
-    document.getElementById('wx-scroll').innerHTML=hrs.map(x=>`<div class="wx-hr${x.h===nowH||x.h===nowH+1?' now':''}"><span class="wx-ht">${String(x.h).padStart(2,'0')}:00</span><span class="wx-he">${wmo(x.code).e}</span><span class="wx-hc">${Math.round(x.temp)}°</span><span class="wx-hp">${x.pr}%</span></div>`).join('');
-  }catch(e){document.getElementById('wx-em').textContent='🌡️';document.getElementById('wx-info').innerHTML='<span class="wx-loading">Kan ikke laste vær</span>';}
+    const hrsHTML=hrs.map(x=>`<div class="wx-hr${x.h===nowH||x.h===nowH+1?' now':''}"><span class="wx-ht">${String(x.h).padStart(2,'0')}:00</span><span class="wx-he">${wmo(x.code).e}</span><span class="wx-hc">${Math.round(x.temp)}°</span><span class="wx-hp">${x.pr}%</span></div>`).join('');
+    ['','p'].forEach(s=>{
+      const em=document.getElementById('wx-em'+(s?'-'+s:''));
+      const info=document.getElementById('wx-info'+(s?'-'+s:''));
+      const scroll=document.getElementById('wx-scroll'+(s?'-'+s:''));
+      if(em)em.textContent=w.e;
+      if(info)info.innerHTML=topHTML;
+      if(scroll)scroll.innerHTML=hrsHTML;
+    });
+  }catch(e){
+    ['','p'].forEach(s=>{
+      const em=document.getElementById('wx-em'+(s?'-'+s:''));
+      const info=document.getElementById('wx-info'+(s?'-'+s:''));
+      if(em)em.textContent='🌡️';
+      if(info)info.innerHTML='<span class="wx-loading">Kan ikke laste vær</span>';
+    });
+  }
 }
-function toggleWx(){wxOpen=!wxOpen;document.getElementById('wx-expand').style.display=wxOpen?'':'none';document.getElementById('wx-chev').classList.toggle('open',wxOpen);}
+function toggleWx(){
+  wxOpen=!wxOpen;
+  ['','p'].forEach(s=>{
+    const exp=document.getElementById('wx-expand'+(s?'-'+s:''));
+    const chev=document.getElementById('wx-chev'+(s?'-'+s:''));
+    if(exp)exp.style.display=wxOpen?'':'none';
+    if(chev)chev.classList.toggle('open',wxOpen);
+  });
+}
 
 // ── CALENDAR ─────────────────────────────────────────────
 let calOpen=false;
