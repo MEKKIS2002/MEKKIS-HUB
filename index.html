@@ -4,66 +4,69 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Min Hub</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23C96A3A'/%3E%3Cpath d='M50 14L12 39v47h26V65h24v21h26V39Z' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg:#FAF8F4; --bg-card:#FFF; --bg-sec:#F3F1EC;
-  --tx:#1A1916; --tx2:#6B6860; --txm:#A09D97;
-  --br:#E8E5DE; --brh:#D4CFC6;
-  --ac:#C96A3A; --acs:#FBF0E9; --ach:#B05A2E;
-  --r:12px; --rs:8px;
-  --sh:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
-  --shh:0 4px 16px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.05);
-  --t:.18s ease;
-}
-[data-theme="dark"] {
-  --bg:#16150F; --bg-card:#1E1D16; --bg-sec:#252419;
-  --tx:#F0EDE5; --tx2:#8C897F; --txm:#5C5A52;
-  --br:#2E2C24; --brh:#3E3B31;
-  --ac:#D97B4A; --acs:#2A1E13; --ach:#E88A58;
-  --sh:0 1px 3px rgba(0,0,0,.3); --shh:0 4px 16px rgba(0,0,0,.4);
-}
+:root{--bg:#FAF8F4;--bg-card:#FFF;--bg-sec:#F3F1EC;--tx:#1A1916;--tx2:#6B6860;--txm:#A09D97;--br:#E8E5DE;--brh:#D4CFC6;--ac:#C96A3A;--acs:#FBF0E9;--ach:#B05A2E;--r:12px;--rs:8px;--sh:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);--shh:0 4px 16px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.05);--t:.18s ease}
+[data-theme="dark"]{--bg:#16150F;--bg-card:#1E1D16;--bg-sec:#252419;--tx:#F0EDE5;--tx2:#8C897F;--txm:#5C5A52;--br:#2E2C24;--brh:#3E3B31;--ac:#D97B4A;--acs:#2A1E13;--ach:#E88A58;--sh:0 1px 3px rgba(0,0,0,.3);--shh:0 4px 16px rgba(0,0,0,.4)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;transition:background var(--t),color var(--t)}
-
-/* ── HEADER ── */
-header{position:sticky;top:0;z-index:100;border-bottom:1px solid var(--br);padding:0 2rem;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 88%,transparent)}
-.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;height:58px}
+header{position:sticky;top:0;z-index:200;border-bottom:1px solid var(--br);padding:0 2rem;backdrop-filter:blur(10px);background:color-mix(in srgb,var(--bg) 88%,transparent)}
+.hdr{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:1.5rem;height:58px}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
 .logo-mark{width:28px;height:28px;border-radius:8px;background:var(--ac);display:flex;align-items:center;justify-content:center}
 .logo-mark svg{width:16px;height:16px;fill:white}
 .logo-text{font-family:'Instrument Serif',Georgia,serif;font-size:1.15rem;color:var(--tx);letter-spacing:-.01em}
-.search-wrap{flex:1;max-width:360px;position:relative}
-.search-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--txm);pointer-events:none}
+.srch{flex:1;max-width:360px;position:relative}
+.srch svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--txm);pointer-events:none}
 #search{width:100%;height:34px;border:1px solid var(--br);border-radius:8px;background:var(--bg-sec);color:var(--tx);font-family:inherit;font-size:.85rem;padding:0 2rem 0 2.1rem;outline:none;transition:border-color var(--t),box-shadow var(--t)}
 #search::placeholder{color:var(--txm)}
 #search:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 15%,transparent)}
-.search-sc{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--txm);background:var(--br);padding:1px 5px;border-radius:4px;pointer-events:none}
-.hdr-actions{display:flex;align-items:center;gap:6px;margin-left:auto}
-.btn-icon{width:32px;height:32px;border:none;background:transparent;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--tx2);transition:background var(--t),color var(--t)}
-.btn-icon:hover{background:var(--bg-sec);color:var(--tx)}
-.btn-icon svg{width:17px;height:17px}
-
-/* ── TABS ── */
+.srch-sc{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--txm);background:var(--br);padding:1px 5px;border-radius:4px;pointer-events:none}
+.hdr-r{display:flex;align-items:center;gap:6px;margin-left:auto}
+.bti{width:32px;height:32px;border:none;background:transparent;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--tx2);transition:background var(--t),color var(--t)}
+.bti:hover{background:var(--bg-sec);color:var(--tx)}
+.bti svg{width:17px;height:17px}
 .tabs-bar{border-bottom:1px solid var(--br);background:var(--bg);padding:0 2rem}
 .tabs-inner{max-width:1100px;margin:0 auto;display:flex}
 .tab-btn{padding:0 1px;margin-right:24px;height:44px;display:flex;align-items:center;gap:7px;font-family:inherit;font-size:.875rem;font-weight:400;color:var(--tx2);background:none;border:none;border-bottom:2px solid transparent;cursor:pointer;transition:color var(--t),border-color var(--t);white-space:nowrap;position:relative;top:1px}
-.tab-btn:hover{color:var(--tx)}
-.tab-btn.active{color:var(--tx);border-bottom-color:var(--ac);font-weight:500}
+.tab-btn:hover{color:var(--tx)}.tab-btn.active{color:var(--tx);border-bottom-color:var(--ac);font-weight:500}
 .tab-badge{font-size:11px;background:var(--acs);color:var(--ac);padding:1px 6px;border-radius:10px;font-weight:500}
 .tab-btn.active .tab-badge{background:var(--ac);color:white}
-
-/* ── MAIN ── */
 main{max-width:1100px;margin:0 auto;padding:2rem}
 
-/* ── BOOKMARKS ── */
+/* WEATHER */
+.wx-card{background:var(--bg-card);border:1px solid var(--br);border-radius:var(--r);margin-bottom:1.75rem;box-shadow:var(--sh);overflow:hidden}
+.wx-top{display:flex;align-items:center;gap:12px;padding:12px 16px;cursor:pointer;user-select:none;transition:background var(--t)}
+.wx-top:hover{background:var(--bg-sec)}
+.wx-em{font-size:26px;flex-shrink:0;line-height:1;width:32px;text-align:center}
+.wx-info{display:flex;align-items:center;gap:10px;flex:1;flex-wrap:wrap}
+.wx-city{font-size:.75rem;font-weight:500;color:var(--ac);background:var(--acs);padding:2px 8px;border-radius:10px;flex-shrink:0}
+.wx-temp{font-size:1.25rem;font-weight:500;color:var(--tx);line-height:1}
+.wx-cond{font-size:.83rem;color:var(--tx2)}
+.wx-meta{display:flex;gap:10px;font-size:.75rem;color:var(--txm)}
+.wx-chev{width:28px;height:28px;border:1px solid var(--br);border-radius:6px;background:transparent;color:var(--txm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wx-chev svg{width:14px;height:14px;transition:transform .2s}
+.wx-chev.open svg{transform:rotate(180deg)}
+.wx-divider{height:1px;background:var(--br)}
+.wx-scroll{display:flex;overflow-x:auto;gap:4px;padding:8px 12px 12px;scrollbar-width:thin}
+.wx-scroll::-webkit-scrollbar{height:4px}.wx-scroll::-webkit-scrollbar-track{background:transparent}.wx-scroll::-webkit-scrollbar-thumb{background:var(--brh);border-radius:2px}
+.wx-hr{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:54px;padding:10px 6px;border-radius:8px;border:1px solid transparent;flex-shrink:0;transition:background var(--t)}
+.wx-hr.now{background:var(--acs);border-color:color-mix(in srgb,var(--ac) 30%,var(--br))}
+.wx-ht{font-size:.68rem;color:var(--txm);font-weight:500}
+.wx-he{font-size:20px;line-height:1}
+.wx-hc{font-size:.82rem;font-weight:500;color:var(--tx)}
+.wx-hp{font-size:.65rem;color:var(--ac)}
+.wx-loading{font-size:.82rem;color:var(--txm)}
+
+/* BOOKMARKS */
 .bm-section{margin-bottom:2rem}
-.bm-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.bm-hdr{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .bm-label{font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--txm);flex-shrink:0}
 .bm-divider{flex:1;height:1px;background:var(--br)}
-.bm-add-btn{width:22px;height:22px;border-radius:6px;border:1px dashed var(--brh);background:transparent;cursor:pointer;color:var(--txm);display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;flex-shrink:0;transition:border-color var(--t),color var(--t),background var(--t)}
-.bm-add-btn:hover{border-color:var(--ac);color:var(--ac);background:var(--acs)}
+.bm-add{width:22px;height:22px;border-radius:6px;border:1px dashed var(--brh);background:transparent;cursor:pointer;color:var(--txm);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:border-color var(--t),color var(--t),background var(--t)}
+.bm-add:hover{border-color:var(--ac);color:var(--ac);background:var(--acs)}
 .bm-grid{display:flex;flex-wrap:wrap;gap:7px}
 .bookmark{display:inline-flex;align-items:center;gap:7px;height:34px;padding:0 11px 0 9px;background:var(--bg-card);border:1px solid var(--br);border-radius:8px;text-decoration:none;color:inherit;box-shadow:var(--sh);transition:border-color var(--t),box-shadow var(--t),background var(--t);cursor:pointer;white-space:nowrap;position:relative}
 .bookmark:hover{border-color:var(--brh);box-shadow:var(--shh);background:var(--bg-sec)}
@@ -74,14 +77,9 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
 .bm-edit{position:absolute;right:-1px;top:-1px;bottom:-1px;width:28px;border:none;border-left:1px solid var(--br);border-radius:0 7px 7px 0;background:var(--bg-sec);color:var(--txm);font-size:11px;cursor:pointer;display:none;align-items:center;justify-content:center;transition:background var(--t),color var(--t)}
 .bookmark:hover .bm-edit{display:flex}
 .bm-edit:hover{background:var(--brh);color:var(--tx)}
-
-/* ── SECTION HEADERS ── */
-.sec-header{display:flex;align-items:center;gap:10px;margin-bottom:1.1rem}
+.sec-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1.1rem}
 .sec-title{font-family:'Instrument Serif',Georgia,serif;font-size:1.05rem;color:var(--tx);font-weight:400}
 .sec-count{font-size:.8rem;color:var(--txm)}
-.sec-divider-line{flex:1;height:1px;background:var(--br)}
-
-/* ── CARDS ── */
 .card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:2.5rem}
 .card{background:var(--bg-card);border:1px solid var(--br);border-radius:var(--r);padding:1.1rem 1.2rem;text-decoration:none;color:inherit;box-shadow:var(--sh);transition:box-shadow var(--t),border-color var(--t),transform var(--t);display:flex;flex-direction:column;gap:10px;cursor:pointer;position:relative}
 .card:hover{box-shadow:var(--shh);border-color:var(--brh);transform:translateY(-1px)}
@@ -92,91 +90,83 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
 .card-tag{font-size:.7rem;color:var(--txm);background:var(--bg-sec);padding:2px 7px;border-radius:5px;max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .card-time{font-size:.7rem;color:var(--txm)}
 .card.featured{background:linear-gradient(135deg,var(--acs) 0%,var(--bg-card) 100%);border-color:color-mix(in srgb,var(--ac) 25%,var(--br))}
-.card-edit{position:absolute;top:8px;right:8px;width:26px;height:26px;border:1px solid var(--br);border-radius:6px;background:var(--bg-card);color:var(--txm);font-size:12px;cursor:pointer;opacity:0;transition:opacity var(--t),background var(--t),color var(--t);display:flex;align-items:center;justify-content:center}
+.card-edit{position:absolute;top:8px;right:8px;width:26px;height:26px;border:1px solid var(--br);border-radius:6px;background:var(--bg-card);color:var(--txm);font-size:12px;cursor:pointer;opacity:0;transition:opacity var(--t),background var(--t);display:flex;align-items:center;justify-content:center}
 .card:hover .card-edit{opacity:1}
 .card-edit:hover{background:var(--bg-sec);color:var(--tx);border-color:var(--brh)}
-
-/* Icon colours */
-.ic-orange{background:#FBF0E9;color:#C96A3A}
-.ic-blue{background:#EBF3FB;color:#2E78BE}
-.ic-green{background:#EAF5EC;color:#2E7D41}
-.ic-purple{background:#F0EEF9;color:#6B52C8}
-.ic-gray{background:#F0EEE8;color:#6B6860}
-.ic-teal{background:#E4F4F0;color:#1E8C74}
-.ic-red{background:#FCF0EE;color:#C0432B}
-.ic-amber{background:#FBF4E6;color:#B07A14}
-.ic-pink{background:#FBF0F5;color:#B5446E}
-[data-theme="dark"] .ic-orange{background:#2A1E13;color:#D97B4A}
-[data-theme="dark"] .ic-blue{background:#0D1E2E;color:#5E9FD4}
-[data-theme="dark"] .ic-green{background:#0E1E12;color:#5CB872}
-[data-theme="dark"] .ic-purple{background:#1A1630;color:#9D85E0}
-[data-theme="dark"] .ic-gray{background:#252419;color:#A09D97}
-[data-theme="dark"] .ic-teal{background:#0B1E1A;color:#3DC4A8}
-[data-theme="dark"] .ic-red{background:#1E0E0C;color:#D96A56}
-[data-theme="dark"] .ic-amber{background:#1E1608;color:#D4A040}
-[data-theme="dark"] .ic-pink{background:#1E0E16;color:#D46890}
-
-/* ── ADD CARD BUTTON ── */
+.ic-orange{background:#FBF0E9;color:#C96A3A}.ic-blue{background:#EBF3FB;color:#2E78BE}.ic-green{background:#EAF5EC;color:#2E7D41}
+.ic-purple{background:#F0EEF9;color:#6B52C8}.ic-gray{background:#F0EEE8;color:#6B6860}.ic-teal{background:#E4F4F0;color:#1E8C74}
+.ic-red{background:#FCF0EE;color:#C0432B}.ic-amber{background:#FBF4E6;color:#B07A14}.ic-pink{background:#FBF0F5;color:#B5446E}
+[data-theme="dark"] .ic-orange{background:#2A1E13;color:#D97B4A}[data-theme="dark"] .ic-blue{background:#0D1E2E;color:#5E9FD4}[data-theme="dark"] .ic-green{background:#0E1E12;color:#5CB872}
+[data-theme="dark"] .ic-purple{background:#1A1630;color:#9D85E0}[data-theme="dark"] .ic-gray{background:#252419;color:#A09D97}[data-theme="dark"] .ic-teal{background:#0B1E1A;color:#3DC4A8}
+[data-theme="dark"] .ic-red{background:#1E0E0C;color:#D96A56}[data-theme="dark"] .ic-amber{background:#1E1608;color:#D4A040}[data-theme="dark"] .ic-pink{background:#1E0E16;color:#D46890}
 .add-card-btn{display:flex;align-items:center;gap:8px;padding:10px 16px;background:transparent;border:1px dashed var(--brh);border-radius:var(--rs);color:var(--txm);font-family:inherit;font-size:.85rem;cursor:pointer;transition:all var(--t);margin-bottom:2.5rem;width:100%}
 .add-card-btn:hover{border-color:var(--ac);color:var(--ac);background:var(--acs)}
-
-/* ── GOOGLE CALENDAR ── */
 .cal-section{margin-bottom:2rem}
-.cal-header{display:flex;align-items:center;gap:10px;margin-bottom:1rem;cursor:pointer;user-select:none}
-.cal-toggle-btn{width:28px;height:28px;border:1px solid var(--br);border-radius:6px;background:var(--bg-card);color:var(--txm);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background var(--t),transform var(--t)}
-.cal-toggle-btn svg{width:14px;height:14px;transition:transform .2s}
-.cal-toggle-btn.open svg{transform:rotate(180deg)}
-.cal-frame-wrap{border:1px solid var(--br);border-radius:var(--r);overflow:hidden;background:var(--bg-card)}
-.cal-frame-wrap iframe{display:block;width:100%;height:480px;border:none;filter:none}
-[data-theme="dark"] .cal-frame-wrap{border-color:var(--br)}
-.cal-note{font-size:.75rem;color:var(--txm);margin-top:8px;padding:0 2px}
-
-/* ── PANELS ── */
-.tab-panel{display:none}
-.tab-panel.active{display:block}
+.cal-hdr{display:flex;align-items:center;gap:10px;margin-bottom:1rem;cursor:pointer;user-select:none}
+.cal-toggle{width:28px;height:28px;border:1px solid var(--br);border-radius:6px;background:var(--bg-card);color:var(--txm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cal-toggle svg{width:14px;height:14px;transition:transform .2s}
+.cal-toggle.open svg{transform:rotate(180deg)}
+.cal-frame{border:1px solid var(--br);border-radius:var(--r);overflow:hidden}
+.cal-frame iframe{display:block;width:100%;height:480px;border:none}
+.cal-note{font-size:.72rem;color:var(--txm);margin-top:8px}
+.tab-panel{display:none}.tab-panel.active{display:block}
 .empty-state{text-align:center;padding:3rem 0;color:var(--txm);font-size:.875rem;display:none}
 .empty-state.visible{display:block}
 
-/* ── MODAL ── */
+/* MODAL */
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:500;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
 .overlay.open{opacity:1;pointer-events:all}
-.modal{background:var(--bg-card);border:1px solid var(--br);border-radius:var(--r);width:min(480px,92vw);max-height:88vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.18);transform:translateY(8px);transition:transform .2s}
-.overlay.open .modal{transform:translateY(0)}
-.modal-head{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem 1rem;border-bottom:1px solid var(--br)}
-.modal-head h3{font-family:'Instrument Serif',Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--tx)}
-.modal-x{width:28px;height:28px;border:none;background:transparent;cursor:pointer;border-radius:6px;font-size:20px;line-height:1;color:var(--txm);display:flex;align-items:center;justify-content:center;transition:background var(--t),color var(--t)}
+.modal{background:var(--bg-card);border:1px solid var(--br);border-radius:var(--r);width:min(500px,94vw);max-height:90vh;overflow-y:auto;box-shadow:0 24px 60px rgba(0,0,0,.18);transform:translateY(8px);transition:transform .2s}
+.overlay.open .modal{transform:none}
+.modal-hd{display:flex;align-items:center;justify-content:space-between;padding:1.25rem 1.5rem 1rem;border-bottom:1px solid var(--br)}
+.modal-hd h3{font-family:'Instrument Serif',Georgia,serif;font-size:1.1rem;font-weight:400;color:var(--tx)}
+.modal-x{width:28px;height:28px;border:none;background:transparent;cursor:pointer;border-radius:6px;font-size:20px;color:var(--txm);display:flex;align-items:center;justify-content:center;transition:background var(--t)}
 .modal-x:hover{background:var(--bg-sec);color:var(--tx)}
 .modal-body{padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:1rem}
-.modal-foot{padding:1rem 1.5rem;border-top:1px solid var(--br);display:flex;align-items:center;gap:8px}
-.form-group{display:flex;flex-direction:column;gap:6px}
-.form-row{display:grid;grid-template-columns:80px 1fr;gap:12px}
-.form-label{font-size:.8rem;font-weight:500;color:var(--tx2)}
-.form-input,.form-textarea,.form-select{width:100%;border:1px solid var(--br);border-radius:8px;background:var(--bg-sec);color:var(--tx);font-family:inherit;font-size:.875rem;padding:8px 12px;outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none}
-.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 15%,transparent)}
-.form-textarea{resize:vertical;min-height:78px}
-.form-hint{font-size:.72rem;color:var(--txm)}
-.color-picker{display:flex;flex-wrap:wrap;gap:8px;padding:2px 0}
+.modal-ft{padding:1rem 1.5rem;border-top:1px solid var(--br);display:flex;align-items:center;gap:8px}
+.f-row{display:grid;grid-template-columns:96px 1fr;gap:12px}
+.f-grp{display:flex;flex-direction:column;gap:6px}
+.f-lbl{font-size:.8rem;font-weight:500;color:var(--tx2)}
+.f-hint{font-size:.71rem;color:var(--txm)}
+.f-in,.f-ta,.f-sel{width:100%;border:1px solid var(--br);border-radius:8px;background:var(--bg-sec);color:var(--tx);font-family:inherit;font-size:.875rem;padding:8px 12px;outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none}
+.f-in:focus,.f-ta:focus,.f-sel:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 15%,transparent)}
+.f-ta{resize:vertical;min-height:76px}
+.em-wrap{display:flex;gap:6px}
+.em-wrap .f-in{text-align:center;font-size:1.3rem;flex:0 0 60px}
+.ep-btn{flex:1;height:38px;padding:0 10px;border:1px solid var(--br);border-radius:8px;background:var(--bg-sec);color:var(--tx2);font-family:inherit;font-size:.78rem;cursor:pointer;transition:border-color var(--t),background var(--t),color var(--t);white-space:nowrap}
+.ep-btn:hover{border-color:var(--ac);color:var(--ac);background:var(--acs)}
+.cpick{display:flex;flex-wrap:wrap;gap:7px;padding:2px 0}
 .cdot{width:28px;height:28px;border-radius:50%;cursor:pointer;border:2px solid transparent;outline:2px solid transparent;transition:border-color .15s,outline-color .15s,transform .15s;flex-shrink:0}
-.cdot.active{border-color:var(--bg-card);outline-color:var(--tx);transform:scale(1.15)}
-.toggle-row{display:flex;align-items:center;justify-content:space-between}
-.toggle-label{font-size:.875rem;color:var(--tx2)}
-.toggle-switch{position:relative;width:40px;height:22px}
-.toggle-switch input{opacity:0;width:0;height:0;position:absolute}
-.toggle-track{position:absolute;inset:0;background:var(--br);border-radius:11px;cursor:pointer;transition:background .2s}
-.toggle-switch input:checked+.toggle-track{background:var(--ac)}
-.toggle-thumb{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:white;transition:transform .2s;pointer-events:none}
-.toggle-switch input:checked+.toggle-track .toggle-thumb{transform:translateX(18px)}
-.btn-primary{padding:7px 18px;background:var(--ac);color:white;border:none;border-radius:8px;font-family:inherit;font-size:.875rem;font-weight:500;cursor:pointer;transition:background .15s;white-space:nowrap}
-.btn-primary:hover{background:var(--ach)}
-.btn-sec{padding:7px 18px;background:transparent;color:var(--tx2);border:1px solid var(--br);border-radius:8px;font-family:inherit;font-size:.875rem;cursor:pointer;transition:background .15s;white-space:nowrap}
-.btn-sec:hover{background:var(--bg-sec)}
-.btn-danger{padding:7px 14px;background:transparent;color:#C0432B;border:1px solid #F0CCCC;border-radius:8px;font-family:inherit;font-size:.875rem;cursor:pointer;transition:background .15s;white-space:nowrap}
-.btn-danger:hover{background:#FEF2F2}
-[data-theme="dark"] .btn-danger{color:#D96A56;border-color:#3E2020}
-[data-theme="dark"] .btn-danger:hover{background:#2A1010}
+.cdot.active{border-color:var(--bg-card);outline-color:var(--tx);transform:scale(1.18)}
+.tog-row{display:flex;align-items:center;justify-content:space-between}
+.tog-lbl{font-size:.875rem;color:var(--tx2)}
+.tog-sw{position:relative;width:40px;height:22px}
+.tog-sw input{opacity:0;width:0;height:0;position:absolute}
+.tog-tr{position:absolute;inset:0;background:var(--br);border-radius:11px;cursor:pointer;transition:background .2s}
+.tog-sw input:checked+.tog-tr{background:var(--ac)}
+.tog-th{position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:white;transition:transform .2s;pointer-events:none}
+.tog-sw input:checked+.tog-tr .tog-th{transform:translateX(18px)}
+.btn-p{padding:7px 18px;background:var(--ac);color:white;border:none;border-radius:8px;font-family:inherit;font-size:.875rem;font-weight:500;cursor:pointer;transition:background .15s}
+.btn-p:hover{background:var(--ach)}
+.btn-s{padding:7px 18px;background:transparent;color:var(--tx2);border:1px solid var(--br);border-radius:8px;font-family:inherit;font-size:.875rem;cursor:pointer;transition:background .15s}
+.btn-s:hover{background:var(--bg-sec)}
+.btn-d{padding:7px 14px;background:transparent;color:#C0432B;border:1px solid #F0CCCC;border-radius:8px;font-family:inherit;font-size:.875rem;cursor:pointer}
+.btn-d:hover{background:#FEF2F2}
+[data-theme="dark"] .btn-d{color:#D96A56;border-color:#3E2020}[data-theme="dark"] .btn-d:hover{background:#2A1010}
 
-/* ── KEYBOARD HINT ── */
-.kbd-hint{position:fixed;bottom:1.25rem;right:1.5rem;background:var(--bg-card);border:1px solid var(--br);border-radius:var(--rs);padding:8px 12px;font-size:.72rem;color:var(--txm);display:flex;gap:12px;box-shadow:var(--sh)}
+/* EMOJI PICKER */
+.ep{position:fixed;background:var(--bg-card);border:1px solid var(--br);border-radius:var(--r);box-shadow:0 8px 32px rgba(0,0,0,.16);width:316px;max-height:340px;display:flex;flex-direction:column;z-index:9999;overflow:hidden}
+.ep-srch{border:none;border-bottom:1px solid var(--br);background:transparent;color:var(--tx);font-family:inherit;font-size:.85rem;padding:10px 14px;outline:none}
+.ep-srch::placeholder{color:var(--txm)}
+.ep-cats{display:flex;overflow-x:auto;gap:2px;padding:5px 6px;border-bottom:1px solid var(--br);flex-shrink:0;scrollbar-width:none}
+.ep-cats::-webkit-scrollbar{display:none}
+.ep-cat{border:none;background:transparent;cursor:pointer;padding:5px 8px;border-radius:6px;font-size:17px;transition:background var(--t);flex-shrink:0;line-height:1}
+.ep-cat:hover,.ep-cat.active{background:var(--acs)}
+.ep-grid{display:flex;flex-wrap:wrap;padding:6px;overflow-y:auto;flex:1;gap:1px;align-content:flex-start}
+.ep-em{width:36px;height:36px;border:none;background:transparent;border-radius:6px;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background var(--t);line-height:1}
+.ep-em:hover{background:var(--acs)}
+
+.kbd-hint{position:fixed;bottom:1.25rem;right:1.5rem;background:var(--bg-card);border:1px solid var(--br);border-radius:var(--rs);padding:8px 12px;font-size:.72rem;color:var(--txm);display:flex;gap:12px;box-shadow:var(--sh);z-index:50}
 .kbd-hint kbd{background:var(--bg-sec);border:1px solid var(--br);border-radius:4px;padding:1px 5px;font-family:inherit;color:var(--tx2)}
 .card.hidden,.bookmark.hidden{display:none}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--brh);border-radius:3px}
@@ -184,499 +174,238 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
 </style>
 </head>
 <body data-theme="light">
-
-<!-- HEADER -->
 <header>
-  <div class="header-inner">
-    <a class="logo" href="#">
-      <div class="logo-mark"><svg viewBox="0 0 16 16"><path d="M8 2L2 6v8h4v-4h4v4h4V6L8 2z"/></svg></div>
-      <span class="logo-text">Min Hub</span>
-    </a>
-    <div class="search-wrap">
+  <div class="hdr">
+    <a class="logo" href="#"><div class="logo-mark"><svg viewBox="0 0 16 16"><path d="M8 2L2 6v8h4v-4h4v4h4V6L8 2z"/></svg></div><span class="logo-text">Min Hub</span></a>
+    <div class="srch">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input id="search" type="text" placeholder="Søk etter verktøy og bokmerker..." autocomplete="off">
-      <span class="search-sc">/</span>
+      <span class="srch-sc">/</span>
     </div>
-    <div class="hdr-actions">
-      <button class="btn-icon" id="dark-toggle">
+    <div class="hdr-r">
+      <button class="bti" id="dark-toggle">
         <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg id="icon-sun" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
     </div>
   </div>
 </header>
-
-<!-- TABS -->
-<div class="tabs-bar">
-  <div class="tabs-inner">
-    <button class="tab-btn active" data-tab="jobb">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-      Jobb <span class="tab-badge" id="badge-jobb">0</span>
-    </button>
-    <button class="tab-btn" data-tab="privat">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      Privat <span class="tab-badge" id="badge-privat">0</span>
-    </button>
-  </div>
-</div>
-
-<!-- MAIN -->
+<div class="tabs-bar"><div class="tabs-inner">
+  <button class="tab-btn active" data-tab="jobb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Jobb <span class="tab-badge" id="badge-jobb">0</span></button>
+  <button class="tab-btn" data-tab="privat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Privat <span class="tab-badge" id="badge-privat">0</span></button>
+</div></div>
 <main>
-  <!-- JOBB -->
   <div class="tab-panel active" id="tab-jobb">
-    <div class="bm-section">
-      <div class="bm-header">
-        <span class="bm-label">Bokmerker</span>
-        <div class="bm-divider"></div>
-        <button class="bm-add-btn" onclick="openModal('bm-add','jobb')" title="Legg til bokmerke">+</button>
+    <!-- WEATHER -->
+    <div class="wx-card">
+      <div class="wx-top" onclick="toggleWx()">
+        <div class="wx-em" id="wx-em">⏳</div>
+        <div class="wx-info" id="wx-info"><span class="wx-loading">Laster vær for Oslo...</span></div>
+        <div class="wx-chev" id="wx-chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
       </div>
-      <div class="bm-grid" id="bm-jobb"></div>
+      <div id="wx-expand" style="display:none">
+        <div class="wx-divider"></div>
+        <div class="wx-scroll" id="wx-scroll"></div>
+      </div>
     </div>
+    <!-- BOOKMARKS -->
+    <div class="bm-section"><div class="bm-hdr"><span class="bm-label">Bokmerker</span><div class="bm-divider"></div><button class="bm-add" onclick="openModal('bm-add','jobb')">+</button></div><div class="bm-grid" id="bm-jobb"></div></div>
     <div id="cards-jobb"></div>
-    <button class="add-card-btn" onclick="openModal('card-add','jobb')">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      Legg til kort
-    </button>
-    <!-- GOOGLE CALENDAR -->
+    <button class="add-card-btn" onclick="openModal('card-add','jobb')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Legg til kort</button>
+    <!-- CALENDAR -->
     <div class="cal-section">
-      <div class="cal-header" onclick="toggleCal()">
-        <span class="sec-title" style="font-size:.95rem">Google Kalender</span>
+      <div class="cal-hdr" onclick="toggleCal()">
+        <span class="sec-title" style="font-size:.95rem">📅 Google Kalender</span>
         <div class="bm-divider"></div>
-        <div class="cal-toggle-btn" id="cal-btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
+        <div class="cal-toggle" id="cal-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
       </div>
       <div id="cal-wrap" style="display:none">
-        <div class="cal-frame-wrap">
-          <iframe id="cal-iframe" src="about:blank" scrolling="no"></iframe>
-        </div>
-        <p class="cal-note">Krever at du er innlogget på riktig Google-konto i denne nettleseren. Dersom kalenderen er tom, sjekk at marcus@novooi.com er aktiv (konto 3 i Google).</p>
+        <div class="cal-frame"><iframe id="cal-iframe" src="about:blank" scrolling="no"></iframe></div>
+        <p class="cal-note">Krever innlogging på marcus@novooi.com i denne nettleseren.</p>
       </div>
     </div>
     <div class="empty-state" id="empty-jobb">Ingen verktøy matcher søket ditt.</div>
   </div>
-
-  <!-- PRIVAT -->
   <div class="tab-panel" id="tab-privat">
-    <div class="bm-section">
-      <div class="bm-header">
-        <span class="bm-label">Bokmerker</span>
-        <div class="bm-divider"></div>
-        <button class="bm-add-btn" onclick="openModal('bm-add','privat')" title="Legg til bokmerke">+</button>
-      </div>
-      <div class="bm-grid" id="bm-privat"></div>
-    </div>
+    <div class="bm-section"><div class="bm-hdr"><span class="bm-label">Bokmerker</span><div class="bm-divider"></div><button class="bm-add" onclick="openModal('bm-add','privat')">+</button></div><div class="bm-grid" id="bm-privat"></div></div>
     <div id="cards-privat"></div>
-    <button class="add-card-btn" onclick="openModal('card-add','privat')">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-      Legg til kort
-    </button>
+    <button class="add-card-btn" onclick="openModal('card-add','privat')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Legg til kort</button>
     <div class="empty-state" id="empty-privat">Ingen lenker matcher søket ditt.</div>
   </div>
 </main>
-
-<!-- MODAL -->
-<div class="overlay" id="overlay" onclick="overlayClick(event)">
-  <div class="modal" id="modal">
-    <div class="modal-head">
-      <h3 id="modal-title">Legg til bokmerke</h3>
-      <button class="modal-x" onclick="closeModal()">×</button>
-    </div>
+<div class="overlay" id="overlay" onclick="overlayBg(event)">
+  <div class="modal">
+    <div class="modal-hd"><h3 id="modal-title"></h3><button class="modal-x" onclick="closeModal()">×</button></div>
     <div class="modal-body" id="modal-body"></div>
-    <div class="modal-foot">
-      <button class="btn-danger" id="btn-delete" style="display:none" onclick="handleDelete()">Slett</button>
-      <span style="flex:1"></span>
-      <button class="btn-sec" onclick="closeModal()">Avbryt</button>
-      <button class="btn-primary" onclick="handleSave()">Lagre</button>
-    </div>
+    <div class="modal-ft"><button class="btn-d" id="btn-del" style="display:none" onclick="handleDelete()">Slett</button><span style="flex:1"></span><button class="btn-s" onclick="closeModal()">Avbryt</button><button class="btn-p" onclick="handleSave()">Lagre</button></div>
   </div>
 </div>
-
-<!-- KEYBOARD HINT -->
-<div class="kbd-hint">
-  <span><kbd>J</kbd> Jobb</span>
-  <span><kbd>P</kbd> Privat</span>
-  <span><kbd>/</kbd> Søk</span>
-  <span><kbd>D</kbd> Mørkt</span>
-</div>
+<div class="kbd-hint"><span><kbd>J</kbd> Jobb</span><span><kbd>P</kbd> Privat</span><span><kbd>/</kbd> Søk</span><span><kbd>D</kbd> Mørkt</span></div>
 
 <script>
-// ── DEFAULT DATA ─────────────────────────────────────
-const DEF_BM = {
-  jobb:[
-    {id:'bj1',emoji:'📧',title:'marcus@novooi',url:'https://mail.google.com/mail/u/2/#inbox',domain:'Gmail'},
-    {id:'bj2',emoji:'📨',title:'hei@novooi',url:'https://mail.google.com/mail/u/3/#inbox',domain:'Gmail'},
-    {id:'bj3',emoji:'📅',title:'Kalender',url:'https://calendar.google.com/calendar/u/2/r',domain:'calendar.google.com'},
-    {id:'bj4',emoji:'📁',title:'Drive Novooi',url:'https://drive.google.com/drive/u/2/folders/1NQQ3_NKWpO3DaMtMJuGfTN6L6rUseDL0',domain:'drive.google.com'},
-    {id:'bj5',emoji:'💬',title:'Messenger',url:'https://www.messenger.com/e2ee/t/8996393707080132',domain:'messenger.com'},
-    {id:'bj6',emoji:'🔧',title:'WP Admin',url:'https://novooi.com/wp/wp-admin/',domain:'novooi.com'},
-    {id:'bj7',emoji:'🐙',title:'GitHub Novooi',url:'https://github.com/novooi',domain:'github.com'},
-    {id:'bj8',emoji:'✦',title:'Anthropic Console',url:'https://console.anthropic.com',domain:'console.anthropic.com'},
-  ],
-  privat:[
-    {id:'bp1',emoji:'▶️',title:'YouTube',url:'https://youtube.com',domain:'youtube.com'},
-    {id:'bp2',emoji:'🎬',title:'Netflix',url:'https://netflix.com',domain:'netflix.com'},
-    {id:'bp3',emoji:'🟣',title:'Twitch',url:'https://twitch.com',domain:'twitch.com'},
-    {id:'bp4',emoji:'📸',title:'Instagram',url:'https://instagram.com',domain:'instagram.com'},
-    {id:'bp5',emoji:'𝕏',title:'Twitter / X',url:'https://twitter.com',domain:'twitter.com'},
-    {id:'bp6',emoji:'🎯',title:'VLR.gg',url:'https://vlr.gg',domain:'vlr.gg'},
-    {id:'bp7',emoji:'🎵',title:'SoundCloud',url:'https://soundcloud.com/marcus-aas-607720',domain:'soundcloud.com'},
-  ]
+// ── EMOJI CATEGORIES ─────────────────────────────────────
+const EPC={
+ '💼':['💼','📧','📨','📩','📬','📭','📮','📝','✏️','📋','📌','📍','🗂️','🗃️','🗄️','📊','📈','📉','💹','💰','💵','💴','💶','💷','💳','🧾','📅','📆','🗓️','⏰','⏱️','⌚','🔔','🔕','📯','🗳️','📜'],
+ '💻':['💻','🖥️','🖨️','⌨️','🖱️','💾','💿','📀','📱','☎️','📞','📟','📠','🔌','🔋','💡','🔍','🔎','🔑','🔒','🔓','🛡️','⚙️','🔧','🔨','🛠️','⚒️','🔩','🪛','🧰','🗑️','📡','🌐','☁️','🐙','🤖','🦾','🧬'],
+ '📣':['📣','📢','🎯','🎨','🖌️','✨','💫','⭐','🌟','🔥','💡','🎁','🏆','🥇','🥈','🥉','🎖️','🏅','🎪','🎭','🎬','📸','🎞️','📺','📻','🎙️','🎚️','🎛️','🛒','🛍️','🏷️','💎','🪙','💠','🎀'],
+ '👥':['👤','👥','🧑‍💼','👩‍💼','👨‍💼','🤝','👋','🙌','👏','💪','🧠','💬','🗨️','🗯️','💭','😊','😎','🤔','🧐','🤗','😅','🙏','✌️','🤞','👍','👎','🫡','🤩','😄','🥳','🤓','👾','🤖','😈','🦊','🐱'],
+ '🏠':['🏠','🏡','🏢','🏣','🏤','🏥','🏦','🏨','🏪','🏫','🏬','🏭','🗼','⛪','🏰','🏯','🚇','🚉','🚗','✈️','🚀','🛸','🚁','🗺️','🌍','🌐','🧭','⛽','🚦','🚧','🛤️','⛵','🛳️','🚂'],
+ '🌤️':['☀️','🌤️','⛅','🌥️','☁️','🌦️','🌧️','⛈️','🌩️','🌨️','❄️','🌬️','💨','🌈','🌡️','🔥','💧','🌊','🌿','🌱','🌲','🌳','🌴','🌵','🌺','🌸','🌼','🌻','🌹','🍁','🍂','🍃','🌾','🍀','🦋','🐝','🌙','⭐','🌠'],
+ '🍕':['☕','🧋','🍵','🥤','🍺','🥂','🍷','🍕','🍔','🍟','🌮','🌯','🥗','🍜','🍝','🍣','🍱','🥘','🍲','🥩','🍗','🥚','🧆','🥐','🍞','🧀','🥑','🍎','🍊','🍋','🍇','🍓','🍒','🍑','🥝','🎂','🍰','🍩','🍪','🍫','🍬'],
+ '🎮':['🎮','🕹️','🎲','♟️','🎯','🎳','🎱','🏓','🏸','⚽','🏀','🏈','⚾','🎾','🏐','🥏','🎿','⛷️','🏋️','🤸','🧗','🎣','🏊','🚴','🎽','🥋','⛺','🎸','🎹','🥁','🎷','🎵','🎶','🎤','🎧','🎨'],
+ '❤️':['❤️','🧡','💛','💚','💙','💜','🖤','🤍','🤎','💔','💕','💞','💓','💗','💖','💘','💝','✅','❌','⚠️','ℹ️','🔴','🟡','🟢','🔵','🟣','⚫','⚪','🟤','🔶','🔷','🔸','🔹','🔺','🔻','💠','🚩','🏳️','🏴'],
 };
-const DEF_SEC = {
-  jobb:['AI-verktøy','Markedsføring & analyse','Drift & prosjekt'],
-  privat:['Personlige agenter']
-};
-const DEF_CARDS = {
-  jobb:[
-    {id:'cj1',emoji:'🤖',title:'Novooi Agent Hub',desc:'Alle AI-agenter for Novooi – SEO, import, markedsføring og mer.',tags:'ai agenter novooi hub',color:'ic-orange',section:'AI-verktøy',featured:true,url:'https://novooi.github.io/NOVOOI-AGENTS/'},
-    {id:'cj2',emoji:'✦',title:'Claude',desc:'Anthropic AI-assistent for skriving, kode og analyse.',tags:'ai chat claude anthropic',color:'ic-orange',section:'AI-verktøy',url:'https://claude.ai'},
-    {id:'cj3',emoji:'📊',title:'Google Ads',desc:'PPC-kampanjer, Performance Max og søkeannonser for Novooi.',tags:'google ads ppc kampanje performance max',color:'ic-amber',section:'Markedsføring & analyse',url:'https://ads.google.com/aw/overview?ocid=771892252&euid=1357761102&__u=2199285598&uscid=771892252&__c=2097381948&authuser=2&workspaceId=0'},
-    {id:'cj4',emoji:'📣',title:'Meta Ads Manager',desc:'Facebook og Instagram-annonser, kampanjeoppfølging og budsjett.',tags:'meta facebook instagram ads kampanje manager',color:'ic-blue',section:'Markedsføring & analyse',url:'https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=441052627534533&business_id=580622303112291&global_scope_id=580622303112291&nav_entry_point=lep_237&columns=name%2Cdelivery%2Cbid%2Ccost_per_result%2Cwebsite_ctr%3Alink_click%2Cbudget%2Cresults%2Clast_significant_edit&selected_campaign_ids=120218178974260309&breakdown_regrouping=true&nav_source=unknown'},
-    {id:'cj5',emoji:'🐵',title:'Mailchimp',desc:'E-postkampanjer og nyhetsbrev til Novooi-kunder.',tags:'mailchimp e-post nyhetsbrev kampanje email',color:'ic-amber',section:'Markedsføring & analyse',url:'https://us22.admin.mailchimp.com/campaigns/'},
-    {id:'cj6',emoji:'📈',title:'Google Analytics',desc:'Trafikk, konverteringer og brukeratferd på novooi.com.',tags:'google analytics statistikk trafikk',color:'ic-orange',section:'Markedsføring & analyse',url:'https://analytics.google.com'},
-    {id:'cj7',emoji:'📓',title:'Notion',desc:"Marcus' Novooi-arbeidsplass med prosjekter, notater og wiki.",tags:'notion notater prosjekt wiki arbeidsplass',color:'ic-gray',section:'Drift & prosjekt',url:'https://www.notion.so/Marcus-Arbeidsplass-1507aa7635a380b19572e760dfc1d4fc'},
-    {id:'cj8',emoji:'⚙️',title:'Make.com',desc:'Automatiseringsflyter for ordre, e-post og vendor-kommunikasjon.',tags:'make automasjon workflow integrasjon',color:'ic-purple',section:'Drift & prosjekt',url:'https://make.com'},
-    {id:'cj9',emoji:'☁️',title:'Cloudflare',desc:'Workers-backend, DNS og hosting for agentverktøyene.',tags:'cloudflare workers hosting dns',color:'ic-amber',section:'Drift & prosjekt',url:'https://dash.cloudflare.com'},
-  ],
-  privat:[
-    {id:'cp1',emoji:'🎛️',title:'Beat Vault',desc:'Personlig beat-arkiv med søk og organisering.',tags:'beat vault musikk mekkis beats produksjon',color:'ic-purple',section:'Personlige agenter',featured:true,url:'https://mekkis2002.github.io/MEKKIS-BEAT-VAULT/'},
-    {id:'cp2',emoji:'🏦',title:'DNB Advisor Agent',desc:'AI-drevet finansrådgiver koblet til DNB-data.',tags:'dnb bank økonomi rådgiver agent ai',color:'ic-teal',section:'Personlige agenter',url:'https://mekkis2002.github.io/DNB-ADVISOR/'},
-    {id:'cp3',emoji:'🏠',title:'Finn Scraper Agent',desc:'Scraper og analyserer annonser fra finn.no automatisk.',tags:'finn scraper bolig bil eiendom agent ai',color:'ic-red',section:'Personlige agenter',url:'https://mekkis2002.github.io/FINN-SCRAPER/'},
-    {id:'cp4',emoji:'🎮',title:'Skolebolle Scoreboard',desc:'Valorant stats-tracker for Skolebolle-laget.',tags:'valorant scoreboard skolebolle stats gaming',color:'ic-pink',section:'Personlige agenter',url:'https://mekkis2002.github.io/val-stats/'},
-  ]
-};
-const COLORS = [
-  {id:'ic-orange',hex:'#C96A3A',label:'Oransje'},
-  {id:'ic-blue',  hex:'#2E78BE',label:'Blå'},
-  {id:'ic-green', hex:'#2E7D41',label:'Grønn'},
-  {id:'ic-purple',hex:'#6B52C8',label:'Lilla'},
-  {id:'ic-gray',  hex:'#6B6860',label:'Grå'},
-  {id:'ic-teal',  hex:'#1E8C74',label:'Teal'},
-  {id:'ic-red',   hex:'#C0432B',label:'Rød'},
-  {id:'ic-amber', hex:'#B07A14',label:'Amber'},
-  {id:'ic-pink',  hex:'#B5446E',label:'Rosa'},
-];
+const EPC_KEYS=Object.keys(EPC);
 
-// ── STORAGE ──────────────────────────────────────────
-function load(key, def) {
-  try { const s = localStorage.getItem(key); return s ? JSON.parse(s) : def; } catch(e) { return def; }
+// ── DEFAULT DATA ─────────────────────────────────────────
+const DEF_BM={jobb:[{id:'bj1',emoji:'📧',title:'marcus@novooi',url:'https://mail.google.com/mail/u/2/#inbox',domain:'Gmail'},{id:'bj2',emoji:'📨',title:'hei@novooi',url:'https://mail.google.com/mail/u/3/#inbox',domain:'Gmail'},{id:'bj3',emoji:'📅',title:'Kalender',url:'https://calendar.google.com/calendar/u/2/r',domain:'calendar.google.com'},{id:'bj4',emoji:'📁',title:'Drive Novooi',url:'https://drive.google.com/drive/u/2/folders/1NQQ3_NKWpO3DaMtMJuGfTN6L6rUseDL0',domain:'drive.google.com'},{id:'bj5',emoji:'💬',title:'Messenger',url:'https://www.messenger.com/e2ee/t/8996393707080132',domain:'messenger.com'},{id:'bj6',emoji:'🔧',title:'WP Admin',url:'https://novooi.com/wp/wp-admin/',domain:'novooi.com'},{id:'bj7',emoji:'🐙',title:'GitHub Novooi',url:'https://github.com/novooi',domain:'github.com'},{id:'bj8',emoji:'✦',title:'Anthropic Console',url:'https://console.anthropic.com',domain:'console.anthropic.com'}],privat:[{id:'bp1',emoji:'▶️',title:'YouTube',url:'https://youtube.com',domain:'youtube.com'},{id:'bp2',emoji:'🎬',title:'Netflix',url:'https://netflix.com',domain:'netflix.com'},{id:'bp3',emoji:'🟣',title:'Twitch',url:'https://twitch.com',domain:'twitch.com'},{id:'bp4',emoji:'📸',title:'Instagram',url:'https://instagram.com',domain:'instagram.com'},{id:'bp5',emoji:'𝕏',title:'Twitter / X',url:'https://twitter.com',domain:'twitter.com'},{id:'bp6',emoji:'🎯',title:'VLR.gg',url:'https://vlr.gg',domain:'vlr.gg'},{id:'bp7',emoji:'🎵',title:'SoundCloud',url:'https://soundcloud.com/marcus-aas-607720',domain:'soundcloud.com'}]};
+const DEF_SEC={jobb:['AI-verktøy','Markedsføring & analyse','Drift & prosjekt'],privat:['Personlige agenter']};
+const DEF_CARDS={jobb:[{id:'cj1',emoji:'🤖',title:'Novooi Agent Hub',desc:'Alle AI-agenter for Novooi – SEO, import, markedsføring og mer.',tags:'ai agenter novooi hub',color:'ic-orange',section:'AI-verktøy',featured:true,url:'https://novooi.github.io/NOVOOI-AGENTS/'},{id:'cj2',emoji:'✦',title:'Claude',desc:'Anthropic AI-assistent for skriving, kode og analyse.',tags:'ai chat claude anthropic',color:'ic-orange',section:'AI-verktøy',url:'https://claude.ai'},{id:'cj3',emoji:'📊',title:'Google Ads',desc:'PPC-kampanjer, Performance Max og søkeannonser for Novooi.',tags:'google ads ppc kampanje performance max',color:'ic-amber',section:'Markedsføring & analyse',url:'https://ads.google.com/aw/overview?ocid=771892252&euid=1357761102&__u=2199285598&uscid=771892252&__c=2097381948&authuser=2&workspaceId=0'},{id:'cj4',emoji:'📣',title:'Meta Ads Manager',desc:'Facebook og Instagram-annonser, kampanjeoppfølging og budsjett.',tags:'meta facebook instagram ads kampanje',color:'ic-blue',section:'Markedsføring & analyse',url:'https://adsmanager.facebook.com/adsmanager/manage/campaigns?act=441052627534533&business_id=580622303112291&global_scope_id=580622303112291&nav_entry_point=lep_237&columns=name%2Cdelivery%2Cbid%2Ccost_per_result%2Cwebsite_ctr%3Alink_click%2Cbudget%2Cresults%2Clast_significant_edit&selected_campaign_ids=120218178974260309&breakdown_regrouping=true&nav_source=unknown'},{id:'cj5',emoji:'🐵',title:'Mailchimp',desc:'E-postkampanjer og nyhetsbrev til Novooi-kunder.',tags:'mailchimp e-post nyhetsbrev kampanje email',color:'ic-amber',section:'Markedsføring & analyse',url:'https://us22.admin.mailchimp.com/campaigns/'},{id:'cj6',emoji:'📈',title:'Google Analytics',desc:'Trafikk, konverteringer og brukeratferd på novooi.com.',tags:'google analytics statistikk trafikk',color:'ic-orange',section:'Markedsføring & analyse',url:'https://analytics.google.com'},{id:'cj7',emoji:'📓',title:'Notion',desc:"Marcus' Novooi-arbeidsplass med prosjekter, notater og wiki.",tags:'notion notater prosjekt wiki arbeidsplass',color:'ic-gray',section:'Drift & prosjekt',url:'https://www.notion.so/Marcus-Arbeidsplass-1507aa7635a380b19572e760dfc1d4fc'},{id:'cj8',emoji:'⚙️',title:'Make.com',desc:'Automatiseringsflyter for ordre, e-post og vendor-kommunikasjon.',tags:'make automasjon workflow integrasjon',color:'ic-purple',section:'Drift & prosjekt',url:'https://make.com'},{id:'cj9',emoji:'☁️',title:'Cloudflare',desc:'Workers-backend, DNS og hosting for agentverktøyene.',tags:'cloudflare workers hosting dns',color:'ic-amber',section:'Drift & prosjekt',url:'https://dash.cloudflare.com'}],privat:[{id:'cp1',emoji:'🎛️',title:'Beat Vault',desc:'Personlig beat-arkiv med søk og organisering.',tags:'beat vault musikk mekkis beats produksjon',color:'ic-purple',section:'Personlige agenter',featured:true,url:'https://mekkis2002.github.io/MEKKIS-BEAT-VAULT/'},{id:'cp2',emoji:'🏦',title:'DNB Advisor Agent',desc:'AI-drevet finansrådgiver koblet til DNB-data.',tags:'dnb bank økonomi rådgiver agent ai',color:'ic-teal',section:'Personlige agenter',url:'https://mekkis2002.github.io/DNB-ADVISOR/'},{id:'cp3',emoji:'🏠',title:'Finn Scraper Agent',desc:'Scraper og analyserer annonser fra finn.no automatisk.',tags:'finn scraper bolig bil eiendom agent ai',color:'ic-red',section:'Personlige agenter',url:'https://mekkis2002.github.io/FINN-SCRAPER/'},{id:'cp4',emoji:'🎮',title:'Skolebolle Scoreboard',desc:'Valorant stats-tracker for Skolebolle-laget.',tags:'valorant scoreboard skolebolle stats gaming',color:'ic-pink',section:'Personlige agenter',url:'https://mekkis2002.github.io/val-stats/'}]};
+const COLORS=[{id:'ic-orange',hex:'#C96A3A'},{id:'ic-blue',hex:'#2E78BE'},{id:'ic-green',hex:'#2E7D41'},{id:'ic-purple',hex:'#6B52C8'},{id:'ic-gray',hex:'#6B6860'},{id:'ic-teal',hex:'#1E8C74'},{id:'ic-red',hex:'#C0432B'},{id:'ic-amber',hex:'#B07A14'},{id:'ic-pink',hex:'#B5446E'}];
+
+// ── STORAGE ──────────────────────────────────────────────
+const LS=k=>{try{const s=localStorage.getItem(k);return s?JSON.parse(s):null}catch{return null}};
+const SS=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch{}};
+const uid=()=>'x'+Math.random().toString(36).slice(2,8);
+let BM={jobb:LS('hub_bm_j')||DEF_BM.jobb,privat:LS('hub_bm_p')||DEF_BM.privat};
+let CARDS={jobb:LS('hub_cd_j')||DEF_CARDS.jobb,privat:LS('hub_cd_p')||DEF_CARDS.privat};
+let SECS={jobb:LS('hub_sc_j')||DEF_SEC.jobb,privat:LS('hub_sc_p')||DEF_SEC.privat};
+function persist(){SS('hub_bm_j',BM.jobb);SS('hub_bm_p',BM.privat);SS('hub_cd_j',CARDS.jobb);SS('hub_cd_p',CARDS.privat);SS('hub_sc_j',SECS.jobb);SS('hub_sc_p',SECS.privat);}
+function getLU(k){const s=LS('hu_'+k);if(!s)return'Aldri brukt';const d=Date.now()-s,m=d/6e4|0,h=d/36e5|0,dy=d/864e5|0;if(m<2)return'Nettopp';if(m<60)return m+' min siden';if(h<24)return h+' t siden';if(dy<7)return dy+' d siden';return new Date(s).toLocaleDateString('nb-NO',{day:'numeric',month:'short'});}
+function setLU(k){SS('hu_'+k,Date.now());}
+
+// ── RENDER ───────────────────────────────────────────────
+const ESC=s=>String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+const ESA=s=>String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+const ED=`<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
+function renderBM(tab){
+  const g=document.getElementById('bm-'+tab);
+  g.innerHTML=[...BM[tab]].sort((a,b)=>(LS('hu_'+b.id)||0)-(LS('hu_'+a.id)||0)).map(b=>`<a class="bookmark" href="${ESA(b.url)}" target="_blank" data-title="${ESA(b.title)}" data-tags="${ESA(b.tags||'')}" onclick="setLU('${b.id}')"><span class="bm-emoji">${ESC(b.emoji)}</span><span class="bm-title">${ESC(b.title)}</span><span class="bm-sep"></span><span class="bm-domain">${ESC(b.domain||'')}</span><button class="bm-edit" onclick="event.preventDefault();event.stopPropagation();openModal('bm-edit','${tab}','${b.id}')">${ED}</button></a>`).join('');
 }
-function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {} }
-function uid() { return 'x' + Math.random().toString(36).slice(2,9); }
-
-let BM    = { jobb: load('hub_bm_jobb', DEF_BM.jobb),    privat: load('hub_bm_privat', DEF_BM.privat) };
-let CARDS = { jobb: load('hub_cards_jobb', DEF_CARDS.jobb), privat: load('hub_cards_privat', DEF_CARDS.privat) };
-let SECS  = { jobb: load('hub_sec_jobb', DEF_SEC.jobb),   privat: load('hub_sec_privat', DEF_SEC.privat) };
-
-function persist() {
-  save('hub_bm_jobb', BM.jobb); save('hub_bm_privat', BM.privat);
-  save('hub_cards_jobb', CARDS.jobb); save('hub_cards_privat', CARDS.privat);
-  save('hub_sec_jobb', SECS.jobb); save('hub_sec_privat', SECS.privat);
-}
-
-// ── LAST USED ────────────────────────────────────────
-function getLU(k) {
-  const s = localStorage.getItem('hub_lu_'+k);
-  if (!s) return 'Aldri brukt';
-  const d=Date.now()-+s, m=d/60000|0, h=d/3600000|0, dy=d/86400000|0;
-  if (m<2) return 'Nettopp brukt';
-  if (m<60) return m+' min siden';
-  if (h<24) return h+' t siden';
-  if (dy<7) return dy+' d siden';
-  return new Date(+s).toLocaleDateString('nb-NO',{day:'numeric',month:'short'});
-}
-function setLU(k) { localStorage.setItem('hub_lu_'+k, Date.now()); }
-
-// ── RENDER ───────────────────────────────────────────
-const EXT_ICON = `<svg viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
-const EDIT_ICON = `<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
-
-function renderBM(tab) {
-  const grid = document.getElementById('bm-'+tab);
-  const sorted = [...BM[tab]].sort((a,b) => (+localStorage.getItem('hub_lu_'+b.id)||0) - (+localStorage.getItem('hub_lu_'+a.id)||0));
-  grid.innerHTML = sorted.map(bm => `
-    <a class="bookmark" href="${escAttr(bm.url)}" target="_blank"
-       data-title="${escAttr(bm.title)}" data-tags="${escAttr(bm.tags||'')}" data-id="${bm.id}" data-tab="${tab}"
-       onclick="setLU('${bm.id}')">
-      <span class="bm-emoji">${escHTML(bm.emoji)}</span>
-      <span class="bm-title">${escHTML(bm.title)}</span>
-      <span class="bm-sep"></span>
-      <span class="bm-domain">${escHTML(bm.domain||'')}</span>
-      <button class="bm-edit" onclick="event.preventDefault();event.stopPropagation();openModal('bm-edit','${tab}','${bm.id}')" title="Rediger">${EDIT_ICON}</button>
-    </a>`).join('');
-}
-
-function renderCards(tab) {
-  const container = document.getElementById('cards-'+tab);
-  // Ensure sections exist for all cards
-  CARDS[tab].forEach(c => { if (!SECS[tab].includes(c.section)) SECS[tab].push(c.section); });
-  let html = '';
-  SECS[tab].forEach(sec => {
-    const cards = [...CARDS[tab].filter(c => c.section === sec)]
-      .sort((a,b) => (+localStorage.getItem('hub_lu_'+b.id)||0) - (+localStorage.getItem('hub_lu_'+a.id)||0));
-    if (!cards.length) return;
-    html += `<div class="sec-header">
-      <span class="sec-title">${escHTML(sec)}</span>
-      <span class="sec-count">${cards.length} verktøy</span>
-    </div>
-    <div class="card-grid">`;
-    cards.forEach(c => {
-      html += `<a class="card${c.featured?' featured':''}" href="${escAttr(c.url)}" target="_blank"
-        data-title="${escAttr(c.title)}" data-tags="${escAttr(c.tags||'')}" data-id="${c.id}" data-tab="${tab}"
-        onclick="setLU('${c.id}')">
-        <button class="card-edit" onclick="event.preventDefault();event.stopPropagation();openModal('card-edit','${tab}','${c.id}')" title="Rediger">${EDIT_ICON}</button>
-        <div class="card-icon ${escAttr(c.color||'ic-gray')}">${escHTML(c.emoji)}</div>
-        <div>
-          <div class="card-title">${escHTML(c.title)}</div>
-          <div class="card-desc">${escHTML(c.desc||'')}</div>
-        </div>
-        <div class="card-meta">
-          <span class="card-tag">${escHTML((c.tags||'').split(' ')[0]||'')}</span>
-          <span class="card-time" id="ct_${c.id}">${getLU(c.id)}</span>
-        </div>
-      </a>`;
-    });
-    html += `</div>`;
+function renderCards(tab){
+  const c=document.getElementById('cards-'+tab);
+  CARDS[tab].forEach(x=>{if(!SECS[tab].includes(x.section))SECS[tab].push(x.section);});
+  let h='';
+  SECS[tab].forEach(sec=>{
+    const cards=[...CARDS[tab].filter(x=>x.section===sec)].sort((a,b)=>(LS('hu_'+b.id)||0)-(LS('hu_'+a.id)||0));
+    if(!cards.length)return;
+    h+=`<div class="sec-hdr"><span class="sec-title">${ESC(sec)}</span><span class="sec-count">${cards.length} verktøy</span></div><div class="card-grid">`;
+    cards.forEach(x=>{h+=`<a class="card${x.featured?' featured':''}" href="${ESA(x.url)}" target="_blank" data-title="${ESA(x.title)}" data-tags="${ESA(x.tags||'')}" onclick="setLU('${x.id}')"><button class="card-edit" onclick="event.preventDefault();event.stopPropagation();openModal('card-edit','${tab}','${x.id}')">${ED}</button><div class="card-icon ${ESA(x.color||'ic-gray')}">${ESC(x.emoji)}</div><div><div class="card-title">${ESC(x.title)}</div><div class="card-desc">${ESC(x.desc||'')}</div></div><div class="card-meta"><span class="card-tag">${ESC((x.tags||'').split(' ')[0]||'')}</span><span class="card-time">${getLU(x.id)}</span></div></a>`;});
+    h+=`</div>`;
   });
-  container.innerHTML = html;
+  c.innerHTML=h;
 }
+function renderAll(){renderBM('jobb');renderBM('privat');renderCards('jobb');renderCards('privat');document.getElementById('badge-jobb').textContent=BM.jobb.length+CARDS.jobb.length;document.getElementById('badge-privat').textContent=BM.privat.length+CARDS.privat.length;}
 
-function renderAll() {
-  renderBM('jobb'); renderBM('privat');
-  renderCards('jobb'); renderCards('privat');
-  updateBadges();
+// ── WEATHER ──────────────────────────────────────────────
+const WMO={0:{e:'☀️',l:'Klarvær'},1:{e:'🌤️',l:'Mest klart'},2:{e:'⛅',l:'Delvis skyet'},3:{e:'☁️',l:'Overskyet'},45:{e:'🌫️',l:'Tåke'},48:{e:'🌫️',l:'Rim-tåke'},51:{e:'🌦️',l:'Lett yr'},53:{e:'🌦️',l:'Yr'},55:{e:'🌧️',l:'Kraftig yr'},61:{e:'🌧️',l:'Lett regn'},63:{e:'🌧️',l:'Regn'},65:{e:'🌧️',l:'Kraftig regn'},71:{e:'❄️',l:'Snø'},73:{e:'❄️',l:'Snø'},75:{e:'❄️',l:'Kraftig snø'},80:{e:'🌦️',l:'Regnbyger'},81:{e:'🌧️',l:'Regnbyger'},82:{e:'⛈️',l:'Kraftige byger'},85:{e:'🌨️',l:'Snøbyger'},86:{e:'🌨️',l:'Kraftige snøbyger'},95:{e:'⛈️',l:'Tordenvær'},96:{e:'⛈️',l:'Tordenvær m/hagl'},99:{e:'⛈️',l:'Tordenvær m/hagl'}};
+const wmo=c=>WMO[c]||{e:'🌡️',l:'Ukjent'};
+let wxOpen=false;
+async function loadWeather(){
+  try{
+    const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=59.9139&longitude=10.7522&hourly=temperature_2m,precipitation_probability,weather_code&current=temperature_2m,weather_code,wind_speed_10m,relative_humidity_2m&forecast_days=1&timezone=Europe%2FOslo');
+    const d=await r.json();const cu=d.current,w=wmo(cu.weather_code);
+    document.getElementById('wx-em').textContent=w.e;
+    document.getElementById('wx-info').innerHTML=`<span class="wx-city">Oslo</span><span class="wx-temp">${Math.round(cu.temperature_2m)}°C</span><span class="wx-cond">${w.l}</span><div class="wx-meta"><span>💨 ${Math.round(cu.wind_speed_10m)} km/h</span><span>💧 ${cu.relative_humidity_2m}%</span></div>`;
+    const nowH=new Date().getHours();
+    const hrs=d.hourly.time.map((t,i)=>({h:new Date(t).getHours(),temp:d.hourly.temperature_2m[i],pr:d.hourly.precipitation_probability[i],code:d.hourly.weather_code[i]})).filter((_,i)=>i%2===0);
+    document.getElementById('wx-scroll').innerHTML=hrs.map(x=>`<div class="wx-hr${x.h===nowH||x.h===nowH+1?' now':''}"><span class="wx-ht">${String(x.h).padStart(2,'0')}:00</span><span class="wx-he">${wmo(x.code).e}</span><span class="wx-hc">${Math.round(x.temp)}°</span><span class="wx-hp">${x.pr}%</span></div>`).join('');
+  }catch(e){document.getElementById('wx-em').textContent='🌡️';document.getElementById('wx-info').innerHTML='<span class="wx-loading">Kan ikke laste vær</span>';}
 }
+function toggleWx(){wxOpen=!wxOpen;document.getElementById('wx-expand').style.display=wxOpen?'':'none';document.getElementById('wx-chev').classList.toggle('open',wxOpen);}
 
-function updateBadges() {
-  document.getElementById('badge-jobb').textContent  = BM.jobb.length  + CARDS.jobb.length;
-  document.getElementById('badge-privat').textContent = BM.privat.length + CARDS.privat.length;
-}
+// ── CALENDAR ─────────────────────────────────────────────
+let calOpen=false;
+function toggleCal(){calOpen=!calOpen;document.getElementById('cal-wrap').style.display=calOpen?'':'none';document.getElementById('cal-toggle').classList.toggle('open',calOpen);if(calOpen){const f=document.getElementById('cal-iframe');if(f.src==='about:blank')f.src='https://calendar.google.com/calendar/embed?src=marcus%40novooi.com&ctz=Europe%2FOslo&wkst=2&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=WEEK&authuser=2';}}
 
-function escHTML(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
-function escAttr(s) { return String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
-
-// ── MODAL STATE ──────────────────────────────────────
-let mMode = '', mTab = '', mId = '';
-const overlay = document.getElementById('overlay');
-const modalTitle = document.getElementById('modal-title');
-const modalBody  = document.getElementById('modal-body');
-const btnDelete  = document.getElementById('btn-delete');
-
-function openModal(mode, tab, id='') {
-  mMode=mode; mTab=tab; mId=id;
-  btnDelete.style.display = (mode.includes('edit')) ? '' : 'none';
-  if (mode==='bm-add'||mode==='bm-edit') {
-    const bm = id ? BM[tab].find(b=>b.id===id) : null;
-    modalTitle.textContent = id ? 'Rediger bokmerke' : 'Legg til bokmerke';
-    modalBody.innerHTML = bmForm(bm);
-    const urlEl = document.getElementById('m-url');
-    urlEl.addEventListener('input', () => {
-      try {
-        const host = new URL(urlEl.value).hostname.replace(/^www\./,'');
-        const domEl = document.getElementById('m-domain');
-        if (!domEl.dataset.manual) domEl.value = host;
-      } catch(e){}
-    });
-    document.getElementById('m-domain').addEventListener('input', function(){ this.dataset.manual='1'; });
-  } else {
-    const card = id ? CARDS[tab].find(c=>c.id===id) : null;
-    modalTitle.textContent = id ? 'Rediger kort' : 'Legg til kort';
-    modalBody.innerHTML = cardForm(card, tab);
-    setTimeout(()=>{ document.querySelectorAll('.cdot').forEach(d=>{ d.addEventListener('click',()=>{ document.querySelectorAll('.cdot').forEach(x=>x.classList.remove('active')); d.classList.add('active'); }); }); },0);
-  }
+// ── MODAL ────────────────────────────────────────────────
+let mMode='',mTab='',mId='';
+const overlay=document.getElementById('overlay');
+function openModal(mode,tab,id=''){
+  mMode=mode;mTab=tab;mId=id;
+  document.getElementById('btn-del').style.display=id?'':'none';
+  document.getElementById('modal-title').textContent=mode==='bm-add'?'Legg til bokmerke':mode==='bm-edit'?'Rediger bokmerke':id?'Rediger kort':'Legg til kort';
+  document.getElementById('modal-body').innerHTML=mode.startsWith('bm')?bmForm(id?BM[tab].find(b=>b.id===id):null):cardForm(id?CARDS[tab].find(c=>c.id===id):null,tab);
+  if(mode.startsWith('bm')){
+    const ui=document.getElementById('m-url'),di=document.getElementById('m-domain');
+    ui.addEventListener('input',()=>{try{const h=new URL(ui.value).hostname.replace(/^www\./,'');if(!di.dataset.m)di.value=h;}catch{}});
+    di.addEventListener('input',function(){this.dataset.m='1';});
+  }else{setTimeout(()=>document.querySelectorAll('.cdot').forEach(d=>d.addEventListener('click',()=>{document.querySelectorAll('.cdot').forEach(x=>x.classList.remove('active'));d.classList.add('active');})),0);}
   overlay.classList.add('open');
-  setTimeout(()=>{ const first = modalBody.querySelector('input,textarea,select'); if(first) first.focus(); },200);
+  setTimeout(()=>{const f=document.getElementById('modal-body')?.querySelector('input,textarea');if(f)f.focus();},200);
 }
+function closeModal(){overlay.classList.remove('open');closePicker();}
+function overlayBg(e){if(e.target===overlay)closeModal();}
 
-function bmForm(bm) {
-  return `
-  <div class="form-row">
-    <div class="form-group">
-      <label class="form-label">Emoji</label>
-      <input class="form-input" id="m-emoji" value="${escAttr(bm?.emoji||'🔗')}" maxlength="4" style="text-align:center;font-size:1.2rem">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Tittel</label>
-      <input class="form-input" id="m-title" value="${escAttr(bm?.title||'')}" placeholder="Novooi Admin">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="form-label">URL</label>
-    <input class="form-input" id="m-url" type="url" value="${escAttr(bm?.url||'')}" placeholder="https://...">
-  </div>
-  <div class="form-group">
-    <label class="form-label">Domenenavn (vises i chip)</label>
-    <input class="form-input" id="m-domain" value="${escAttr(bm?.domain||'')}" placeholder="novooi.com">
-    <span class="form-hint">Fylles ut automatisk fra URL, eller skriv inn manuelt.</span>
-  </div>`;
+function bmForm(bm){return`<div class="f-row"><div class="f-grp"><label class="f-lbl">Emoji</label><div class="em-wrap"><input class="f-in" id="m-emoji" value="${ESA(bm?.emoji||'🔗')}" maxlength="4" style="text-align:center;font-size:1.25rem"><button type="button" class="ep-btn" onclick="openPicker('m-emoji')">Velg emoji ▾</button></div></div><div class="f-grp"><label class="f-lbl">Tittel</label><input class="f-in" id="m-title" value="${ESA(bm?.title||'')}" placeholder="Tittel"></div></div><div class="f-grp"><label class="f-lbl">URL</label><input class="f-in" id="m-url" type="url" value="${ESA(bm?.url||'')}" placeholder="https://..."></div><div class="f-grp"><label class="f-lbl">Domenenavn</label><input class="f-in" id="m-domain" value="${ESA(bm?.domain||'')}" placeholder="novooi.com"><span class="f-hint">Auto-utfylt fra URL, kan overstyres.</span></div>`;}
+
+function cardForm(c,tab){const sOpts=SECS[tab].map(s=>`<option value="${ESA(s)}"${c?.section===s?' selected':''}>${ESC(s)}</option>`).join('');const dots=COLORS.map(x=>`<button type="button" class="cdot${c?.color===x.id?' active':''}" data-color="${x.id}" style="background:${x.hex}"></button>`).join('');return`<div class="f-row"><div class="f-grp"><label class="f-lbl">Emoji</label><div class="em-wrap"><input class="f-in" id="m-emoji" value="${ESA(c?.emoji||'🔗')}" maxlength="4" style="text-align:center;font-size:1.25rem"><button type="button" class="ep-btn" onclick="openPicker('m-emoji')">Velg emoji ▾</button></div></div><div class="f-grp"><label class="f-lbl">Tittel</label><input class="f-in" id="m-title" value="${ESA(c?.title||'')}" placeholder="Verktøy-navn"></div></div><div class="f-grp"><label class="f-lbl">URL</label><input class="f-in" id="m-url" type="url" value="${ESA(c?.url||'')}" placeholder="https://..."></div><div class="f-grp"><label class="f-lbl">Beskrivelse</label><textarea class="f-ta" id="m-desc" placeholder="Kort beskrivelse...">${ESC(c?.desc||'')}</textarea></div><div class="f-grp"><label class="f-lbl">Tagger <span class="f-hint">(mellomrom-separert)</span></label><input class="f-in" id="m-tags" value="${ESA(c?.tags||'')}" placeholder="ai analyse markedsføring"></div><div class="f-grp"><label class="f-lbl">Seksjon</label><input class="f-in" list="sec-dl-${tab}" id="m-section" value="${ESA(c?.section||SECS[tab][0]||'')}" placeholder="Velg eller skriv ny seksjon"><datalist id="sec-dl-${tab}">${sOpts}</datalist></div><div class="f-grp"><label class="f-lbl">Farge</label><div class="cpick">${dots}</div></div><div class="tog-row"><span class="tog-lbl">Fremhevet kort</span><label class="tog-sw"><input type="checkbox" id="m-feat"${c?.featured?' checked':''}><div class="tog-tr"><div class="tog-th"></div></div></label></div>`;}
+
+function handleSave(){
+  const emoji=document.getElementById('m-emoji')?.value.trim()||'🔗',title=document.getElementById('m-title')?.value.trim(),url=document.getElementById('m-url')?.value.trim();
+  if(!title||!url){alert('Tittel og URL er påkrevd.');return;}
+  if(mMode.startsWith('bm')){const domain=document.getElementById('m-domain')?.value.trim()||'';if(mMode==='bm-add'){BM[mTab].push({id:uid(),emoji,title,url,domain});}else{const i=BM[mTab].findIndex(b=>b.id===mId);if(i>-1)BM[mTab][i]={...BM[mTab][i],emoji,title,url,domain};}}
+  else{const desc=document.getElementById('m-desc')?.value.trim()||'',tags=document.getElementById('m-tags')?.value.trim()||'',section=document.getElementById('m-section')?.value.trim()||SECS[mTab][0]||'Annet',featured=document.getElementById('m-feat')?.checked||false,color=document.querySelector('.cdot.active')?.dataset.color||'ic-gray';if(!SECS[mTab].includes(section))SECS[mTab].push(section);if(mMode==='card-add'){CARDS[mTab].push({id:uid(),emoji,title,url,desc,tags,section,color,featured});}else{const i=CARDS[mTab].findIndex(c=>c.id===mId);if(i>-1)CARDS[mTab][i]={...CARDS[mTab][i],emoji,title,url,desc,tags,section,color,featured};}}
+  persist();renderAll();closeModal();
 }
+function handleDelete(){if(!confirm('Slett dette elementet?'))return;if(mMode==='bm-edit'){BM[mTab]=BM[mTab].filter(b=>b.id!==mId);}else{CARDS[mTab]=CARDS[mTab].filter(c=>c.id!==mId);SECS[mTab]=SECS[mTab].filter(s=>CARDS[mTab].some(c=>c.section===s));if(!SECS[mTab].length)SECS[mTab]=['Annet'];}persist();renderAll();closeModal();}
 
-function cardForm(card, tab) {
-  const secOptions = SECS[tab].map(s=>`<option value="${escAttr(s)}"${card?.section===s?' selected':''}>${escHTML(s)}</option>`).join('');
-  const colorDots  = COLORS.map(c=>`<button type="button" class="cdot${card?.color===c.id?' active':''}" data-color="${c.id}" style="background:${c.hex}" title="${c.label}"></button>`).join('');
-  const featChecked = card?.featured ? 'checked' : '';
-  return `
-  <div class="form-row">
-    <div class="form-group">
-      <label class="form-label">Emoji</label>
-      <input class="form-input" id="m-emoji" value="${escAttr(card?.emoji||'🔗')}" maxlength="4" style="text-align:center;font-size:1.2rem">
-    </div>
-    <div class="form-group">
-      <label class="form-label">Tittel</label>
-      <input class="form-input" id="m-title" value="${escAttr(card?.title||'')}" placeholder="Verktøy-navn">
-    </div>
-  </div>
-  <div class="form-group">
-    <label class="form-label">URL</label>
-    <input class="form-input" id="m-url" type="url" value="${escAttr(card?.url||'')}" placeholder="https://...">
-  </div>
-  <div class="form-group">
-    <label class="form-label">Beskrivelse</label>
-    <textarea class="form-textarea" id="m-desc" placeholder="Kort beskrivelse av verktøyet...">${escHTML(card?.desc||'')}</textarea>
-  </div>
-  <div class="form-group">
-    <label class="form-label">Tagger <span class="form-hint" style="font-weight:400">(mellomrom-separert)</span></label>
-    <input class="form-input" id="m-tags" value="${escAttr(card?.tags||'')}" placeholder="ai analyse markedsføring">
-  </div>
-  <div class="form-group">
-    <label class="form-label">Seksjon</label>
-    <input class="form-input" list="sec-list-${tab}" id="m-section" value="${escAttr(card?.section||SECS[tab][0]||'')}" placeholder="Skriv eller velg seksjon">
-    <datalist id="sec-list-${tab}">${secOptions}</datalist>
-  </div>
-  <div class="form-group">
-    <label class="form-label">Farge</label>
-    <div class="color-picker">${colorDots}</div>
-  </div>
-  <div class="toggle-row">
-    <span class="toggle-label">Fremhevet kort</span>
-    <label class="toggle-switch">
-      <input type="checkbox" id="m-featured" ${featChecked}>
-      <div class="toggle-track"><div class="toggle-thumb"></div></div>
-    </label>
-  </div>`;
+// ── EMOJI PICKER ─────────────────────────────────────────
+let pickerTarget=null, activeCat=EPC_KEYS[0];
+function openPicker(inputId){
+  closePicker();
+  const inp=document.getElementById(inputId);if(!inp)return;
+  pickerTarget=inp;
+  const rect=inp.getBoundingClientRect();
+  const p=document.createElement('div');p.id='ep-panel';p.className='ep';
+  p.innerHTML=`<input class="ep-srch" id="ep-srch" placeholder="Søk..." oninput="epSearch(this.value)"><div class="ep-cats">${EPC_KEYS.map(k=>`<button class="ep-cat${k===activeCat?' active':''}" onclick="epCat('${k}',this)">${k}</button>`).join('')}</div><div class="ep-grid" id="ep-grid"></div>`;
+  const left=Math.min(rect.left,window.innerWidth-324);
+  const spaceBelow=window.innerHeight-rect.bottom;
+  p.style.cssText=`left:${Math.max(4,left)}px;${spaceBelow>350?'top:'+(rect.bottom+window.scrollY+4)+'px':'bottom:'+(window.innerHeight-rect.top+window.scrollY+4)+'px'}`;
+  document.body.appendChild(p);epRender(activeCat);
+  setTimeout(()=>document.addEventListener('click',epOut),10);
 }
+function epOut(e){if(!document.getElementById('ep-panel')?.contains(e.target)&&!e.target.classList.contains('ep-btn'))closePicker();}
+function closePicker(){const p=document.getElementById('ep-panel');if(p)p.remove();document.removeEventListener('click',epOut);}
+function epRender(cat,list){const g=document.getElementById('ep-grid');if(!g)return;const em=list||EPC[cat]||[];g.innerHTML=em.map(e=>`<button class="ep-em" onclick="epPick('${e}')">${e}</button>`).join('');}
+function epCat(cat,btn){activeCat=cat;document.querySelectorAll('.ep-cat').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('ep-srch').value='';epRender(cat);}
+function epSearch(q){if(!q){epRender(activeCat);return;}const all=Object.values(EPC).flat();epRender(null,all.filter(e=>e.includes(q)));}
+function epPick(e){if(pickerTarget)pickerTarget.value=e;closePicker();}
 
-function closeModal() { overlay.classList.remove('open'); }
-function overlayClick(e) { if(e.target===overlay) closeModal(); }
-
-function handleSave() {
-  const emoji   = document.getElementById('m-emoji')?.value.trim() || '🔗';
-  const title   = document.getElementById('m-title')?.value.trim();
-  const url     = document.getElementById('m-url')?.value.trim();
-  if (!title || !url) { alert('Tittel og URL er påkrevd.'); return; }
-
-  if (mMode.startsWith('bm')) {
-    const domain = document.getElementById('m-domain')?.value.trim() || '';
-    if (mMode==='bm-add') {
-      BM[mTab].push({id:uid(),emoji,title,url,domain});
-    } else {
-      const i = BM[mTab].findIndex(b=>b.id===mId);
-      if(i>-1) BM[mTab][i] = {...BM[mTab][i],emoji,title,url,domain};
-    }
-  } else {
-    const desc     = document.getElementById('m-desc')?.value.trim()||'';
-    const tags     = document.getElementById('m-tags')?.value.trim()||'';
-    const section  = document.getElementById('m-section')?.value.trim()||SECS[mTab][0]||'Annet';
-    const featured = document.getElementById('m-featured')?.checked||false;
-    const color    = document.querySelector('.cdot.active')?.dataset.color || 'ic-gray';
-    if (!SECS[mTab].includes(section)) SECS[mTab].push(section);
-    if (mMode==='card-add') {
-      CARDS[mTab].push({id:uid(),emoji,title,url,desc,tags,section,color,featured});
-    } else {
-      const i = CARDS[mTab].findIndex(c=>c.id===mId);
-      if(i>-1) CARDS[mTab][i] = {...CARDS[mTab][i],emoji,title,url,desc,tags,section,color,featured};
-    }
-  }
-  persist();
-  renderAll();
-  closeModal();
-}
-
-function handleDelete() {
-  if (!confirm('Slett dette elementet?')) return;
-  if (mMode==='bm-edit') {
-    BM[mTab] = BM[mTab].filter(b=>b.id!==mId);
-  } else {
-    CARDS[mTab] = CARDS[mTab].filter(c=>c.id!==mId);
-    // Clean up empty sections
-    SECS[mTab] = SECS[mTab].filter(s => CARDS[mTab].some(c=>c.section===s));
-    if (!SECS[mTab].length) SECS[mTab] = ['Annet'];
-  }
-  persist();
-  renderAll();
-  closeModal();
-}
-
-// ── CALENDAR ─────────────────────────────────────────
-let calOpen = false;
-function toggleCal() {
-  calOpen = !calOpen;
-  const wrap = document.getElementById('cal-wrap');
-  const btn  = document.getElementById('cal-btn');
-  wrap.style.display = calOpen ? '' : 'none';
-  btn.classList.toggle('open', calOpen);
-  if (calOpen) {
-    const iframe = document.getElementById('cal-iframe');
-    if (iframe.src === 'about:blank') {
-      iframe.src = 'https://calendar.google.com/calendar/embed?src=marcus%40novooi.com&ctz=Europe%2FOslo&wkst=2&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=WEEK&authuser=2';
-    }
-  }
-}
-
-// ── TABS ─────────────────────────────────────────────
-const tabs   = document.querySelectorAll('.tab-btn');
-const panels = document.querySelectorAll('.tab-panel');
-let curTab   = 'jobb';
-function switchTab(id) {
-  tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));
-  panels.forEach(p=>p.classList.toggle('active',p.id==='tab-'+id));
-  curTab=id;
-}
+// ── TABS ─────────────────────────────────────────────────
+const tabs=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.tab-panel');
+let curTab='jobb';
+function switchTab(id){tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));panels.forEach(p=>p.classList.toggle('active',p.id==='tab-'+id));curTab=id;}
 tabs.forEach(t=>t.addEventListener('click',()=>switchTab(t.dataset.tab)));
 
-// ── SEARCH ───────────────────────────────────────────
-const si = document.getElementById('search');
+// ── SEARCH ───────────────────────────────────────────────
+const si=document.getElementById('search');
 si.addEventListener('input',()=>{
-  const q = si.value.toLowerCase().trim();
-  document.querySelectorAll('.card,.bookmark').forEach(el=>{
-    el.classList.toggle('hidden', q!=='' && !(el.dataset.title+' '+(el.dataset.tags||'')).toLowerCase().includes(q));
-  });
-  ['jobb','privat'].forEach(t=>{
-    const panel = document.getElementById('tab-'+t);
-    const vis   = panel.querySelectorAll('.card:not(.hidden),.bookmark:not(.hidden)').length;
-    const empty = document.getElementById('empty-'+t);
-    if(empty) empty.classList.toggle('visible', q!=='' && vis===0);
-  });
-  if(q){ panels.forEach(p=>p.classList.add('active')); tabs.forEach(t=>t.classList.remove('active')); }
-  else { panels.forEach(p=>p.classList.remove('active')); tabs.forEach(t=>t.classList.remove('active')); switchTab(curTab); }
+  const q=si.value.toLowerCase().trim();
+  document.querySelectorAll('.card,.bookmark').forEach(el=>el.classList.toggle('hidden',q!==''&&!(el.dataset.title+' '+(el.dataset.tags||'')).toLowerCase().includes(q)));
+  ['jobb','privat'].forEach(t=>{const p=document.getElementById('tab-'+t),v=p.querySelectorAll('.card:not(.hidden),.bookmark:not(.hidden)').length,e=document.getElementById('empty-'+t);if(e)e.classList.toggle('visible',q!==''&&v===0);});
+  if(q){panels.forEach(p=>p.classList.add('active'));tabs.forEach(t=>t.classList.remove('active'));}
+  else{panels.forEach(p=>p.classList.remove('active'));tabs.forEach(t=>t.classList.remove('active'));switchTab(curTab);}
 });
 
-// ── DARK MODE ────────────────────────────────────────
-const dtoggle=document.getElementById('dark-toggle'), dmoon=document.getElementById('icon-moon'), dsun=document.getElementById('icon-sun');
-let dark = localStorage.getItem('hub_theme')==='dark';
-function applyTheme() {
-  document.body.setAttribute('data-theme', dark?'dark':'light');
-  dmoon.style.display=dark?'none':''; dsun.style.display=dark?'':'none';
-  localStorage.setItem('hub_theme', dark?'dark':'light');
-}
-applyTheme();
-dtoggle.addEventListener('click',()=>{ dark=!dark; applyTheme(); });
+// ── DARK MODE ────────────────────────────────────────────
+const dtog=document.getElementById('dark-toggle'),dm=document.getElementById('icon-moon'),ds=document.getElementById('icon-sun');
+let dark=LS('hub_theme')==='dark';
+function applyTheme(){document.body.setAttribute('data-theme',dark?'dark':'light');dm.style.display=dark?'none':'';ds.style.display=dark?'':'none';SS('hub_theme',dark?'dark':'light');}
+applyTheme();dtog.addEventListener('click',()=>{dark=!dark;applyTheme();});
 
-// ── KEYBOARD ─────────────────────────────────────────
-document.addEventListener('keydown', e=>{
-  if (overlay.classList.contains('open')) { if(e.key==='Escape') closeModal(); return; }
-  if (document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA') {
-    if(e.key==='Escape'){ si.blur(); si.value=''; si.dispatchEvent(new Event('input')); } return;
-  }
-  if(e.key==='j'||e.key==='J') switchTab('jobb');
-  if(e.key==='p'||e.key==='P') switchTab('privat');
-  if(e.key==='d'||e.key==='D'){ dark=!dark; applyTheme(); }
-  if(e.key==='/'){ e.preventDefault(); si.focus(); si.select(); }
+// ── KEYBOARD ─────────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+  if(overlay.classList.contains('open')){if(e.key==='Escape')closeModal();return;}
+  if(document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA'){if(e.key==='Escape'){si.blur();si.value='';si.dispatchEvent(new Event('input'));}return;}
+  if(e.key==='j'||e.key==='J')switchTab('jobb');
+  if(e.key==='p'||e.key==='P')switchTab('privat');
+  if(e.key==='d'||e.key==='D'){dark=!dark;applyTheme();}
+  if(e.key==='/'){{e.preventDefault();si.focus();si.select();}}
 });
 
-// ── INIT ─────────────────────────────────────────────
 renderAll();
+loadWeather();
 </script>
 </body>
 </html>
