@@ -174,7 +174,7 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
 
 /* ── IMPLEMENTERT: ekstra funksjonalitet ───────────────── */
 .hdr-tools{display:flex;align-items:center;gap:6px}
-.live-clock{font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--tx2);padding:5px 9px;border:1px solid var(--br);border-radius:8px;background:var(--bg-sec);white-space:nowrap}
+.live-clock{font-variant-numeric:tabular-nums;font-feature-settings:'tnum' 1,'lnum' 1;font-size:.78rem;color:var(--tx2);padding:5px 0;border:1px solid var(--br);border-radius:8px;background:var(--bg-sec);white-space:nowrap;width:64px;min-width:64px;flex:0 0 64px;text-align:center;line-height:1.2}
 .greeting{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
 .greet-title{font-family:'Instrument Serif',Georgia,serif;font-size:1.8rem;font-weight:400;color:var(--tx);letter-spacing:-.02em}
 .greet-date{font-size:.82rem;color:var(--tx2);margin-top:2px}
