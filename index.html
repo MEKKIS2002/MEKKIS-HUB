@@ -171,18 +171,48 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
 .card.hidden,.bookmark.hidden{display:none}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--brh);border-radius:3px}
 @media(max-width:640px){header,.tabs-bar{padding:0 1rem}main{padding:1.25rem 1rem}.card-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}.kbd-hint{display:none}.bm-domain,.bm-sep{display:none}}
+
+/* ── IMPLEMENTERT: ekstra funksjonalitet ───────────────── */
+.hdr-tools{display:flex;align-items:center;gap:6px}
+.live-clock{font-variant-numeric:tabular-nums;font-size:.78rem;color:var(--tx2);padding:5px 9px;border:1px solid var(--br);border-radius:8px;background:var(--bg-sec);white-space:nowrap}
+.greeting{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;margin-bottom:1.25rem}
+.greet-title{font-family:'Instrument Serif',Georgia,serif;font-size:1.8rem;font-weight:400;color:var(--tx);letter-spacing:-.02em}
+.greet-date{font-size:.82rem;color:var(--tx2);margin-top:2px}
+.view-toggle{display:flex;align-items:center;gap:6px;background:var(--bg-card);border:1px solid var(--br);border-radius:10px;padding:4px;box-shadow:var(--sh)}
+.view-toggle button{border:0;background:transparent;color:var(--tx2);font-family:inherit;font-size:.78rem;padding:5px 9px;border-radius:7px;cursor:pointer}
+.view-toggle button.active{background:var(--acs);color:var(--ac)}
+.action-pill{height:32px;border:1px solid var(--br);border-radius:8px;background:var(--bg-card);color:var(--tx2);font-family:inherit;font-size:.78rem;padding:0 10px;cursor:pointer;transition:background var(--t),color var(--t),border-color var(--t)}
+.action-pill:hover{background:var(--bg-sec);color:var(--tx);border-color:var(--brh)}
+.integrations{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-bottom:1.75rem}
+.mini-widget{background:var(--bg-card);border:1px solid var(--br);border-radius:var(--r);box-shadow:var(--sh);padding:12px 14px;min-height:88px;overflow:hidden}
+.mini-h{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px;font-size:.76rem;color:var(--txm);text-transform:uppercase;letter-spacing:.05em;font-weight:500}
+.mini-h button{border:1px solid var(--br);background:var(--bg-sec);color:var(--tx2);border-radius:6px;padding:3px 7px;font-family:inherit;font-size:.7rem;cursor:pointer}
+.mini-body{font-size:.83rem;color:var(--tx2);line-height:1.45}.mini-body strong{color:var(--tx);font-weight:500}.ticker-row{display:flex;gap:8px;flex-wrap:wrap}.ticker{font-variant-numeric:tabular-nums;background:var(--bg-sec);border:1px solid var(--br);border-radius:7px;padding:4px 7px;color:var(--tx)}
+.note-widget{position:fixed;right:1.25rem;top:120px;width:230px;z-index:90;background:#FFF8B8;color:#332C14;border:1px solid rgba(0,0,0,.08);border-radius:12px;box-shadow:var(--shh);overflow:hidden}
+[data-theme="dark"] .note-widget{background:#2D2612;color:#F4E8A5;border-color:#453A1D}
+.note-head{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;font-size:.78rem;font-weight:500;border-bottom:1px solid rgba(0,0,0,.08)}
+.note-head button{border:0;background:transparent;color:inherit;cursor:pointer;font-size:16px}.note-widget textarea{width:100%;height:150px;border:0;background:transparent;color:inherit;font-family:'DM Sans',system-ui,sans-serif;font-size:.82rem;line-height:1.45;padding:10px;resize:vertical;outline:none}.note-widget.collapsed textarea{display:none}.note-widget.collapsed{width:auto}.note-widget.collapsed .note-head{border-bottom:0}
+.dragging{opacity:.45}.drag-over{outline:2px dashed var(--ac);outline-offset:3px}.drag-handle{cursor:grab;color:var(--txm);font-size:.8rem;margin-left:-2px;user-select:none}.bookmark .drag-handle{font-size:.7rem}.notif-badge{position:absolute;top:-7px;right:-7px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:#E53935;color:white;border:2px solid var(--bg-card);font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;line-height:1;z-index:3}.card-edit{right:34px}.card .notif-badge+ .card-edit{right:34px}
+.sec-block{border:1px solid var(--br);border-radius:16px;padding:14px;margin-bottom:1.4rem;background:var(--sec-tone,var(--bg-sec));transition:background var(--t),border-color var(--t)}
+.sec-block .card-grid{margin-bottom:0}.sec-tools{display:flex;align-items:center;gap:7px;margin-left:auto}.sec-color{width:24px;height:24px;border-radius:7px;border:1px solid var(--br);background:var(--bg-card);padding:2px;cursor:pointer}.sec-color::-webkit-color-swatch-wrapper{padding:0}.sec-color::-webkit-color-swatch{border:0;border-radius:5px}
+body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact .card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:.55rem .75rem;min-height:44px}body.compact .card-icon{width:28px;height:28px;font-size:14px}body.compact .card-desc,body.compact .card-meta{display:none}body.compact .card-title{font-size:.84rem}body.compact .bookmark{height:30px}.tab-panel.anim-in{animation:tabSlide .22s ease both}@keyframes tabSlide{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+@media(max-width:960px){.note-widget{position:static;width:100%;margin:0 auto 1rem}.greeting{align-items:flex-start;flex-direction:column}.hdr{gap:.75rem}.live-clock{display:none}.action-pill{display:none}.integrations{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body data-theme="light">
 <header>
   <div class="hdr">
-    <a class="logo" href="#"><div class="logo-mark"><svg viewBox="0 0 16 16"><path d="M8 2L2 6v8h4v-4h4v4h4V6L8 2z"/></svg></div><span class="logo-text">Min Hub</span></a>
+    <a class="logo" href="#"><div class="logo-mark"><svg viewBox="0 0 16 16"><path d="M8 2L2 6v8h4v-4h4v4h4V6L8 2z"/></svg></div><span class="logo-text">Min Hub</span></a><div class="live-clock" id="live-clock">--:--:--</div>
     <div class="srch">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
       <input id="search" type="text" placeholder="Søk etter verktøy og bokmerker..." autocomplete="off">
       <span class="srch-sc">/</span>
     </div>
     <div class="hdr-r">
+      <button class="action-pill" id="export-btn" title="Last ned JSON">Eksporter</button>
+      <button class="action-pill" id="import-btn" title="Importer JSON">Importer</button><input id="import-file" type="file" accept="application/json" style="display:none">
+      <button class="action-pill" id="compact-btn" title="Bytt visning">Kompakt</button>
       <button class="bti" id="dark-toggle">
         <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg id="icon-sun" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -195,6 +225,8 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
   <button class="tab-btn" data-tab="privat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Privat <span class="tab-badge" id="badge-privat">0</span></button>
 </div></div>
 <main>
+  <div class="greeting"><div><div class="greet-title" id="greet-title">Hei, Marcus</div><div class="greet-date" id="greet-date"></div></div><div class="view-toggle"><button id="view-card" class="active">Kort</button><button id="view-list">Liste</button></div></div>
+  <div class="note-widget" id="note-widget"><div class="note-head"><span>📝 Hurtignotat</span><button id="note-toggle" title="Skjul/vis">−</button></div><textarea id="quick-note" placeholder="Skriv midlertidige tanker her..."></textarea></div>
   <div class="tab-panel active" id="tab-jobb">
     <!-- WEATHER -->
     <div class="wx-card">
@@ -207,6 +239,13 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
         <div class="wx-divider"></div>
         <div class="wx-scroll" id="wx-scroll"></div>
       </div>
+    </div>
+
+    <div class="integrations" id="int-jobb">
+      <div class="mini-widget"><div class="mini-h"><span>🚇 Ruter/Entur</span><button onclick="configureStop()">Stopp</button></div><div class="mini-body" id="ruter-body">Laster avganger...</div></div>
+      <div class="mini-widget"><div class="mini-h"><span>💱 Valuta</span><button onclick="loadCurrency()">Oppdater</button></div><div class="mini-body ticker-row" id="currency-body">Laster...</div></div>
+      <div class="mini-widget"><div class="mini-h"><span>🐙 GitHub Novooi</span><button onclick="loadGithub()">Oppdater</button></div><div class="mini-body" id="github-body">Laster aktivitet...</div></div>
+      <div class="mini-widget"><div class="mini-h"><span>🛒 WooCommerce</span><button onclick="setWooCount()">Sett</button></div><div class="mini-body" id="woo-body">Laster ordre...</div></div>
     </div>
     <!-- BOOKMARKS -->
     <div class="bm-section"><div class="bm-hdr"><span class="bm-label">Bokmerker</span><div class="bm-divider"></div><button class="bm-add" onclick="openModal('bm-add','jobb')">+</button></div><div class="bm-grid" id="bm-jobb"></div></div>
@@ -281,7 +320,9 @@ const uid=()=>'x'+Math.random().toString(36).slice(2,8);
 let BM={jobb:LS('hub_bm_j')||DEF_BM.jobb,privat:LS('hub_bm_p')||DEF_BM.privat};
 let CARDS={jobb:LS('hub_cd_j')||DEF_CARDS.jobb,privat:LS('hub_cd_p')||DEF_CARDS.privat};
 let SECS={jobb:LS('hub_sc_j')||DEF_SEC.jobb,privat:LS('hub_sc_p')||DEF_SEC.privat};
-function persist(){SS('hub_bm_j',BM.jobb);SS('hub_bm_p',BM.privat);SS('hub_cd_j',CARDS.jobb);SS('hub_cd_p',CARDS.privat);SS('hub_sc_j',SECS.jobb);SS('hub_sc_p',SECS.privat);}
+let SEC_COLORS=LS('hub_sec_colors')||{};
+let VIEW=LS('hub_view')||'card';
+function persist(){SS('hub_bm_j',BM.jobb);SS('hub_bm_p',BM.privat);SS('hub_cd_j',CARDS.jobb);SS('hub_cd_p',CARDS.privat);SS('hub_sc_j',SECS.jobb);SS('hub_sc_p',SECS.privat);SS('hub_sec_colors',SEC_COLORS);SS('hub_view',VIEW);}
 function getLU(k){const s=LS('hu_'+k);if(!s)return'Aldri brukt';const d=Date.now()-s,m=d/6e4|0,h=d/36e5|0,dy=d/864e5|0;if(m<2)return'Nettopp';if(m<60)return m+' min siden';if(h<24)return h+' t siden';if(dy<7)return dy+' d siden';return new Date(s).toLocaleDateString('nb-NO',{day:'numeric',month:'short'});}
 function setLU(k){SS('hu_'+k,Date.now());}
 
@@ -291,21 +332,25 @@ const ESA=s=>String(s||'').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 const ED=`<svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`;
 function renderBM(tab){
   const g=document.getElementById('bm-'+tab);
-  g.innerHTML=[...BM[tab]].sort((a,b)=>(LS('hu_'+b.id)||0)-(LS('hu_'+a.id)||0)).map(b=>`<a class="bookmark" href="${ESA(b.url)}" target="_blank" data-title="${ESA(b.title)}" data-tags="${ESA(b.tags||'')}" onclick="setLU('${b.id}')"><span class="bm-emoji">${ESC(b.emoji)}</span><span class="bm-title">${ESC(b.title)}</span><span class="bm-sep"></span><span class="bm-domain">${ESC(b.domain||'')}</span><button class="bm-edit" onclick="event.preventDefault();event.stopPropagation();openModal('bm-edit','${tab}','${b.id}')">${ED}</button></a>`).join('');
+  g.innerHTML=BM[tab].map((b,idx)=>`<a class="bookmark" draggable="true" data-kind="bm" data-tab="${tab}" data-id="${b.id}" href="${ESA(b.url)}" target="_blank" data-title="${ESA(b.title)}" data-tags="${ESA(b.tags||'')}" onclick="setLU('${b.id}')"><span class="drag-handle" title="Dra for å endre rekkefølge">⋮⋮</span><span class="bm-emoji">${ESC(b.emoji)}</span><span class="bm-title">${ESC(b.title)}</span><span class="bm-sep"></span><span class="bm-domain">${ESC(b.domain||'')}</span><button class="bm-edit" onclick="event.preventDefault();event.stopPropagation();openModal('bm-edit','${tab}','${b.id}')">${ED}</button></a>`).join('');
+  enableDrag(g,'bm',tab);
 }
 function renderCards(tab){
   const c=document.getElementById('cards-'+tab);
   CARDS[tab].forEach(x=>{if(!SECS[tab].includes(x.section))SECS[tab].push(x.section);});
   let h='';
   SECS[tab].forEach(sec=>{
-    const cards=[...CARDS[tab].filter(x=>x.section===sec)].sort((a,b)=>(LS('hu_'+b.id)||0)-(LS('hu_'+a.id)||0));
+    const cards=CARDS[tab].filter(x=>x.section===sec);
     if(!cards.length)return;
-    h+=`<div class="sec-hdr"><span class="sec-title">${ESC(sec)}</span><span class="sec-count">${cards.length} verktøy</span></div><div class="card-grid">`;
-    cards.forEach(x=>{h+=`<a class="card${x.featured?' featured':''}" href="${ESA(x.url)}" target="_blank" data-title="${ESA(x.title)}" data-tags="${ESA(x.tags||'')}" onclick="setLU('${x.id}')"><button class="card-edit" onclick="event.preventDefault();event.stopPropagation();openModal('card-edit','${tab}','${x.id}')">${ED}</button><div class="card-icon ${ESA(x.color||'ic-gray')}">${ESC(x.emoji)}</div><div><div class="card-title">${ESC(x.title)}</div><div class="card-desc">${ESC(x.desc||'')}</div></div><div class="card-meta"><span class="card-tag">${ESC((x.tags||'').split(' ')[0]||'')}</span><span class="card-time">${getLU(x.id)}</span></div></a>`;});
-    h+=`</div>`;
+    const key=tab+'|'+sec, tone=SEC_COLORS[key]||'transparent';
+    h+=`<section class="sec-block" style="--sec-tone:${tone}"><div class="sec-hdr"><span class="sec-title">${ESC(sec)}</span><span class="sec-count">${cards.length} verktøy</span><div class="sec-tools"><input class="sec-color" type="color" value="${tone==='transparent'?'#f3f1ec':tone}" title="Seksjonsfarge" onchange="setSectionColor('${tab}','${ESA(sec)}',this.value)"></div></div><div class="card-grid" data-section="${ESA(sec)}">`;
+    cards.forEach(x=>{const n=parseInt(x.notif||0,10);h+=`<a class="card${x.featured?' featured':''}" draggable="true" data-kind="card" data-tab="${tab}" data-id="${x.id}" href="${ESA(x.url)}" target="_blank" data-title="${ESA(x.title)}" data-tags="${ESA(x.tags||'')}" onclick="setLU('${x.id}')">${n>0?`<span class="notif-badge">${n>99?'99+':n}</span>`:''}<button class="card-edit" onclick="event.preventDefault();event.stopPropagation();openModal('card-edit','${tab}','${x.id}')">${ED}</button><div class="card-icon ${ESA(x.color||'ic-gray')}">${ESC(x.emoji)}</div><div><div class="card-title">${ESC(x.title)}</div><div class="card-desc">${ESC(x.desc||'')}</div></div><div class="card-meta"><span class="card-tag">${ESC((x.tags||'').split(' ')[0]||'')}</span><span class="card-time">${getLU(x.id)}</span></div></a>`;});
+    h+=`</div></section>`;
   });
   c.innerHTML=h;
+  c.querySelectorAll('.card-grid').forEach(g=>enableDrag(g,'card',tab));
 }
+function setSectionColor(tab,sec,val){SEC_COLORS[tab+'|'+sec]=val;persist();renderCards(tab);}
 function renderAll(){renderBM('jobb');renderBM('privat');renderCards('jobb');renderCards('privat');document.getElementById('badge-jobb').textContent=BM.jobb.length+CARDS.jobb.length;document.getElementById('badge-privat').textContent=BM.privat.length+CARDS.privat.length;}
 
 // ── WEATHER ──────────────────────────────────────────────
@@ -313,29 +358,20 @@ const WMO={0:{e:'☀️',l:'Klarvær'},1:{e:'🌤️',l:'Mest klart'},2:{e:'⛅'
 const wmo=c=>WMO[c]||{e:'🌡️',l:'Ukjent'};
 let wxOpen=false;
 async function loadWeather(){
+  const fallback=()=>{['','p'].forEach(s=>{const em=document.getElementById('wx-em'+(s?'-'+s:''));const info=document.getElementById('wx-info'+(s?'-'+s:''));if(em)em.textContent='🌡️';if(info)info.innerHTML='<span class="wx-loading">Kan ikke laste Yr akkurat nå</span>';});};
   try{
-    const r=await fetch('https://api.open-meteo.com/v1/forecast?latitude=59.9139&longitude=10.7522&hourly=temperature_2m,precipitation_probability,weather_code&current=temperature_2m,weather_code,wind_speed_10m,relative_humidity_2m&forecast_days=1&timezone=Europe%2FOslo');
-    const d=await r.json();const cu=d.current,w=wmo(cu.weather_code);
-    const topHTML=`<span class="wx-city">Oslo</span><span class="wx-temp">${Math.round(cu.temperature_2m)}°C</span><span class="wx-cond">${w.l}</span><div class="wx-meta"><span>💨 ${Math.round(cu.wind_speed_10m)} km/h</span><span>💧 ${cu.relative_humidity_2m}%</span></div>`;
-    const nowH=new Date().getHours();
-    const hrs=d.hourly.time.map((t,i)=>({h:new Date(t).getHours(),temp:d.hourly.temperature_2m[i],pr:d.hourly.precipitation_probability[i],code:d.hourly.weather_code[i]})).filter((_,i)=>i%2===0);
-    const hrsHTML=hrs.map(x=>`<div class="wx-hr${x.h===nowH||x.h===nowH+1?' now':''}"><span class="wx-ht">${String(x.h).padStart(2,'0')}:00</span><span class="wx-he">${wmo(x.code).e}</span><span class="wx-hc">${Math.round(x.temp)}°</span><span class="wx-hp">${x.pr}%</span></div>`).join('');
-    ['','p'].forEach(s=>{
-      const em=document.getElementById('wx-em'+(s?'-'+s:''));
-      const info=document.getElementById('wx-info'+(s?'-'+s:''));
-      const scroll=document.getElementById('wx-scroll'+(s?'-'+s:''));
-      if(em)em.textContent=w.e;
-      if(info)info.innerHTML=topHTML;
-      if(scroll)scroll.innerHTML=hrsHTML;
-    });
-  }catch(e){
-    ['','p'].forEach(s=>{
-      const em=document.getElementById('wx-em'+(s?'-'+s:''));
-      const info=document.getElementById('wx-info'+(s?'-'+s:''));
-      if(em)em.textContent='🌡️';
-      if(info)info.innerHTML='<span class="wx-loading">Kan ikke laste vær</span>';
-    });
-  }
+    const r=await fetch('https://api.met.no/weatherapi/locationforecast/2.0/compact?lat=59.9139&lon=10.7522',{headers:{'Accept':'application/json'}});
+    if(!r.ok)throw new Error('Yr svarte ikke');
+    const d=await r.json();
+    const ts=d.properties.timeseries, now=ts[0], det=now.data.instant.details, next=now.data.next_1_hours||now.data.next_6_hours||{};
+    const symbol=(next.summary&&next.summary.symbol_code)||'cloudy';
+    const yrIcon=symbol.includes('rain')?'🌧️':symbol.includes('snow')?'❄️':symbol.includes('sleet')?'🌨️':symbol.includes('fog')?'🌫️':symbol.includes('clearsky')?'☀️':symbol.includes('fair')?'🌤️':symbol.includes('partly')?'⛅':symbol.includes('thunder')?'⛈️':'☁️';
+    const label=symbol.replace(/_/g,' ').replace('day','').replace('night','').trim()||'Vær';
+    const precip=(next.details&&(next.details.precipitation_amount??next.details.precipitation_amount_max))??0;
+    const topHTML=`<span class="wx-city">Oslo · Yr</span><span class="wx-temp">${Math.round(det.air_temperature)}°C</span><span class="wx-cond">${label}</span><div class="wx-meta"><span>💨 ${Math.round(det.wind_speed)} m/s</span><span>💧 ${Math.round(det.relative_humidity)}%</span><span>☔ ${precip} mm</span></div>`;
+    const hrsHTML=ts.slice(0,24).filter((_,i)=>i%2===0).map((x,i)=>{const h=new Date(x.time).getHours(),dd=x.data.instant.details,n=x.data.next_1_hours||x.data.next_6_hours||{},sym=(n.summary&&n.summary.symbol_code)||'cloudy',ic=sym.includes('rain')?'🌧️':sym.includes('snow')?'❄️':sym.includes('sleet')?'🌨️':sym.includes('fog')?'🌫️':sym.includes('clearsky')?'☀️':sym.includes('fair')?'🌤️':sym.includes('partly')?'⛅':sym.includes('thunder')?'⛈️':'☁️',mm=(n.details&&(n.details.precipitation_amount??n.details.precipitation_amount_max))??0;return`<div class="wx-hr${i===0?' now':''}"><span class="wx-ht">${String(h).padStart(2,'0')}:00</span><span class="wx-he">${ic}</span><span class="wx-hc">${Math.round(dd.air_temperature)}°</span><span class="wx-hp">${mm} mm</span></div>`}).join('');
+    ['','p'].forEach(s=>{const em=document.getElementById('wx-em'+(s?'-'+s:''));const info=document.getElementById('wx-info'+(s?'-'+s:''));const scroll=document.getElementById('wx-scroll'+(s?'-'+s:''));if(em)em.textContent=yrIcon;if(info)info.innerHTML=topHTML;if(scroll)scroll.innerHTML=hrsHTML;});
+  }catch(e){fallback();}
 }
 function toggleWx(){
   wxOpen=!wxOpen;
@@ -372,13 +408,13 @@ function overlayBg(e){if(e.target===overlay)closeModal();}
 
 function bmForm(bm){return`<div class="f-row"><div class="f-grp"><label class="f-lbl">Emoji</label><div class="em-wrap"><input class="f-in" id="m-emoji" value="${ESA(bm?.emoji||'🔗')}" maxlength="4" style="text-align:center;font-size:1.25rem"><button type="button" class="ep-btn" onclick="openPicker('m-emoji')" title="Velg emoji">😊</button></div></div><div class="f-grp"><label class="f-lbl">Tittel</label><input class="f-in" id="m-title" value="${ESA(bm?.title||'')}" placeholder="Tittel"></div></div><div class="f-grp"><label class="f-lbl">URL</label><input class="f-in" id="m-url" type="url" value="${ESA(bm?.url||'')}" placeholder="https://..."></div><div class="f-grp"><label class="f-lbl">Domenenavn</label><input class="f-in" id="m-domain" value="${ESA(bm?.domain||'')}" placeholder="novooi.com"><span class="f-hint">Auto-utfylt fra URL, kan overstyres.</span></div>`;}
 
-function cardForm(c,tab){const sOpts=SECS[tab].map(s=>`<option value="${ESA(s)}"${c?.section===s?' selected':''}>${ESC(s)}</option>`).join('');const dots=COLORS.map(x=>`<button type="button" class="cdot${c?.color===x.id?' active':''}" data-color="${x.id}" style="background:${x.hex}"></button>`).join('');return`<div class="f-row"><div class="f-grp"><label class="f-lbl">Emoji</label><div class="em-wrap"><input class="f-in" id="m-emoji" value="${ESA(c?.emoji||'🔗')}" maxlength="4" style="text-align:center;font-size:1.25rem"><button type="button" class="ep-btn" onclick="openPicker('m-emoji')" title="Velg emoji">😊</button></div></div><div class="f-grp"><label class="f-lbl">Tittel</label><input class="f-in" id="m-title" value="${ESA(c?.title||'')}" placeholder="Verktøy-navn"></div></div><div class="f-grp"><label class="f-lbl">URL</label><input class="f-in" id="m-url" type="url" value="${ESA(c?.url||'')}" placeholder="https://..."></div><div class="f-grp"><label class="f-lbl">Beskrivelse</label><textarea class="f-ta" id="m-desc" placeholder="Kort beskrivelse...">${ESC(c?.desc||'')}</textarea></div><div class="f-grp"><label class="f-lbl">Tagger <span class="f-hint">(mellomrom-separert)</span></label><input class="f-in" id="m-tags" value="${ESA(c?.tags||'')}" placeholder="ai analyse markedsføring"></div><div class="f-grp"><label class="f-lbl">Seksjon</label><input class="f-in" list="sec-dl-${tab}" id="m-section" value="${ESA(c?.section||SECS[tab][0]||'')}" placeholder="Velg eller skriv ny seksjon"><datalist id="sec-dl-${tab}">${sOpts}</datalist></div><div class="f-grp"><label class="f-lbl">Farge</label><div class="cpick">${dots}</div></div><div class="tog-row"><span class="tog-lbl">Fremhevet kort</span><label class="tog-sw"><input type="checkbox" id="m-feat"${c?.featured?' checked':''}><div class="tog-tr"><div class="tog-th"></div></div></label></div>`;}
+function cardForm(c,tab){const sOpts=SECS[tab].map(s=>`<option value="${ESA(s)}"${c?.section===s?' selected':''}>${ESC(s)}</option>`).join('');const dots=COLORS.map(x=>`<button type="button" class="cdot${c?.color===x.id?' active':''}" data-color="${x.id}" style="background:${x.hex}"></button>`).join('');return`<div class="f-row"><div class="f-grp"><label class="f-lbl">Emoji</label><div class="em-wrap"><input class="f-in" id="m-emoji" value="${ESA(c?.emoji||'🔗')}" maxlength="4" style="text-align:center;font-size:1.25rem"><button type="button" class="ep-btn" onclick="openPicker('m-emoji')" title="Velg emoji">😊</button></div></div><div class="f-grp"><label class="f-lbl">Tittel</label><input class="f-in" id="m-title" value="${ESA(c?.title||'')}" placeholder="Verktøy-navn"></div></div><div class="f-grp"><label class="f-lbl">URL</label><input class="f-in" id="m-url" type="url" value="${ESA(c?.url||'')}" placeholder="https://..."></div><div class="f-grp"><label class="f-lbl">Beskrivelse</label><textarea class="f-ta" id="m-desc" placeholder="Kort beskrivelse...">${ESC(c?.desc||'')}</textarea></div><div class="f-row"><div class="f-grp"><label class="f-lbl">Tagger <span class="f-hint">(mellomrom-separert)</span></label><input class="f-in" id="m-tags" value="${ESA(c?.tags||'')}" placeholder="ai analyse markedsføring"></div><div class="f-grp"><label class="f-lbl">Notis-badge</label><input class="f-in" id="m-notif" type="number" min="0" value="${ESA(c?.notif||'')}" placeholder="0"><span class="f-hint">Manuelt tall, f.eks. uleste/ordre.</span></div></div><div class="f-grp"><label class="f-lbl">Seksjon</label><input class="f-in" list="sec-dl-${tab}" id="m-section" value="${ESA(c?.section||SECS[tab][0]||'')}" placeholder="Velg eller skriv ny seksjon"><datalist id="sec-dl-${tab}">${sOpts}</datalist></div><div class="f-grp"><label class="f-lbl">Farge</label><div class="cpick">${dots}</div></div><div class="tog-row"><span class="tog-lbl">Fremhevet kort</span><label class="tog-sw"><input type="checkbox" id="m-feat"${c?.featured?' checked':''}><div class="tog-tr"><div class="tog-th"></div></div></label></div>`;}
 
 function handleSave(){
   const emoji=document.getElementById('m-emoji')?.value.trim()||'🔗',title=document.getElementById('m-title')?.value.trim(),url=document.getElementById('m-url')?.value.trim();
   if(!title||!url){alert('Tittel og URL er påkrevd.');return;}
   if(mMode.startsWith('bm')){const domain=document.getElementById('m-domain')?.value.trim()||'';if(mMode==='bm-add'){BM[mTab].push({id:uid(),emoji,title,url,domain});}else{const i=BM[mTab].findIndex(b=>b.id===mId);if(i>-1)BM[mTab][i]={...BM[mTab][i],emoji,title,url,domain};}}
-  else{const desc=document.getElementById('m-desc')?.value.trim()||'',tags=document.getElementById('m-tags')?.value.trim()||'',section=document.getElementById('m-section')?.value.trim()||SECS[mTab][0]||'Annet',featured=document.getElementById('m-feat')?.checked||false,color=document.querySelector('.cdot.active')?.dataset.color||'ic-gray';if(!SECS[mTab].includes(section))SECS[mTab].push(section);if(mMode==='card-add'){CARDS[mTab].push({id:uid(),emoji,title,url,desc,tags,section,color,featured});}else{const i=CARDS[mTab].findIndex(c=>c.id===mId);if(i>-1)CARDS[mTab][i]={...CARDS[mTab][i],emoji,title,url,desc,tags,section,color,featured};}}
+  else{const desc=document.getElementById('m-desc')?.value.trim()||'',tags=document.getElementById('m-tags')?.value.trim()||'',section=document.getElementById('m-section')?.value.trim()||SECS[mTab][0]||'Annet',featured=document.getElementById('m-feat')?.checked||false,color=document.querySelector('.cdot.active')?.dataset.color||'ic-gray',notif=parseInt(document.getElementById('m-notif')?.value||0,10)||0;if(!SECS[mTab].includes(section))SECS[mTab].push(section);if(mMode==='card-add'){CARDS[mTab].push({id:uid(),emoji,title,url,desc,tags,section,color,featured,notif});}else{const i=CARDS[mTab].findIndex(c=>c.id===mId);if(i>-1)CARDS[mTab][i]={...CARDS[mTab][i],emoji,title,url,desc,tags,section,color,featured,notif};}}
   persist();renderAll();closeModal();
 }
 function handleDelete(){if(!confirm('Slett dette elementet?'))return;if(mMode==='bm-edit'){BM[mTab]=BM[mTab].filter(b=>b.id!==mId);}else{CARDS[mTab]=CARDS[mTab].filter(c=>c.id!==mId);SECS[mTab]=SECS[mTab].filter(s=>CARDS[mTab].some(c=>c.section===s));if(!SECS[mTab].length)SECS[mTab]=['Annet'];}persist();renderAll();closeModal();}
@@ -408,7 +444,7 @@ function epPick(e){if(pickerTarget)pickerTarget.value=e;closePicker();}
 // ── TABS ─────────────────────────────────────────────────
 const tabs=document.querySelectorAll('.tab-btn'),panels=document.querySelectorAll('.tab-panel');
 let curTab='jobb';
-function switchTab(id){tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));panels.forEach(p=>p.classList.toggle('active',p.id==='tab-'+id));curTab=id;}
+function switchTab(id){tabs.forEach(t=>t.classList.toggle('active',t.dataset.tab===id));panels.forEach(p=>{const on=p.id==='tab-'+id;p.classList.toggle('active',on);if(on){p.classList.remove('anim-in');void p.offsetWidth;p.classList.add('anim-in');}});curTab=id;}
 tabs.forEach(t=>t.addEventListener('click',()=>switchTab(t.dataset.tab)));
 
 // ── SEARCH ───────────────────────────────────────────────
@@ -436,6 +472,25 @@ document.addEventListener('keydown',e=>{
   if(e.key==='d'||e.key==='D'){dark=!dark;applyTheme();}
   if(e.key==='/'){{e.preventDefault();si.focus();si.select();}}
 });
+
+
+// ── EKSTRA FUNKSJONER: klokke, notat, import/eksport, drag/drop og integrasjoner ──
+function updateGreeting(){const n=new Date(),h=n.getHours();let g=h<5?'God natt':h<10?'God morgen':h<14?'God dag':h<18?'God ettermiddag':'God kveld';document.getElementById('greet-title').textContent=g+', Marcus';document.getElementById('greet-date').textContent=n.toLocaleDateString('nb-NO',{weekday:'long',day:'numeric',month:'long',year:'numeric'});document.getElementById('live-clock').textContent=n.toLocaleTimeString('nb-NO',{hour:'2-digit',minute:'2-digit',second:'2-digit'});} 
+setInterval(updateGreeting,1000);updateGreeting();
+function applyView(){document.body.classList.toggle('compact',VIEW==='list');document.getElementById('view-card').classList.toggle('active',VIEW!=='list');document.getElementById('view-list').classList.toggle('active',VIEW==='list');document.getElementById('compact-btn').textContent=VIEW==='list'?'Kort':'Kompakt';persist();}
+document.getElementById('view-card').onclick=()=>{VIEW='card';applyView();};document.getElementById('view-list').onclick=()=>{VIEW='list';applyView();};document.getElementById('compact-btn').onclick=()=>{VIEW=VIEW==='list'?'card':'list';applyView();};applyView();
+const qn=document.getElementById('quick-note');qn.value=localStorage.getItem('hub_quick_note')||'';qn.addEventListener('input',()=>localStorage.setItem('hub_quick_note',qn.value));document.getElementById('note-toggle').onclick=()=>{const w=document.getElementById('note-widget');w.classList.toggle('collapsed');document.getElementById('note-toggle').textContent=w.classList.contains('collapsed')?'+':'−';};
+document.getElementById('export-btn').onclick=()=>{const data={version:2,exportedAt:new Date().toISOString(),BM,CARDS,SECS,SEC_COLORS,VIEW,quickNote:qn.value,theme:dark?'dark':'light'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='min-hub-backup.json';a.click();URL.revokeObjectURL(a.href);};
+document.getElementById('import-btn').onclick=()=>document.getElementById('import-file').click();document.getElementById('import-file').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.BM)BM=data.BM;if(data.CARDS)CARDS=data.CARDS;if(data.SECS)SECS=data.SECS;if(data.SEC_COLORS)SEC_COLORS=data.SEC_COLORS;if(data.VIEW)VIEW=data.VIEW;if(data.quickNote!==undefined){qn.value=data.quickNote;localStorage.setItem('hub_quick_note',qn.value);}persist();renderAll();applyView();alert('Import fullført.');}catch(err){alert('Kunne ikke importere JSON-filen.');}e.target.value='';});
+function enableDrag(container,kind,tab){let dragged=null;container.querySelectorAll('[draggable="true"]').forEach(el=>{el.addEventListener('dragstart',e=>{dragged=el;el.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',el.dataset.id);});el.addEventListener('dragend',()=>{el.classList.remove('dragging');container.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));});el.addEventListener('dragover',e=>{e.preventDefault();if(el!==dragged)el.classList.add('drag-over');});el.addEventListener('dragleave',()=>el.classList.remove('drag-over'));el.addEventListener('drop',e=>{e.preventDefault();el.classList.remove('drag-over');if(!dragged||dragged===el)return;reorderItems(kind,tab,dragged.dataset.id,el.dataset.id,el.closest('.card-grid')?.dataset.section);});});}
+function reorderItems(kind,tab,fromId,toId,section){const arr=kind==='bm'?BM[tab]:CARDS[tab];const fi=arr.findIndex(x=>x.id===fromId),ti=arr.findIndex(x=>x.id===toId);if(fi<0||ti<0)return;const [item]=arr.splice(fi,1);if(kind==='card'&&section)item.section=section;const ni=arr.findIndex(x=>x.id===toId);arr.splice(ni,0,item);persist();renderAll();}
+async function loadCurrency(){const el=document.getElementById('currency-body');try{const r=await fetch('https://api.frankfurter.app/latest?from=NOK&to=EUR,USD');const d=await r.json();el.innerHTML=`<span class="ticker">1 NOK = ${d.rates.EUR.toFixed(4)} EUR</span><span class="ticker">1 NOK = ${d.rates.USD.toFixed(4)} USD</span>`;}catch(e){el.innerHTML='<span class="ticker">Valuta kunne ikke lastes</span>';}}
+async function loadGithub(){const el=document.getElementById('github-body');try{const r=await fetch('https://api.github.com/orgs/novooi/events?per_page=5');if(!r.ok)throw new Error('github');const events=await r.json();const rows=events.slice(0,3).map(ev=>{const repo=(ev.repo&&ev.repo.name)||'novooi';const type=ev.type.replace('Event','');return`<div><strong>${ESC(type)}</strong> · ${ESC(repo)}</div>`;}).join('');el.innerHTML=rows||'Ingen nylig offentlig aktivitet.';}catch(e){el.innerHTML='Koble til via offentlig GitHub-endepunkt eller juster org/repo i koden.';}}
+async function loadRuter(){const el=document.getElementById('ruter-body'),stop=LS('hub_entur_stop')||'NSR:StopPlace:59872';try{const q=`{stopPlace(id:"${stop}"){name estimatedCalls(numberOfDepartures:3){expectedDepartureTime destinationDisplay{frontText} serviceJourney{journeyPattern{line{name publicCode transportMode}}}}}}`;const r=await fetch('https://api.entur.io/journey-planner/v3/graphql',{method:'POST',headers:{'Content-Type':'application/json','ET-Client-Name':'marcus-min-hub'},body:JSON.stringify({query:q})});const d=await r.json();const sp=d.data.stopPlace;if(!sp)throw new Error('stop');el.innerHTML=`<strong>${ESC(sp.name)}</strong>`+sp.estimatedCalls.map(c=>{const t=new Date(c.expectedDepartureTime).toLocaleTimeString('nb-NO',{hour:'2-digit',minute:'2-digit'});const line=c.serviceJourney.journeyPattern.line;return`<div>${t} · ${ESC(line.publicCode||line.name)} ${ESC(c.destinationDisplay.frontText||'')}</div>`}).join('');}catch(e){el.innerHTML='Kunne ikke laste avganger. Sett stopplace-ID via knappen.';}}
+function configureStop(){const cur=LS('hub_entur_stop')||'NSR:StopPlace:59872';const id=prompt('Entur StopPlace-ID (f.eks. NSR:StopPlace:59872)',cur);if(id){SS('hub_entur_stop',id.trim());loadRuter();}}
+function setWooCount(){const cur=LS('hub_woo_count')||'0';const v=prompt('Antall WooCommerce-ordre til behandling (frontend-demo/manual)',cur);if(v!==null){SS('hub_woo_count',String(Math.max(0,parseInt(v,10)||0)));loadWoo();}}
+function loadWoo(){const n=parseInt(LS('hub_woo_count')||0,10)||0;document.getElementById('woo-body').innerHTML=`<strong>${n}</strong> ordre til behandling<br><span style="color:var(--txm)">For ekte live-data bør WooCommerce REST API proxyes via backend/Worker, ikke med hemmelige nøkler i HTML.</span>`;const card=CARDS.jobb.find(c=>/wp admin|woocommerce|novooi/i.test(c.title));if(card){card.notif=n;persist();renderCards('jobb');}}
+loadCurrency();loadGithub();loadRuter();loadWoo();
 
 renderAll();
 loadWeather();
