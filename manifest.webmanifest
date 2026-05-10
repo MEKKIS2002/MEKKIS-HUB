@@ -1,0 +1,10 @@
+{
+  "name":"Min Hub",
+  "short_name":"Min Hub",
+  "start_url":"./index.html",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#FAF8F4",
+  "theme_color":"#C96A3A",
+  "icons":[{"src":"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Crect width='512' height='512' rx='112' fill='%23C96A3A'/%3E%3Cpath d='M256 70L70 193v249h128V330h116v112h128V193Z' fill='white'/%3E%3C/svg%3E","sizes":"512x512","type":"image/svg+xml","purpose":"any maskable"}]
+}

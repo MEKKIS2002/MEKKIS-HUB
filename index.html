@@ -4,6 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Min Hub</title>
+<meta name="theme-color" content="#C96A3A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Min Hub">
+<link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23C96A3A'/%3E%3Cpath d='M50 14L12 39v47h26V65h24v21h26V39Z' fill='white'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -214,6 +219,31 @@ body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact 
   .integrations{grid-template-columns:1fr!important}
 }
 
+
+
+/* ── NYE FEATURES: pins, mobilnav, dashboard, tema, størrelser, redigeringsmodus ── */
+.top-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+.control-select,.small-input{height:32px;border:1px solid var(--br);border-radius:8px;background:var(--bg-card);color:var(--tx2);font-family:inherit;font-size:.78rem;padding:0 9px;outline:none}.control-select:focus,.small-input:focus{border-color:var(--ac);box-shadow:0 0 0 3px color-mix(in srgb,var(--ac) 15%,transparent)}
+.edit-toggle.on{background:var(--ac);color:white;border-color:var(--ac)}
+.backup-alert{display:none;align-items:center;gap:10px;justify-content:space-between;margin:-.35rem 0 1rem;padding:10px 12px;border:1px solid color-mix(in srgb,var(--ac) 34%,var(--br));border-radius:12px;background:color-mix(in srgb,var(--acs) 72%,var(--bg-card));color:var(--tx2);box-shadow:var(--sh);font-size:.82rem}.backup-alert.show{display:flex}.backup-alert strong{color:var(--tx);font-weight:500}.backup-alert .btn-s,.backup-alert .btn-p{padding:5px 10px;font-size:.78rem;white-space:nowrap}
+.mini-dashboard{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:10px;margin-bottom:1.45rem}.dash-card{background:var(--bg-card);border:1px solid var(--br);border-radius:14px;padding:11px 12px;box-shadow:var(--sh);min-height:78px;overflow:hidden}.dash-label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.68rem;color:var(--txm);letter-spacing:.06em;text-transform:uppercase;font-weight:500;margin-bottom:6px}.dash-value{font-size:.92rem;color:var(--tx);font-weight:500;line-height:1.25}.dash-sub{font-size:.72rem;color:var(--txm);line-height:1.3;margin-top:3px}.dash-btn{border:1px solid var(--br);background:var(--bg-sec);color:var(--tx2);border-radius:6px;font-family:inherit;font-size:.66rem;padding:3px 6px;cursor:pointer}.dash-btn:hover{border-color:var(--brh);color:var(--tx)}
+.pin-section{display:none;margin-bottom:1.45rem}.pin-section.has-pins{display:block}.pin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}.pin-title{display:flex;align-items:center;gap:8px;margin-bottom:10px;color:var(--tx2);font-size:.82rem;font-weight:500}.pin-title::after{content:'';height:1px;background:var(--br);flex:1}.pin-btn{position:absolute;top:8px;right:8px;width:25px;height:25px;border:1px solid var(--br);border-radius:7px;background:var(--bg-card);color:var(--txm);cursor:pointer;display:none;align-items:center;justify-content:center;z-index:4;font-size:13px}.pin-btn.active{display:flex;color:var(--ac);background:var(--acs);border-color:color-mix(in srgb,var(--ac) 35%,var(--br))}.pin-btn:hover{display:flex;background:var(--bg-sec);color:var(--ac)}body.edit-mode .pin-btn{display:flex}.card-edit{right:39px}body:not(.edit-mode) .card-edit,body:not(.edit-mode) .bm-edit,body:not(.edit-mode) .drag-handle,body:not(.edit-mode) .bm-add,body:not(.edit-mode) .add-card-btn,body:not(.edit-mode) .sec-color-btn,body:not(.edit-mode) .edit-only{display:none!important}body:not(.edit-mode) .bookmark,body:not(.edit-mode) .card{cursor:pointer}
+.sec-collapse{width:26px;height:26px;border:1px solid var(--br);border-radius:8px;background:var(--bg-card);color:var(--txm);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform var(--t),background var(--t)}.sec-collapse:hover{background:var(--bg-sec);color:var(--tx)}.sec-block.collapsed .card-grid{display:none!important}.sec-block.collapsed .sec-collapse{transform:rotate(-90deg)}.sec-block.collapsed{padding-bottom:10px}.sec-block.collapsed .sec-hdr{margin-bottom:0}
+.cal-list{display:flex;flex-direction:column;gap:8px}.cal-item{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--br);border-radius:12px;background:var(--bg-card);box-shadow:var(--sh)}.cal-time{font-variant-numeric:tabular-nums;color:var(--ac);font-weight:500;font-size:.82rem}.cal-title{font-size:.86rem;color:var(--tx);font-weight:500}.cal-meta{font-size:.72rem;color:var(--txm);margin-top:2px}.cal-empty{padding:18px;text-align:center;color:var(--txm);border:1px dashed var(--brh);border-radius:12px;background:var(--bg-card)}
+.personal-widgets{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:1.4rem}.personal-widget{background:var(--bg-card);border:1px solid var(--br);border-radius:14px;padding:11px 12px;box-shadow:var(--sh)}.personal-widget .pw-title{font-size:.72rem;color:var(--txm);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.personal-widget .pw-value{font-size:.92rem;color:var(--tx);font-weight:500}.personal-widget .pw-sub{font-size:.72rem;color:var(--txm);margin-top:3px;line-height:1.35}
+body.size-large .card{padding:1.25rem 1.25rem;min-height:175px}body.size-large .card-icon{width:42px;height:42px;font-size:20px}body.size-large .card-title{font-size:.95rem}body.size-large .card-desc{font-size:.8rem}
+body.size-medium .card{padding:1rem 1.05rem;min-height:145px}body.size-medium .card-icon{width:36px;height:36px;font-size:17px}
+body.size-compact .card-grid{grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}body.size-compact .card{padding:.75rem .8rem;min-height:112px;gap:7px}body.size-compact .card-icon{width:30px;height:30px;font-size:15px}body.size-compact .card-title{font-size:.82rem}body.size-compact .card-desc{font-size:.7rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}body.size-compact .card-meta{padding-top:5px}body.size-compact .card-tag,body.size-compact .card-time{font-size:.62rem}
+body.size-super .card-grid{display:flex;flex-direction:column;gap:6px}body.size-super .card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;padding:.5rem .7rem;min-height:42px}body.size-super .card-icon{width:27px;height:27px;font-size:14px}body.size-super .card-desc,body.size-super .card-meta{display:none}body.size-super .card-title{font-size:.82rem}
+body[data-preset="warm"]{--bg:#FAF8F4;--bg-card:#FFF;--bg-sec:#F3F1EC;--tx:#1A1916;--tx2:#6B6860;--txm:#A09D97;--br:#E8E5DE;--brh:#D4CFC6;--ac:#C96A3A;--acs:#FBF0E9;--ach:#B05A2E}
+body[data-preset="espresso"]{--bg:#14110C;--bg-card:#1E1A13;--bg-sec:#272116;--tx:#F2EADF;--tx2:#A89D8F;--txm:#70675C;--br:#332B20;--brh:#493C2B;--ac:#D98653;--acs:#2D1D12;--ach:#F09A64}
+body[data-preset="forest"]{--bg:#F6F8F2;--bg-card:#FFF;--bg-sec:#EEF2E8;--tx:#172016;--tx2:#63705D;--txm:#96A08F;--br:#DFE7D8;--brh:#C9D6BF;--ac:#587B4A;--acs:#EAF2E3;--ach:#46653A}body[data-theme="dark"][data-preset="forest"]{--bg:#10150E;--bg-card:#181E15;--bg-sec:#20281B;--tx:#EDF3E9;--tx2:#98A78E;--txm:#65725F;--br:#2A3524;--brh:#3A4931;--ac:#86A96E;--acs:#1D2A17;--ach:#9ABD83}
+body[data-preset="minimal"]{--bg:#F7F7F5;--bg-card:#FFF;--bg-sec:#EFEFED;--tx:#1B1B1A;--tx2:#696966;--txm:#A0A09B;--br:#E2E2DD;--brh:#CFCFC8;--ac:#73706A;--acs:#EEEEEA;--ach:#5F5C56}body[data-theme="dark"][data-preset="minimal"]{--bg:#141414;--bg-card:#1D1D1C;--bg-sec:#252523;--tx:#F0F0EC;--tx2:#A2A29C;--txm:#676762;--br:#30302D;--brh:#44443F;--ac:#B7B0A5;--acs:#292824;--ach:#D0C7BA}
+body[data-preset="novooi"]{--bg:#FCF7F1;--bg-card:#FFF;--bg-sec:#F6EDE4;--tx:#211713;--tx2:#705D50;--txm:#A8978A;--br:#EADDD2;--brh:#D8C5B5;--ac:#C96A3A;--acs:#FDEDE3;--ach:#A94F24}body[data-theme="dark"][data-preset="novooi"]{--bg:#15100C;--bg-card:#201811;--bg-sec:#2A1F16;--tx:#F4E8DC;--tx2:#AC9784;--txm:#715F50;--br:#35271C;--brh:#4A3626;--ac:#E08858;--acs:#312014;--ach:#F19C6B}
+.mobile-nav{display:none}.mobile-nav button{border:0;background:transparent;color:var(--tx2);font-family:inherit;font-size:.68rem;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:58px;padding:8px 6px;border-radius:12px}.mobile-nav button.active,.mobile-nav button:hover{background:var(--acs);color:var(--ac)}
+@media(max-width:820px){.top-controls{justify-content:flex-start}.greeting{gap:.75rem}.mini-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-card{min-height:70px}.hdr-r .action-pill,.tabs-bar{display:none}.mobile-nav{position:fixed;left:10px;right:10px;bottom:10px;z-index:300;display:flex;justify-content:space-around;gap:4px;background:color-mix(in srgb,var(--bg-card) 92%,transparent);backdrop-filter:blur(14px);border:1px solid var(--br);border-radius:20px;padding:5px;box-shadow:0 10px 30px rgba(0,0,0,.18)}body{padding-bottom:78px}.cal-item{grid-template-columns:58px 1fr}.cal-item .dash-btn{grid-column:1/-1}.pin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.greet-title{font-size:1.45rem}.top-controls{width:100%}.control-select{flex:1;min-width:45%}.mini-dashboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.dash-card{padding:10px;min-height:68px}.dash-label{font-size:.62rem}.dash-value{font-size:.84rem}.note-widget{display:none!important}body:not(.size-super) .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.pin-grid{gap:8px}.pin-section .card{min-height:112px}.card-edit{right:36px}.cal-section{margin-bottom:1.2rem}}
+
 </style>
 </head>
 <body data-theme="light">
@@ -241,8 +271,10 @@ body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact 
   <button class="tab-btn" data-tab="privat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Privat <span class="tab-badge" id="badge-privat">0</span></button>
 </div></div>
 <main>
-  <div class="greeting"><div><div class="greet-title" id="greet-title">Hei, Marcus</div><div class="greet-date" id="greet-date"></div></div><div class="view-toggle"><button id="view-card" class="active">Kort</button><button id="view-list">Liste</button></div></div>
+<div style="display:none"><div id="currency-body"></div><div id="github-body"></div><div id="woo-body"></div></div>
+  <div class="greeting"><div><div class="greet-title" id="greet-title">Hei, Marcus</div><div class="greet-date" id="greet-date"></div></div><div class="top-controls"><button class="action-pill edit-toggle" id="edit-mode-btn">Rediger hub</button><select class="control-select" id="theme-preset"><option value="warm">Warm beige</option><option value="espresso">Dark espresso</option><option value="forest">Forest</option><option value="minimal">Minimal gray</option><option value="novooi">Novooi orange</option></select><select class="control-select" id="size-select"><option value="large">Stor</option><option value="medium">Medium</option><option value="compact">Kompakt</option><option value="super">Superkompakt</option></select><select class="control-select" id="sort-select"><option value="manual">Manuelt</option><option value="recent">Sist brukt</option><option value="used">Mest brukt</option><option value="alpha">Alfabetisk</option><option value="pinned">Favoritter først</option></select></div></div><div class="backup-alert" id="backup-alert"><span>💾 <strong>Husk backup</strong> — du har gjort flere endringer i hubben.</span><div><button class="btn-s" id="backup-dismiss">Senere</button><button class="btn-p" id="backup-export">Eksporter</button></div></div>
   <div class="note-widget" id="note-widget"><div class="note-head"><span>📝 Hurtignotat</span><button id="note-toggle" title="Skjul/vis">−</button></div><textarea id="quick-note" placeholder="Skriv midlertidige tanker her..."></textarea></div>
+  <section class="pin-section" id="pin-section"><div class="pin-title">📌 Pinned / favoritter</div><div class="pin-grid" id="pin-grid"></div></section>
   <div class="tab-panel active" id="tab-jobb">
     <!-- WEATHER -->
     <div class="wx-card">
@@ -257,10 +289,12 @@ body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact 
       </div>
     </div>
 
-    <div class="integrations" id="int-jobb">
-      <div class="mini-widget"><div class="mini-h"><span>💱 Valuta</span><button onclick="loadCurrency()">Oppdater</button></div><div class="mini-body ticker-row" id="currency-body">Laster...</div></div>
-      <div class="mini-widget"><div class="mini-h"><span>🐙 GitHub Novooi</span><button onclick="loadGithub()">Oppdater</button></div><div class="mini-body" id="github-body">Laster aktivitet...</div></div>
-      <div class="mini-widget"><div class="mini-h"><span>🛒 WooCommerce</span><button onclick="setWooCount()">Sett</button></div><div class="mini-body" id="woo-body">Laster ordre...</div></div>
+    <div class="mini-dashboard" id="dash-jobb">
+      <div class="dash-card"><div class="dash-label"><span>🌤️ Vær</span><button class="dash-btn" onclick="loadWeather()">↻</button></div><div class="dash-value" id="dash-weather">Laster...</div><div class="dash-sub" id="dash-weather-sub">Oslo</div></div>
+      <div class="dash-card"><div class="dash-label"><span>💱 Valuta</span><button class="dash-btn" onclick="loadCurrency()">↻</button></div><div class="dash-value" id="dash-currency">Laster...</div><div class="dash-sub">NOK → EUR/USD</div></div>
+      <div class="dash-card"><div class="dash-label"><span>🕒 Klokke</span></div><div class="dash-value" id="dash-clock">--:--</div><div class="dash-sub" id="dash-date">I dag</div></div>
+      <div class="dash-card"><div class="dash-label"><span>🐙 GitHub</span><button class="dash-btn" onclick="loadGithub()">↻</button></div><div class="dash-value" id="dash-github">Laster...</div><div class="dash-sub" id="dash-github-sub">Novooi</div></div>
+      <div class="dash-card"><div class="dash-label"><span>🛒 Woo</span><button class="dash-btn" onclick="setWooCount()">Sett</button></div><div class="dash-value" id="dash-woo">0 ordre</div><div class="dash-sub">Til behandling</div></div>
     </div>
     <!-- BOOKMARKS -->
     <div class="bm-section"><div class="bm-hdr"><span class="bm-label">Bokmerker</span><div class="bm-divider"></div><button class="bm-add" onclick="openModal('bm-add','jobb')">+</button></div><div class="bm-grid" id="bm-jobb"></div></div>
@@ -268,15 +302,13 @@ body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact 
     <button class="add-card-btn" onclick="openModal('card-add','jobb')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Legg til kort</button>
     <!-- CALENDAR -->
     <div class="cal-section">
-      <div class="cal-hdr" onclick="toggleCal()">
-        <span class="sec-title" style="font-size:.95rem">📅 Google Kalender</span>
+      <div class="cal-hdr">
+        <span class="sec-title" style="font-size:.95rem">📅 Dagens møter</span>
         <div class="bm-divider"></div>
-        <div class="cal-toggle" id="cal-toggle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></div>
+        <button class="action-pill edit-only" onclick="addCalendarItem()">Legg til</button>
       </div>
-      <div id="cal-wrap" style="display:none">
-        <div class="cal-frame"><iframe id="cal-iframe" src="about:blank" scrolling="no"></iframe></div>
-        <p class="cal-note">Krever innlogging på marcus@novooi.com i denne nettleseren.</p>
-      </div>
+      <div class="cal-list" id="calendar-list"></div>
+      <p class="cal-note">Lokal kalenderliste. For ekte Google Calendar-data: legg inn offentlig kalenderfeed eller koble via backend/OAuth senere.</p>
     </div>
     <div class="empty-state" id="empty-jobb">Ingen verktøy matcher søket ditt.</div>
   </div>
@@ -292,6 +324,12 @@ body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact 
         <div class="wx-scroll" id="wx-scroll-p"></div>
       </div>
     </div>
+    <div class="personal-widgets" id="privat-widgets">
+      <div class="personal-widget"><div class="pw-title">🏋️ Trening</div><div class="pw-value">5 økter/uke</div><div class="pw-sub">Personlig mål-widget</div></div>
+      <div class="personal-widget"><div class="pw-title">🎵 Musikk</div><div class="pw-value">Beat Vault</div><div class="pw-sub">Åpne beat-arkiv raskt</div></div>
+      <div class="personal-widget"><div class="pw-title">💰 Økonomi</div><div class="pw-value">DNB Advisor</div><div class="pw-sub">Bolig og sparing</div></div>
+      <div class="personal-widget"><div class="pw-title">🎮 Gaming</div><div class="pw-value">Valorant</div><div class="pw-sub">Skolebolle stats</div></div>
+    </div>
     <div class="bm-section"><div class="bm-hdr"><span class="bm-label">Bokmerker</span><div class="bm-divider"></div><button class="bm-add" onclick="openModal('bm-add','privat')">+</button></div><div class="bm-grid" id="bm-privat"></div></div>
     <div id="cards-privat"></div>
     <button class="add-card-btn" onclick="openModal('card-add','privat')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>Legg til kort</button>
@@ -305,6 +343,7 @@ body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact 
     <div class="modal-ft"><button class="btn-d" id="btn-del" style="display:none" onclick="handleDelete()">Slett</button><span style="flex:1"></span><button class="btn-s" onclick="closeModal()">Avbryt</button><button class="btn-p" onclick="handleSave()">Lagre</button></div>
   </div>
 </div>
+<nav class="mobile-nav" id="mobile-nav"><button data-action="jobb" class="active">💼<span>Jobb</span></button><button data-action="privat">❤️<span>Privat</span></button><button data-action="search">🔎<span>Søk</span></button><button data-action="add">＋<span>Legg til</span></button></nav>
 <div class="kbd-hint"><span><kbd>J</kbd> Jobb</span><span><kbd>P</kbd> Privat</span><span><kbd>/</kbd> Søk</span><span><kbd>D</kbd> Mørkt</span></div>
 
 <script>
@@ -503,8 +542,8 @@ document.addEventListener('keydown',e=>{
 // ── EKSTRA FUNKSJONER: klokke, notat, import/eksport, drag/drop og integrasjoner ──
 function updateGreeting(){const n=new Date(),h=n.getHours();let g=h<5?'God natt':h<10?'God morgen':h<14?'God dag':h<18?'God ettermiddag':'God kveld';document.getElementById('greet-title').textContent=g+', Marcus';document.getElementById('greet-date').textContent=n.toLocaleDateString('nb-NO',{weekday:'long',day:'numeric',month:'long',year:'numeric'});document.getElementById('live-clock').textContent=n.toLocaleTimeString('nb-NO',{hour:'2-digit',minute:'2-digit',second:'2-digit'});} 
 setInterval(updateGreeting,1000);updateGreeting();
-function applyView(){document.body.classList.toggle('compact',VIEW==='list');document.getElementById('view-card').classList.toggle('active',VIEW!=='list');document.getElementById('view-list').classList.toggle('active',VIEW==='list');document.getElementById('compact-btn').textContent=VIEW==='list'?'Kort':'Kompakt';persist();}
-document.getElementById('view-card').onclick=()=>{VIEW='card';applyView();};document.getElementById('view-list').onclick=()=>{VIEW='list';applyView();};document.getElementById('compact-btn').onclick=()=>{VIEW=VIEW==='list'?'card':'list';applyView();};applyView();
+function applyView(){document.body.classList.toggle('compact',VIEW==='list');document.getElementById('view-card')?.classList.toggle('active',VIEW!=='list');document.getElementById('view-list')?.classList.toggle('active',VIEW==='list');const cb=document.getElementById('compact-btn');if(cb)cb.textContent=VIEW==='list'?'Kort':'Kompakt';persist();}
+if(document.getElementById('view-card'))document.getElementById('view-card').onclick=()=>{VIEW='card';applyView();};if(document.getElementById('view-list'))document.getElementById('view-list').onclick=()=>{VIEW='list';applyView();};if(document.getElementById('compact-btn'))document.getElementById('compact-btn').onclick=()=>{VIEW=VIEW==='list'?'card':'list';applyView();};applyView();
 const qn=document.getElementById('quick-note');qn.value=localStorage.getItem('hub_quick_note')||'';qn.addEventListener('input',()=>localStorage.setItem('hub_quick_note',qn.value));document.getElementById('note-toggle').onclick=()=>{const w=document.getElementById('note-widget');w.classList.toggle('collapsed');document.getElementById('note-toggle').textContent=w.classList.contains('collapsed')?'+':'−';};
 document.getElementById('export-btn').onclick=()=>{const data={version:2,exportedAt:new Date().toISOString(),BM,CARDS,SECS,SEC_COLORS,VIEW,quickNote:qn.value,theme:dark?'dark':'light'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='min-hub-backup.json';a.click();URL.revokeObjectURL(a.href);};
 document.getElementById('import-btn').onclick=()=>document.getElementById('import-file').click();document.getElementById('import-file').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.BM)BM=data.BM;if(data.CARDS)CARDS=data.CARDS;if(data.SECS)SECS=data.SECS;if(data.SEC_COLORS)SEC_COLORS=data.SEC_COLORS;if(data.VIEW)VIEW=data.VIEW;if(data.quickNote!==undefined){qn.value=data.quickNote;localStorage.setItem('hub_quick_note',qn.value);}persist();renderAll();applyView();alert('Import fullført.');}catch(err){alert('Kunne ikke importere JSON-filen.');}e.target.value='';});
@@ -515,6 +554,66 @@ async function loadGithub(){const el=document.getElementById('github-body');try{
 function setWooCount(){const cur=LS('hub_woo_count')||'0';const v=prompt('Antall WooCommerce-ordre til behandling (frontend-demo/manual)',cur);if(v!==null){SS('hub_woo_count',String(Math.max(0,parseInt(v,10)||0)));loadWoo();}}
 function loadWoo(){const n=parseInt(LS('hub_woo_count')||0,10)||0;document.getElementById('woo-body').innerHTML=`<strong>${n}</strong> ordre til behandling<br><span style="color:var(--txm)">For ekte live-data bør WooCommerce REST API proxyes via backend/Worker, ikke med hemmelige nøkler i HTML.</span>`;const card=CARDS.jobb.find(c=>/wp admin|woocommerce|novooi/i.test(c.title));if(card){card.notif=n;persist();renderCards('jobb');}}
 loadCurrency();loadGithub();loadWoo();
+
+
+// ── NYE HUB-FUNKSJONER ──────────────────────────────────
+let EDIT_MODE=LS('hub_edit_mode')??false;
+let CARD_SIZE=LS('hub_card_size')||'medium';
+let SORT_MODE=LS('hub_sort_mode')||'manual';
+let THEME_PRESET=LS('hub_theme_preset')||'warm';
+let COLLAPSED=LS('hub_collapsed_sections')||{};
+let USE_COUNT=LS('hub_use_count')||{};
+let CHANGE_COUNT=parseInt(LS('hub_change_count')||0,10)||0;
+let CAL_ITEMS=LS('hub_calendar_items')||[{id:'cal1',time:'09:00',title:'Sjekk ordre og e-post',where:'Novooi'},{id:'cal2',time:'13:00',title:'Kampanje/produktarbeid',where:'Arbeidsblokk'}];
+
+function markChanged(){CHANGE_COUNT++;SS('hub_change_count',CHANGE_COUNT);updateBackupAlert();}
+function updateBackupAlert(){const el=document.getElementById('backup-alert');if(el)el.classList.toggle('show',CHANGE_COUNT>=5);}
+const oldPersist=persist;
+persist=function(){SS('hub_bm_j',BM.jobb);SS('hub_bm_p',BM.privat);SS('hub_cd_j',CARDS.jobb);SS('hub_cd_p',CARDS.privat);SS('hub_sc_j',SECS.jobb);SS('hub_sc_p',SECS.privat);SS('hub_sec_colors',SEC_COLORS);SS('hub_view',VIEW);SS('hub_card_size',CARD_SIZE);SS('hub_sort_mode',SORT_MODE);SS('hub_theme_preset',THEME_PRESET);SS('hub_edit_mode',EDIT_MODE);SS('hub_collapsed_sections',COLLAPSED);SS('hub_use_count',USE_COUNT);SS('hub_calendar_items',CAL_ITEMS);};
+const oldSetLU=setLU;
+setLU=function(k){oldSetLU(k);USE_COUNT[k]=(USE_COUNT[k]||0)+1;SS('hub_use_count',USE_COUNT);};
+function sortedCards(tab,sec){let arr=CARDS[tab].filter(x=>!sec||x.section===sec);if(SORT_MODE==='recent')arr.sort((a,b)=>(LS('hu_'+b.id)||0)-(LS('hu_'+a.id)||0));else if(SORT_MODE==='used')arr.sort((a,b)=>(USE_COUNT[b.id]||0)-(USE_COUNT[a.id]||0));else if(SORT_MODE==='alpha')arr.sort((a,b)=>String(a.title).localeCompare(String(b.title),'nb'));else if(SORT_MODE==='pinned')arr.sort((a,b)=>(b.pinned?1:0)-(a.pinned?1:0)||String(a.title).localeCompare(String(b.title),'nb'));return arr;}
+function cardHTML(x,tab,{pinnedClone=false}={}){const n=parseInt(x.notif||0,10);return `<a class="card${x.featured?' featured':''}" draggable="${EDIT_MODE&&!pinnedClone?'true':'false'}" data-kind="card" data-tab="${tab}" data-id="${x.id}" href="${ESA(x.url)}" target="_blank" data-title="${ESA(x.title)}" data-tags="${ESA(x.tags||'')}" onclick="setLU('${x.id}')">${n>0?`<span class="notif-badge">${n>99?'99+':n}</span>`:''}<button class="pin-btn ${x.pinned?'active':''}" title="${x.pinned?'Fjern pin':'Pin kort'}" onclick="event.preventDefault();event.stopPropagation();togglePin('${tab}','${x.id}')">${x.pinned?'★':'☆'}</button><button class="card-edit" onclick="event.preventDefault();event.stopPropagation();openModal('card-edit','${tab}','${x.id}')">${ED}</button><div class="card-icon ${ESA(x.color||'ic-gray')}">${ESC(x.emoji)}</div><div><div class="card-title">${ESC(x.title)}</div><div class="card-desc">${ESC(x.desc||'')}</div></div><div class="card-meta"><span class="card-tag">${ESC((x.tags||'').split(' ')[0]||'')}</span><span class="card-time">${getLU(x.id)}</span></div></a>`;}
+renderCards=function(tab){const c=document.getElementById('cards-'+tab);if(!c)return;CARDS[tab].forEach(x=>{if(!SECS[tab].includes(x.section))SECS[tab].push(x.section);});let h='';SECS[tab].forEach(sec=>{const cards=sortedCards(tab,sec);if(!cards.length)return;const key=tab+'|'+sec,tone=SEC_COLORS[key]||'transparent',collapsed=!!COLLAPSED[key];h+=`<section class="sec-block${collapsed?' collapsed':''}" style="--sec-tone:${toneCss(tone)}" data-section="${ESA(sec)}"><div class="sec-hdr"><button class="sec-collapse" type="button" title="Skjul/vis seksjon" onclick="toggleSection('${tab}','${ESA(sec)}')">⌄</button><span class="sec-title">${ESC(sec)}</span><span class="sec-count">${cards.length} verktøy</span><div class="sec-tools"><button class="sec-color-btn" type="button" title="Endre seksjonsfarge" onclick="toggleSectionPalette(event,'${tab}','${ESA(sec)}')">🎨</button><div class="sec-palette" id="sec-pal-${tab}-${safeId(sec)}">${sectionPalette(tab,sec)}</div></div></div><div class="card-grid" data-section="${ESA(sec)}">`;cards.forEach(x=>h+=cardHTML(x,tab));h+='</div></section>';});c.innerHTML=h;c.querySelectorAll('.card-grid').forEach(g=>enableDrag(g,'card',tab));};
+function renderPinned(){const grid=document.getElementById('pin-grid'),box=document.getElementById('pin-section');if(!grid||!box)return;const pins=[...CARDS.jobb.map(c=>({...c,_tab:'jobb'})),...CARDS.privat.map(c=>({...c,_tab:'privat'}))].filter(c=>c.pinned);box.classList.toggle('has-pins',pins.length>0);grid.innerHTML=pins.map(c=>cardHTML(c,c._tab,{pinnedClone:true})).join('');}
+const oldRenderAll=renderAll;renderAll=function(){renderBM('jobb');renderBM('privat');renderCards('jobb');renderCards('privat');renderPinned();document.getElementById('badge-jobb').textContent=BM.jobb.length+CARDS.jobb.length;document.getElementById('badge-privat').textContent=BM.privat.length+CARDS.privat.length;syncMobileNav();};
+function togglePin(tab,id){const c=CARDS[tab].find(x=>x.id===id);if(c){c.pinned=!c.pinned;persist();markChanged();renderAll();}}
+function toggleSection(tab,sec){const k=tab+'|'+sec;COLLAPSED[k]=!COLLAPSED[k];persist();renderCards(tab);markChanged();}
+const oldReorderItems=reorderItems;reorderItems=function(kind,tab,fromId,toId,section){oldReorderItems(kind,tab,fromId,toId,section);markChanged();};
+
+function applyHubSettings(){document.body.classList.toggle('edit-mode',!!EDIT_MODE);document.getElementById('edit-mode-btn')?.classList.toggle('on',!!EDIT_MODE);document.getElementById('edit-mode-btn').textContent=EDIT_MODE?'Ferdig':'Rediger hub';document.body.classList.remove('size-large','size-medium','size-compact','size-super');document.body.classList.add('size-'+CARD_SIZE);document.body.setAttribute('data-preset',THEME_PRESET);const ts=document.getElementById('theme-preset'),ss=document.getElementById('size-select'),so=document.getElementById('sort-select');if(ts)ts.value=THEME_PRESET;if(ss)ss.value=CARD_SIZE;if(so)so.value=SORT_MODE;persist();updateBackupAlert();}
+document.getElementById('edit-mode-btn').onclick=()=>{EDIT_MODE=!EDIT_MODE;applyHubSettings();renderAll();};
+document.getElementById('theme-preset').onchange=e=>{THEME_PRESET=e.target.value;if(THEME_PRESET==='espresso')dark=true;applyTheme();applyHubSettings();markChanged();};
+document.getElementById('size-select').onchange=e=>{CARD_SIZE=e.target.value;applyHubSettings();markChanged();};
+document.getElementById('sort-select').onchange=e=>{SORT_MODE=e.target.value;applyHubSettings();renderAll();markChanged();};
+document.getElementById('backup-dismiss').onclick=()=>{CHANGE_COUNT=0;SS('hub_change_count',CHANGE_COUNT);updateBackupAlert();};
+document.getElementById('backup-export').onclick=()=>document.getElementById('export-btn').click();
+
+function renderCalendarList(){const el=document.getElementById('calendar-list');if(!el)return;if(!CAL_ITEMS.length){el.innerHTML='<div class="cal-empty">Ingen møter lagt inn for i dag.</div>';return;}el.innerHTML=CAL_ITEMS.slice().sort((a,b)=>a.time.localeCompare(b.time)).map(x=>`<div class="cal-item"><div class="cal-time">${ESC(x.time)}</div><div><div class="cal-title">${ESC(x.title)}</div><div class="cal-meta">${ESC(x.where||'')}</div></div><button class="dash-btn edit-only" onclick="removeCalendarItem('${x.id}')">Slett</button></div>`).join('');}
+function addCalendarItem(){const time=prompt('Tidspunkt, f.eks. 14:30');if(!time)return;const title=prompt('Tittel på møte/aktivitet');if(!title)return;const where=prompt('Sted/notat', '');CAL_ITEMS.push({id:uid(),time,title,where});persist();markChanged();renderCalendarList();}
+function removeCalendarItem(id){CAL_ITEMS=CAL_ITEMS.filter(x=>x.id!==id);persist();markChanged();renderCalendarList();}
+
+const __oldHandleSave=handleSave;handleSave=function(){__oldHandleSave();markChanged();renderAll();};const __oldHandleDelete=handleDelete;handleDelete=function(){__oldHandleDelete();markChanged();renderAll();};
+function syncMobileNav(){document.querySelectorAll('.mobile-nav button').forEach(b=>b.classList.toggle('active',b.dataset.action===curTab));}
+document.querySelectorAll('.mobile-nav button').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='jobb'||a==='privat'){switchTab(a);syncMobileNav();window.scrollTo({top:0,behavior:'smooth'});}if(a==='search'){si.focus();si.select();}if(a==='add'){openModal('card-add',curTab);}});
+const oldSwitchTab=switchTab;switchTab=function(id){oldSwitchTab(id);syncMobileNav();};
+
+// Override dashboard loaders to use mini-dashboard IDs
+const oldUpdateGreeting=updateGreeting;
+updateGreeting=function(){const n=new Date(),h=n.getHours();let g=h<5?'God natt':h<10?'God morgen':h<14?'God dag':h<18?'God ettermiddag':'God kveld';document.getElementById('greet-title').textContent=g+', Marcus';document.getElementById('greet-date').textContent=n.toLocaleDateString('nb-NO',{weekday:'long',day:'numeric',month:'long',year:'numeric'});const t=n.toLocaleTimeString('nb-NO',{hour:'2-digit',minute:'2-digit',second:'2-digit'});document.getElementById('live-clock').textContent=t;const dc=document.getElementById('dash-clock');if(dc)dc.textContent=t;const dd=document.getElementById('dash-date');if(dd)dd.textContent=n.toLocaleDateString('nb-NO',{weekday:'short',day:'numeric',month:'short'});};
+loadCurrency=async function(){const el=document.getElementById('dash-currency');try{const r=await fetch('https://api.frankfurter.app/latest?from=NOK&to=EUR,USD');const d=await r.json();if(el)el.innerHTML=`€ ${d.rates.EUR.toFixed(4)} · $ ${d.rates.USD.toFixed(4)}`;}catch(e){if(el)el.textContent='Ikke lastet';}};
+loadGithub=async function(){const val=document.getElementById('dash-github'),sub=document.getElementById('dash-github-sub');try{const r=await fetch('https://api.github.com/orgs/novooi/events?per_page=5');if(!r.ok)throw new Error('github');const events=await r.json();const ev=events[0];if(ev){val.textContent=ev.type.replace('Event','');sub.textContent=(ev.repo&&ev.repo.name)||'novooi';}else{val.textContent='Ingen aktivitet';sub.textContent='Novooi';}}catch(e){if(val)val.textContent='GitHub';if(sub)sub.textContent='Sett org/repo i koden';}};
+loadWoo=function(){const n=parseInt(LS('hub_woo_count')||0,10)||0;const el=document.getElementById('dash-woo');if(el)el.textContent=n+' ordre';const card=CARDS.jobb.find(c=>/wp admin|woocommerce|novooi/i.test(c.title));if(card){card.notif=n;persist();renderCards('jobb');renderPinned();}};
+const oldLoadWeather=loadWeather;
+loadWeather=async function(){await oldLoadWeather();try{const temp=document.querySelector('#wx-info .wx-temp')?.textContent||'';const cond=document.querySelector('#wx-info .wx-cond')?.textContent||'Oslo';const em=document.getElementById('wx-em')?.textContent||'🌤️';const dw=document.getElementById('dash-weather'),ds=document.getElementById('dash-weather-sub');if(dw)dw.textContent=`${em} ${temp}`;if(ds)ds.textContent=cond+' · Oslo';}catch{}};
+
+// Improve export/import with new state and reset backup warning
+const oldExport=document.getElementById('export-btn').onclick;
+document.getElementById('export-btn').onclick=()=>{const data={version:3,exportedAt:new Date().toISOString(),BM,CARDS,SECS,SEC_COLORS,VIEW,CARD_SIZE,SORT_MODE,THEME_PRESET,EDIT_MODE,COLLAPSED,USE_COUNT,CAL_ITEMS,quickNote:qn.value,theme:dark?'dark':'light'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='min-hub-backup.json';a.click();URL.revokeObjectURL(a.href);CHANGE_COUNT=0;SS('hub_change_count',CHANGE_COUNT);updateBackupAlert();};
+// PWA registration
+if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}
+
+applyHubSettings();renderCalendarList();updateGreeting();loadCurrency();loadGithub();loadWoo();updateBackupAlert();
 
 renderAll();
 loadWeather();
