@@ -200,6 +200,20 @@ main{max-width:1100px;margin:0 auto;padding:2rem}
 body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact .card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px;padding:.55rem .75rem;min-height:44px}body.compact .card-icon{width:28px;height:28px;font-size:14px}body.compact .card-desc,body.compact .card-meta{display:none}body.compact .card-title{font-size:.84rem}body.compact .bookmark{height:30px}.tab-panel.anim-in{animation:tabSlide .22s ease both}@keyframes tabSlide{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
 @media(max-width:960px){.note-widget{position:static;width:100%;margin:0 auto 1rem}.greeting{align-items:flex-start;flex-direction:column}.hdr{gap:.75rem}.live-clock{display:none}.action-pill{display:none}.integrations{grid-template-columns:1fr}}
 
+/* Mobil: fjern sticky note og vis kort i to kolonner */
+@media(max-width:640px){
+  .note-widget{display:none!important}
+  body:not(.compact) .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+  body:not(.compact) .sec-block{padding:10px;margin-bottom:1rem;border-radius:14px}
+  body:not(.compact) .card{padding:.75rem .7rem;gap:7px;min-height:126px}
+  body:not(.compact) .card-icon{width:30px;height:30px;border-radius:8px;font-size:15px}
+  body:not(.compact) .card-title{font-size:.82rem;line-height:1.2}
+  body:not(.compact) .card-desc{font-size:.70rem;line-height:1.32;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  body:not(.compact) .card-meta{padding-top:6px}
+  body:not(.compact) .card-tag,body:not(.compact) .card-time{font-size:.62rem}
+  .integrations{grid-template-columns:1fr!important}
+}
+
 </style>
 </head>
 <body data-theme="light">
@@ -244,7 +258,6 @@ body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact 
     </div>
 
     <div class="integrations" id="int-jobb">
-      <div class="mini-widget"><div class="mini-h"><span>🚇 Ruter/Entur</span><button onclick="configureStop()">Stopp</button></div><div class="mini-body" id="ruter-body">Laster avganger...</div></div>
       <div class="mini-widget"><div class="mini-h"><span>💱 Valuta</span><button onclick="loadCurrency()">Oppdater</button></div><div class="mini-body ticker-row" id="currency-body">Laster...</div></div>
       <div class="mini-widget"><div class="mini-h"><span>🐙 GitHub Novooi</span><button onclick="loadGithub()">Oppdater</button></div><div class="mini-body" id="github-body">Laster aktivitet...</div></div>
       <div class="mini-widget"><div class="mini-h"><span>🛒 WooCommerce</span><button onclick="setWooCount()">Sett</button></div><div class="mini-body" id="woo-body">Laster ordre...</div></div>
@@ -499,11 +512,9 @@ function enableDrag(container,kind,tab){let dragged=null;container.querySelector
 function reorderItems(kind,tab,fromId,toId,section){const arr=kind==='bm'?BM[tab]:CARDS[tab];const fi=arr.findIndex(x=>x.id===fromId),ti=arr.findIndex(x=>x.id===toId);if(fi<0||ti<0)return;const [item]=arr.splice(fi,1);if(kind==='card'&&section)item.section=section;const ni=arr.findIndex(x=>x.id===toId);arr.splice(ni,0,item);persist();renderAll();}
 async function loadCurrency(){const el=document.getElementById('currency-body');try{const r=await fetch('https://api.frankfurter.app/latest?from=NOK&to=EUR,USD');const d=await r.json();el.innerHTML=`<span class="ticker">1 NOK = ${d.rates.EUR.toFixed(4)} EUR</span><span class="ticker">1 NOK = ${d.rates.USD.toFixed(4)} USD</span>`;}catch(e){el.innerHTML='<span class="ticker">Valuta kunne ikke lastes</span>';}}
 async function loadGithub(){const el=document.getElementById('github-body');try{const r=await fetch('https://api.github.com/orgs/novooi/events?per_page=5');if(!r.ok)throw new Error('github');const events=await r.json();const rows=events.slice(0,3).map(ev=>{const repo=(ev.repo&&ev.repo.name)||'novooi';const type=ev.type.replace('Event','');return`<div><strong>${ESC(type)}</strong> · ${ESC(repo)}</div>`;}).join('');el.innerHTML=rows||'Ingen nylig offentlig aktivitet.';}catch(e){el.innerHTML='Koble til via offentlig GitHub-endepunkt eller juster org/repo i koden.';}}
-async function loadRuter(){const el=document.getElementById('ruter-body'),stop=LS('hub_entur_stop')||'NSR:StopPlace:59872';try{const q=`{stopPlace(id:"${stop}"){name estimatedCalls(numberOfDepartures:3){expectedDepartureTime destinationDisplay{frontText} serviceJourney{journeyPattern{line{name publicCode transportMode}}}}}}`;const r=await fetch('https://api.entur.io/journey-planner/v3/graphql',{method:'POST',headers:{'Content-Type':'application/json','ET-Client-Name':'marcus-min-hub'},body:JSON.stringify({query:q})});const d=await r.json();const sp=d.data.stopPlace;if(!sp)throw new Error('stop');el.innerHTML=`<strong>${ESC(sp.name)}</strong>`+sp.estimatedCalls.map(c=>{const t=new Date(c.expectedDepartureTime).toLocaleTimeString('nb-NO',{hour:'2-digit',minute:'2-digit'});const line=c.serviceJourney.journeyPattern.line;return`<div>${t} · ${ESC(line.publicCode||line.name)} ${ESC(c.destinationDisplay.frontText||'')}</div>`}).join('');}catch(e){el.innerHTML='Kunne ikke laste avganger. Sett stopplace-ID via knappen.';}}
-function configureStop(){const cur=LS('hub_entur_stop')||'NSR:StopPlace:59872';const id=prompt('Entur StopPlace-ID (f.eks. NSR:StopPlace:59872)',cur);if(id){SS('hub_entur_stop',id.trim());loadRuter();}}
 function setWooCount(){const cur=LS('hub_woo_count')||'0';const v=prompt('Antall WooCommerce-ordre til behandling (frontend-demo/manual)',cur);if(v!==null){SS('hub_woo_count',String(Math.max(0,parseInt(v,10)||0)));loadWoo();}}
 function loadWoo(){const n=parseInt(LS('hub_woo_count')||0,10)||0;document.getElementById('woo-body').innerHTML=`<strong>${n}</strong> ordre til behandling<br><span style="color:var(--txm)">For ekte live-data bør WooCommerce REST API proxyes via backend/Worker, ikke med hemmelige nøkler i HTML.</span>`;const card=CARDS.jobb.find(c=>/wp admin|woocommerce|novooi/i.test(c.title));if(card){card.notif=n;persist();renderCards('jobb');}}
-loadCurrency();loadGithub();loadRuter();loadWoo();
+loadCurrency();loadGithub();loadWoo();
 
 renderAll();
 loadWeather();
