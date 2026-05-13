@@ -1,4 +1,4 @@
-const CACHE_NAME = 'min-hub-v3';
+const CACHE_NAME = 'min-hub-v6';
 const ASSETS = ['./', './index.html', './manifest.webmanifest'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)).then(() => self.skipWaiting()));
