@@ -230,7 +230,6 @@ body.compact .card-grid{display:flex;flex-direction:column;gap:6px}body.compact 
 .pin-section{display:none;margin-bottom:1.45rem}.pin-section.has-pins{display:block}.pin-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px}.pin-title{display:flex;align-items:center;gap:8px;margin-bottom:10px;color:var(--tx2);font-size:.82rem;font-weight:500}.pin-title::after{content:'';height:1px;background:var(--br);flex:1}.pin-btn{position:absolute;top:8px;right:8px;width:25px;height:25px;border:1px solid var(--br);border-radius:7px;background:var(--bg-card);color:var(--txm);cursor:pointer;display:none;align-items:center;justify-content:center;z-index:4;font-size:13px}.pin-btn.active{display:flex;color:var(--ac);background:var(--acs);border-color:color-mix(in srgb,var(--ac) 35%,var(--br))}.pin-btn:hover{display:flex;background:var(--bg-sec);color:var(--ac)}body.edit-mode .pin-btn{display:flex}.card-edit{right:39px}body:not(.edit-mode) .card-edit,body:not(.edit-mode) .bm-edit,body:not(.edit-mode) .drag-handle,body:not(.edit-mode) .bm-add,body:not(.edit-mode) .add-card-btn,body:not(.edit-mode) .sec-color-btn,body:not(.edit-mode) .edit-only{display:none!important}body:not(.edit-mode) .bookmark,body:not(.edit-mode) .card{cursor:pointer}
 .sec-collapse{width:26px;height:26px;border:1px solid var(--br);border-radius:8px;background:var(--bg-card);color:var(--txm);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform var(--t),background var(--t)}.sec-collapse:hover{background:var(--bg-sec);color:var(--tx)}.sec-block.collapsed .card-grid{display:none!important}.sec-block.collapsed .sec-collapse{transform:rotate(-90deg)}.sec-block.collapsed{padding-bottom:10px}.sec-block.collapsed .sec-hdr{margin-bottom:0}
 .cal-list{display:flex;flex-direction:column;gap:8px}.cal-item{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;padding:10px 12px;border:1px solid var(--br);border-radius:12px;background:var(--bg-card);box-shadow:var(--sh)}.cal-time{font-variant-numeric:tabular-nums;color:var(--ac);font-weight:500;font-size:.82rem}.cal-title{font-size:.86rem;color:var(--tx);font-weight:500}.cal-meta{font-size:.72rem;color:var(--txm);margin-top:2px}.cal-empty{padding:18px;text-align:center;color:var(--txm);border:1px dashed var(--brh);border-radius:12px;background:var(--bg-card)}
-.personal-widgets{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:1.4rem}.personal-widget{background:var(--bg-card);border:1px solid var(--br);border-radius:14px;padding:11px 12px;box-shadow:var(--sh)}.personal-widget .pw-title{font-size:.72rem;color:var(--txm);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px}.personal-widget .pw-value{font-size:.92rem;color:var(--tx);font-weight:500}.personal-widget .pw-sub{font-size:.72rem;color:var(--txm);margin-top:3px;line-height:1.35}
 body.size-large .card{padding:1.25rem 1.25rem;min-height:175px}body.size-large .card-icon{width:42px;height:42px;font-size:20px}body.size-large .card-title{font-size:.95rem}body.size-large .card-desc{font-size:.8rem}
 body.size-medium .card{padding:1rem 1.05rem;min-height:145px}body.size-medium .card-icon{width:36px;height:36px;font-size:17px}
 body.size-compact .card-grid{grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:10px}body.size-compact .card{padding:.75rem .8rem;min-height:112px;gap:7px}body.size-compact .card-icon{width:30px;height:30px;font-size:15px}body.size-compact .card-title{font-size:.82rem}body.size-compact .card-desc{font-size:.7rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}body.size-compact .card-meta{padding-top:5px}body.size-compact .card-tag,body.size-compact .card-time{font-size:.62rem}
@@ -243,6 +242,37 @@ body[data-preset="novooi"]{--bg:#FCF7F1;--bg-card:#FFF;--bg-sec:#F6EDE4;--tx:#21
 .mobile-nav{display:none}.mobile-nav button{border:0;background:transparent;color:var(--tx2);font-family:inherit;font-size:.68rem;display:flex;flex-direction:column;align-items:center;gap:3px;min-width:58px;padding:8px 6px;border-radius:12px}.mobile-nav button.active,.mobile-nav button:hover{background:var(--acs);color:var(--ac)}
 @media(max-width:820px){.top-controls{justify-content:flex-start}.greeting{gap:.75rem}.mini-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-card{min-height:70px}.hdr-r .action-pill,.tabs-bar{display:none}.mobile-nav{position:fixed;left:10px;right:10px;bottom:10px;z-index:300;display:flex;justify-content:space-around;gap:4px;background:color-mix(in srgb,var(--bg-card) 92%,transparent);backdrop-filter:blur(14px);border:1px solid var(--br);border-radius:20px;padding:5px;box-shadow:0 10px 30px rgba(0,0,0,.18)}body{padding-bottom:78px}.cal-item{grid-template-columns:58px 1fr}.cal-item .dash-btn{grid-column:1/-1}.pin-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:640px){.greet-title{font-size:1.45rem}.top-controls{width:100%}.control-select{flex:1;min-width:45%}.mini-dashboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.dash-card{padding:10px;min-height:68px}.dash-label{font-size:.62rem}.dash-value{font-size:.84rem}.note-widget{display:none!important}body:not(.size-super) .card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}.pin-grid{gap:8px}.pin-section .card{min-height:112px}.card-edit{right:36px}.cal-section{margin-bottom:1.2rem}}
+
+
+
+/* ── SIMPLIFISERT HUB: tema-toggle, størrelsesknapper, sticky faner ── */
+.tabs-bar{position:sticky;top:58px;z-index:190;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(10px)}
+.tabs-inner{align-items:center}.fav-tab-picker{margin-left:auto;display:flex;align-items:center;gap:5px;font-size:.72rem;color:var(--txm)}.fav-tab-picker button{height:28px;border:1px solid var(--br);background:var(--bg-card);color:var(--tx2);border-radius:999px;padding:0 9px;font-family:inherit;font-size:.72rem;cursor:pointer}.fav-tab-picker button.active{background:var(--acs);color:var(--ac);border-color:color-mix(in srgb,var(--ac) 35%,var(--br))}
+.theme-switch{height:34px;border:1px solid var(--br);border-radius:999px;background:var(--bg-card);color:var(--tx);font-family:inherit;font-size:.78rem;display:inline-flex;align-items:center;gap:8px;padding:0 12px;cursor:pointer;box-shadow:var(--sh);transition:background var(--t),border-color var(--t)}.theme-switch:hover{background:var(--bg-sec);border-color:var(--brh)}.theme-dot{width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,#FAF8F4 0 48%,#14110C 52% 100%);border:1px solid var(--brh)}
+.size-buttons{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--br);border-radius:999px;background:var(--bg-card);padding:3px;box-shadow:var(--sh)}.size-buttons button{height:26px;border:0;background:transparent;color:var(--tx2);border-radius:999px;font-family:inherit;font-size:.76rem;padding:0 10px;cursor:pointer}.size-buttons button.active{background:var(--acs);color:var(--ac)}
+.backup-alert{display:none!important}.mini-dashboard{display:none!important}
+body.size-list .card-grid{display:flex;flex-direction:column;gap:6px}body.size-list .card{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:9px;padding:.5rem .7rem;min-height:42px}body.size-list .card-icon{width:27px;height:27px;font-size:14px}body.size-list .card-desc,body.size-list .card-meta{display:none}body.size-list .card-title{font-size:.82rem}
+@media(max-width:820px){.tabs-bar{display:block;top:58px}.fav-tab-picker span{display:none}.top-controls{align-items:flex-start}.size-buttons,.theme-switch{flex-shrink:0}}
+@media(max-width:640px){.tabs-inner{overflow-x:auto}.fav-tab-picker{padding-left:12px}.size-buttons{width:100%;justify-content:space-between}.size-buttons button{flex:1}.theme-switch{width:100%;justify-content:center}}
+
+/* ── STARTSIDE-OPPGRADERING: quick actions, nylig brukt, fokus og notatpanel ── */
+.quick-actions{margin-bottom:1.45rem}
+.quick-actions{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.qa-card{position:relative;border:1px solid var(--br);background:linear-gradient(180deg,color-mix(in srgb,var(--bg-card) 92%,var(--acs)) 0%,var(--bg-card) 100%);color:var(--tx);border-radius:18px;box-shadow:var(--sh);padding:14px 15px;text-decoration:none;display:flex;flex-direction:column;justify-content:space-between;gap:10px;min-height:80px;overflow:hidden;transition:transform var(--t),box-shadow var(--t),border-color var(--t),background var(--t)}
+.qa-card:hover{transform:translateY(-2px);box-shadow:var(--shh);border-color:color-mix(in srgb,var(--ac) 28%,var(--brh));background:linear-gradient(180deg,color-mix(in srgb,var(--acs) 55%,var(--bg-card)) 0%,var(--bg-card) 100%)}
+.qa-card::after{content:'';position:absolute;inset:auto -30px -34px auto;width:88px;height:88px;border-radius:50%;background:color-mix(in srgb,var(--acs) 55%,transparent);pointer-events:none;opacity:.9}
+.qa-top{display:flex;align-items:center;justify-content:space-between;gap:10px;position:relative;z-index:1}
+.qa-emoji{width:38px;height:38px;border-radius:12px;background:color-mix(in srgb,var(--acs) 76%,var(--bg-card));border:1px solid color-mix(in srgb,var(--ac) 12%,var(--br));display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;box-shadow:inset 0 1px 0 rgba(255,255,255,.45)}
+.qa-arrow{width:28px;height:28px;border-radius:10px;background:var(--bg-sec);border:1px solid var(--br);display:flex;align-items:center;justify-content:center;color:var(--txm);font-size:14px;flex-shrink:0;transition:transform var(--t),color var(--t),border-color var(--t),background var(--t)}
+.qa-card:hover .qa-arrow{transform:translateX(2px);color:var(--ac);border-color:color-mix(in srgb,var(--ac) 24%,var(--br));background:var(--acs)}
+.qa-content{display:flex;flex-direction:column;gap:0;position:relative;z-index:1;min-width:0}
+.qa-title{display:block;font-size:.98rem;font-weight:600;line-height:1.25;letter-spacing:-.01em;color:var(--tx);word-break:break-word}
+.focus-toggle.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+body.focus-mode .wx-card,body.focus-mode .bm-section,body.focus-mode .pin-section,body.focus-mode .sec-block:not(:first-of-type),body.focus-mode .add-card-btn,body.focus-mode .cal-note,body.focus-mode .kbd-hint{display:none!important}
+body.focus-mode main{max-width:920px}.command-help{font-size:.72rem;color:var(--txm);margin-top:-.8rem;margin-bottom:1.2rem}.command-help kbd{background:var(--bg-sec);border:1px solid var(--br);border-radius:5px;padding:1px 5px;color:var(--tx2);font-family:inherit}
+.note-widget{display:none!important}.note-widget.open{display:block!important;position:fixed;right:1.25rem;top:74px;width:min(360px,calc(100vw - 2rem));z-index:350}.note-widget.open textarea{height:220px}
+.hdr-r #export-btn,.hdr-r #import-btn{display:none!important}.settings-wrap{position:relative}.settings-menu{display:none;position:absolute;right:0;top:38px;min-width:180px;background:var(--bg-card);border:1px solid var(--br);border-radius:12px;box-shadow:var(--shh);padding:6px;z-index:260}.settings-menu.open{display:block}.settings-menu button{width:100%;height:34px;border:0;background:transparent;color:var(--tx2);text-align:left;border-radius:8px;padding:0 10px;font-family:inherit;font-size:.78rem;cursor:pointer}.settings-menu button:hover{background:var(--bg-sec);color:var(--tx)}
+@media(max-width:640px){.quick-actions{grid-template-columns:repeat(2,minmax(0,1fr))}.qa-card{padding:12px;min-height:78px;border-radius:16px}.qa-title{font-size:.9rem}.top-controls{gap:6px}.note-widget.open{left:1rem;right:1rem;width:auto}}
 
 </style>
 </head>
@@ -258,8 +288,7 @@ body[data-preset="novooi"]{--bg:#FCF7F1;--bg-card:#FFF;--bg-sec:#F6EDE4;--tx:#21
     <div class="hdr-r">
       <button class="action-pill" id="export-btn" title="Last ned JSON">Eksporter</button>
       <button class="action-pill" id="import-btn" title="Importer JSON">Importer</button><input id="import-file" type="file" accept="application/json" style="display:none">
-      <button class="action-pill" id="compact-btn" title="Bytt visning">Kompakt</button>
-      <button class="bti" id="dark-toggle">
+      <button class="bti" id="dark-toggle" title="Bytt tema">
         <svg id="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg id="icon-sun" style="display:none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
       </button>
@@ -269,11 +298,14 @@ body[data-preset="novooi"]{--bg:#FCF7F1;--bg-card:#FFF;--bg-sec:#F6EDE4;--tx:#21
 <div class="tabs-bar"><div class="tabs-inner">
   <button class="tab-btn active" data-tab="jobb"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Jobb <span class="tab-badge" id="badge-jobb">0</span></button>
   <button class="tab-btn" data-tab="privat"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>Privat <span class="tab-badge" id="badge-privat">0</span></button>
+  <div class="fav-tab-picker" aria-label="Velg startfane"><span>Startside</span><button type="button" data-fav-tab="jobb">Jobb</button><button type="button" data-fav-tab="privat">Privat</button></div>
 </div></div>
 <main>
 <div style="display:none"><div id="currency-body"></div><div id="github-body"></div><div id="woo-body"></div></div>
-  <div class="greeting"><div><div class="greet-title" id="greet-title">Hei, Marcus</div><div class="greet-date" id="greet-date"></div></div><div class="top-controls"><button class="action-pill edit-toggle" id="edit-mode-btn">Rediger hub</button><select class="control-select" id="theme-preset"><option value="warm">Warm beige</option><option value="espresso">Dark espresso</option><option value="forest">Forest</option><option value="minimal">Minimal gray</option><option value="novooi">Novooi orange</option></select><select class="control-select" id="size-select"><option value="large">Stor</option><option value="medium">Medium</option><option value="compact">Kompakt</option><option value="super">Superkompakt</option></select><select class="control-select" id="sort-select"><option value="manual">Manuelt</option><option value="recent">Sist brukt</option><option value="used">Mest brukt</option><option value="alpha">Alfabetisk</option><option value="pinned">Favoritter først</option></select></div></div><div class="backup-alert" id="backup-alert"><span>💾 <strong>Husk backup</strong> — du har gjort flere endringer i hubben.</span><div><button class="btn-s" id="backup-dismiss">Senere</button><button class="btn-p" id="backup-export">Eksporter</button></div></div>
-  <div class="note-widget" id="note-widget"><div class="note-head"><span>📝 Hurtignotat</span><button id="note-toggle" title="Skjul/vis">−</button></div><textarea id="quick-note" placeholder="Skriv midlertidige tanker her..."></textarea></div>
+  <div class="greeting"><div><div class="greet-title" id="greet-title">Hei, Marcus</div><div class="greet-date" id="greet-date"></div></div><div class="top-controls"><button class="action-pill focus-toggle" id="focus-mode-btn" title="Skjul alt unødvendig">Fokus</button><button class="action-pill" id="note-open-btn" title="Åpne hurtignotat">Notat</button><button class="action-pill edit-toggle" id="edit-mode-btn">Rediger hub</button><button class="theme-switch" id="theme-switch" type="button" aria-label="Bytt mellom Warm beige og Dark espresso"><span class="theme-dot"></span><span id="theme-label">Warm beige</span></button><div class="size-buttons" role="group" aria-label="Velg kortstørrelse"><button type="button" data-size="large">Stor</button><button type="button" data-size="medium">Medium</button><button type="button" data-size="list">Liste</button></div><div class="settings-wrap"><button class="action-pill" id="settings-btn" type="button">Innstillinger</button><div class="settings-menu" id="settings-menu"><button type="button" id="settings-export">Eksporter backup</button><button type="button" id="settings-import">Importer backup</button></div></div></div></div><div class="backup-alert" id="backup-alert" aria-hidden="true"></div>
+  <div class="note-widget" id="note-widget"><div class="note-head"><span>📝 Hurtignotat</span><button id="note-toggle" title="Lukk">×</button></div><textarea id="quick-note" placeholder="Skriv midlertidige tanker her..."></textarea></div>
+  <section class="quick-actions" id="quick-actions" aria-label="Hurtighandlinger"></section>
+  <div class="command-help">Tips: bruk søkefeltet som kommandolinje — <kbd>g</kbd> Google, <kbd>yt</kbd> YouTube, <kbd>gh</kbd> GitHub, <kbd>mail</kbd> Gmail, <kbd>cal</kbd> Kalender.</div>
   <section class="pin-section" id="pin-section"><div class="pin-title">📌 Pinned / favoritter</div><div class="pin-grid" id="pin-grid"></div></section>
   <div class="tab-panel active" id="tab-jobb">
     <!-- WEATHER -->
@@ -289,13 +321,6 @@ body[data-preset="novooi"]{--bg:#FCF7F1;--bg-card:#FFF;--bg-sec:#F6EDE4;--tx:#21
       </div>
     </div>
 
-    <div class="mini-dashboard" id="dash-jobb">
-      <div class="dash-card"><div class="dash-label"><span>🌤️ Vær</span><button class="dash-btn" onclick="loadWeather()">↻</button></div><div class="dash-value" id="dash-weather">Laster...</div><div class="dash-sub" id="dash-weather-sub">Oslo</div></div>
-      <div class="dash-card"><div class="dash-label"><span>💱 Valuta</span><button class="dash-btn" onclick="loadCurrency()">↻</button></div><div class="dash-value" id="dash-currency">Laster...</div><div class="dash-sub">NOK → EUR/USD</div></div>
-      <div class="dash-card"><div class="dash-label"><span>🕒 Klokke</span></div><div class="dash-value" id="dash-clock">--:--</div><div class="dash-sub" id="dash-date">I dag</div></div>
-      <div class="dash-card"><div class="dash-label"><span>🐙 GitHub</span><button class="dash-btn" onclick="loadGithub()">↻</button></div><div class="dash-value" id="dash-github">Laster...</div><div class="dash-sub" id="dash-github-sub">Novooi</div></div>
-      <div class="dash-card"><div class="dash-label"><span>🛒 Woo</span><button class="dash-btn" onclick="setWooCount()">Sett</button></div><div class="dash-value" id="dash-woo">0 ordre</div><div class="dash-sub">Til behandling</div></div>
-    </div>
     <!-- BOOKMARKS -->
     <div class="bm-section"><div class="bm-hdr"><span class="bm-label">Bokmerker</span><div class="bm-divider"></div><button class="bm-add" onclick="openModal('bm-add','jobb')">+</button></div><div class="bm-grid" id="bm-jobb"></div></div>
     <div id="cards-jobb"></div>
@@ -303,12 +328,13 @@ body[data-preset="novooi"]{--bg:#FCF7F1;--bg-card:#FFF;--bg-sec:#F6EDE4;--tx:#21
     <!-- CALENDAR -->
     <div class="cal-section">
       <div class="cal-hdr">
-        <span class="sec-title" style="font-size:.95rem">📅 Dagens møter</span>
+        <span class="sec-title" style="font-size:.95rem">📅 Google Calendar</span>
         <div class="bm-divider"></div>
-        <button class="action-pill edit-only" onclick="addCalendarItem()">Legg til</button>
       </div>
-      <div class="cal-list" id="calendar-list"></div>
-      <p class="cal-note">Lokal kalenderliste. For ekte Google Calendar-data: legg inn offentlig kalenderfeed eller koble via backend/OAuth senere.</p>
+      <div class="cal-frame">
+        <iframe id="cal-iframe" title="Google Calendar" src="https://calendar.google.com/calendar/embed?src=marcus%40novooi.com&ctz=Europe%2FOslo&wkst=2&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&mode=WEEK&authuser=2"></iframe>
+      </div>
+      <p class="cal-note">Google Calendar vises som embed. Endre kalender-ID i iframe-lenken hvis du vil vise en annen kalender.</p>
     </div>
     <div class="empty-state" id="empty-jobb">Ingen verktøy matcher søket ditt.</div>
   </div>
@@ -323,12 +349,6 @@ body[data-preset="novooi"]{--bg:#FCF7F1;--bg-card:#FFF;--bg-sec:#F6EDE4;--tx:#21
         <div class="wx-divider"></div>
         <div class="wx-scroll" id="wx-scroll-p"></div>
       </div>
-    </div>
-    <div class="personal-widgets" id="privat-widgets">
-      <div class="personal-widget"><div class="pw-title">🏋️ Trening</div><div class="pw-value">5 økter/uke</div><div class="pw-sub">Personlig mål-widget</div></div>
-      <div class="personal-widget"><div class="pw-title">🎵 Musikk</div><div class="pw-value">Beat Vault</div><div class="pw-sub">Åpne beat-arkiv raskt</div></div>
-      <div class="personal-widget"><div class="pw-title">💰 Økonomi</div><div class="pw-value">DNB Advisor</div><div class="pw-sub">Bolig og sparing</div></div>
-      <div class="personal-widget"><div class="pw-title">🎮 Gaming</div><div class="pw-value">Valorant</div><div class="pw-sub">Skolebolle stats</div></div>
     </div>
     <div class="bm-section"><div class="bm-hdr"><span class="bm-label">Bokmerker</span><div class="bm-divider"></div><button class="bm-add" onclick="openModal('bm-add','privat')">+</button></div><div class="bm-grid" id="bm-privat"></div></div>
     <div id="cards-privat"></div>
@@ -379,7 +399,19 @@ const TONE_MAP={'#F3F1EC':'neutral','#FBF0E9':'orange','#EBF3FB':'blue','#EAF5EC
 Object.keys(SEC_COLORS).forEach(k=>{if(TONE_MAP[SEC_COLORS[k]])SEC_COLORS[k]=TONE_MAP[SEC_COLORS[k]];});
 const toneCss=v=>v==='transparent'?'transparent':(v&&v.startsWith('#')?v:`var(--tone-${v||'neutral'})`);
 let VIEW=LS('hub_view')||'card';
-function persist(){SS('hub_bm_j',BM.jobb);SS('hub_bm_p',BM.privat);SS('hub_cd_j',CARDS.jobb);SS('hub_cd_p',CARDS.privat);SS('hub_sc_j',SECS.jobb);SS('hub_sc_p',SECS.privat);SS('hub_sec_colors',SEC_COLORS);SS('hub_view',VIEW);}
+if(VIEW==='list')VIEW='card';
+let EDIT_MODE=LS('hub_edit_mode')??false;
+let CARD_SIZE=LS('hub_card_size')||'medium';
+if(CARD_SIZE==='super'||CARD_SIZE==='compact')CARD_SIZE='list';
+let SORT_MODE=LS('hub_sort_mode')||'manual';
+let THEME_PRESET=LS('hub_theme_preset')||'warm';
+if(!['warm','espresso'].includes(THEME_PRESET))THEME_PRESET='warm';
+let FAV_TAB=LS('hub_fav_tab')||'jobb';
+let COLLAPSED=LS('hub_collapsed_sections')||{};
+let USE_COUNT=LS('hub_use_count')||{};
+let CHANGE_COUNT=parseInt(LS('hub_change_count')||0,10)||0;
+let CAL_ITEMS=LS('hub_calendar_items')||[{id:'cal1',time:'09:00',title:'Sjekk ordre og e-post',where:'Novooi'},{id:'cal2',time:'13:00',title:'Kampanje/produktarbeid',where:'Arbeidsblokk'}];
+function persist(){SS('hub_bm_j',BM.jobb);SS('hub_bm_p',BM.privat);SS('hub_cd_j',CARDS.jobb);SS('hub_cd_p',CARDS.privat);SS('hub_sc_j',SECS.jobb);SS('hub_sc_p',SECS.privat);SS('hub_sec_colors',SEC_COLORS);SS('hub_view',VIEW);SS('hub_fav_tab',FAV_TAB);SS('hub_card_size',CARD_SIZE);SS('hub_theme_preset',THEME_PRESET);SS('hub_sort_mode',SORT_MODE);SS('hub_collapsed_sections',COLLAPSED);}
 function getLU(k){const s=LS('hu_'+k);if(!s)return'Aldri brukt';const d=Date.now()-s,m=d/6e4|0,h=d/36e5|0,dy=d/864e5|0;if(m<2)return'Nettopp';if(m<60)return m+' min siden';if(h<24)return h+' t siden';if(dy<7)return dy+' d siden';return new Date(s).toLocaleDateString('nb-NO',{day:'numeric',month:'short'});}
 function setLU(k){SS('hu_'+k,Date.now());}
 
@@ -526,7 +558,7 @@ si.addEventListener('input',()=>{
 const dtog=document.getElementById('dark-toggle'),dm=document.getElementById('icon-moon'),ds=document.getElementById('icon-sun');
 let dark=LS('hub_theme')==='dark';
 function applyTheme(){document.body.setAttribute('data-theme',dark?'dark':'light');dm.style.display=dark?'none':'';ds.style.display=dark?'':'none';SS('hub_theme',dark?'dark':'light');}
-applyTheme();dtog.addEventListener('click',()=>{dark=!dark;applyTheme();});
+applyTheme();dtog.addEventListener('click',()=>{THEME_PRESET=THEME_PRESET==='espresso'?'warm':'espresso';applyHubSettings();});
 
 // ── KEYBOARD ─────────────────────────────────────────────
 document.addEventListener('keydown',e=>{
@@ -534,7 +566,7 @@ document.addEventListener('keydown',e=>{
   if(document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA'){if(e.key==='Escape'){si.blur();si.value='';si.dispatchEvent(new Event('input'));}return;}
   if(e.key==='j'||e.key==='J')switchTab('jobb');
   if(e.key==='p'||e.key==='P')switchTab('privat');
-  if(e.key==='d'||e.key==='D'){dark=!dark;applyTheme();}
+  if(e.key==='d'||e.key==='D'){THEME_PRESET=THEME_PRESET==='espresso'?'warm':'espresso';applyHubSettings();}
   if(e.key==='/'){{e.preventDefault();si.focus();si.select();}}
 });
 
@@ -546,7 +578,7 @@ function applyView(){document.body.classList.toggle('compact',VIEW==='list');doc
 if(document.getElementById('view-card'))document.getElementById('view-card').onclick=()=>{VIEW='card';applyView();};if(document.getElementById('view-list'))document.getElementById('view-list').onclick=()=>{VIEW='list';applyView();};if(document.getElementById('compact-btn'))document.getElementById('compact-btn').onclick=()=>{VIEW=VIEW==='list'?'card':'list';applyView();};applyView();
 const qn=document.getElementById('quick-note');qn.value=localStorage.getItem('hub_quick_note')||'';qn.addEventListener('input',()=>localStorage.setItem('hub_quick_note',qn.value));document.getElementById('note-toggle').onclick=()=>{const w=document.getElementById('note-widget');w.classList.toggle('collapsed');document.getElementById('note-toggle').textContent=w.classList.contains('collapsed')?'+':'−';};
 document.getElementById('export-btn').onclick=()=>{const data={version:2,exportedAt:new Date().toISOString(),BM,CARDS,SECS,SEC_COLORS,VIEW,quickNote:qn.value,theme:dark?'dark':'light'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='min-hub-backup.json';a.click();URL.revokeObjectURL(a.href);};
-document.getElementById('import-btn').onclick=()=>document.getElementById('import-file').click();document.getElementById('import-file').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.BM)BM=data.BM;if(data.CARDS)CARDS=data.CARDS;if(data.SECS)SECS=data.SECS;if(data.SEC_COLORS)SEC_COLORS=data.SEC_COLORS;if(data.VIEW)VIEW=data.VIEW;if(data.quickNote!==undefined){qn.value=data.quickNote;localStorage.setItem('hub_quick_note',qn.value);}persist();renderAll();applyView();alert('Import fullført.');}catch(err){alert('Kunne ikke importere JSON-filen.');}e.target.value='';});
+document.getElementById('import-btn').onclick=()=>document.getElementById('import-file').click();document.getElementById('import-file').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.BM)BM=data.BM;if(data.CARDS)CARDS=data.CARDS;if(data.SECS)SECS=data.SECS;if(data.SEC_COLORS)SEC_COLORS=data.SEC_COLORS;if(data.VIEW)VIEW=data.VIEW;if(data.CARD_SIZE)CARD_SIZE=data.CARD_SIZE;if(data.THEME_PRESET)THEME_PRESET=data.THEME_PRESET;if(data.FAV_TAB)FAV_TAB=data.FAV_TAB;if(data.quickNote!==undefined){qn.value=data.quickNote;localStorage.setItem('hub_quick_note',qn.value);}persist();renderAll();applyView();alert('Import fullført.');}catch(err){alert('Kunne ikke importere JSON-filen.');}e.target.value='';});
 function enableDrag(container,kind,tab){let dragged=null;container.querySelectorAll('[draggable="true"]').forEach(el=>{el.addEventListener('dragstart',e=>{dragged=el;el.classList.add('dragging');e.dataTransfer.effectAllowed='move';e.dataTransfer.setData('text/plain',el.dataset.id);});el.addEventListener('dragend',()=>{el.classList.remove('dragging');container.querySelectorAll('.drag-over').forEach(x=>x.classList.remove('drag-over'));});el.addEventListener('dragover',e=>{e.preventDefault();if(el!==dragged)el.classList.add('drag-over');});el.addEventListener('dragleave',()=>el.classList.remove('drag-over'));el.addEventListener('drop',e=>{e.preventDefault();el.classList.remove('drag-over');if(!dragged||dragged===el)return;reorderItems(kind,tab,dragged.dataset.id,el.dataset.id,el.closest('.card-grid')?.dataset.section);});});}
 function reorderItems(kind,tab,fromId,toId,section){const arr=kind==='bm'?BM[tab]:CARDS[tab];const fi=arr.findIndex(x=>x.id===fromId),ti=arr.findIndex(x=>x.id===toId);if(fi<0||ti<0)return;const [item]=arr.splice(fi,1);if(kind==='card'&&section)item.section=section;const ni=arr.findIndex(x=>x.id===toId);arr.splice(ni,0,item);persist();renderAll();}
 async function loadCurrency(){const el=document.getElementById('currency-body');try{const r=await fetch('https://api.frankfurter.app/latest?from=NOK&to=EUR,USD');const d=await r.json();el.innerHTML=`<span class="ticker">1 NOK = ${d.rates.EUR.toFixed(4)} EUR</span><span class="ticker">1 NOK = ${d.rates.USD.toFixed(4)} USD</span>`;}catch(e){el.innerHTML='<span class="ticker">Valuta kunne ikke lastes</span>';}}
@@ -557,17 +589,8 @@ loadCurrency();loadGithub();loadWoo();
 
 
 // ── NYE HUB-FUNKSJONER ──────────────────────────────────
-let EDIT_MODE=LS('hub_edit_mode')??false;
-let CARD_SIZE=LS('hub_card_size')||'medium';
-let SORT_MODE=LS('hub_sort_mode')||'manual';
-let THEME_PRESET=LS('hub_theme_preset')||'warm';
-let COLLAPSED=LS('hub_collapsed_sections')||{};
-let USE_COUNT=LS('hub_use_count')||{};
-let CHANGE_COUNT=parseInt(LS('hub_change_count')||0,10)||0;
-let CAL_ITEMS=LS('hub_calendar_items')||[{id:'cal1',time:'09:00',title:'Sjekk ordre og e-post',where:'Novooi'},{id:'cal2',time:'13:00',title:'Kampanje/produktarbeid',where:'Arbeidsblokk'}];
-
 function markChanged(){CHANGE_COUNT++;SS('hub_change_count',CHANGE_COUNT);updateBackupAlert();}
-function updateBackupAlert(){const el=document.getElementById('backup-alert');if(el)el.classList.toggle('show',CHANGE_COUNT>=5);}
+function updateBackupAlert(){const el=document.getElementById('backup-alert');if(el)el.classList.remove('show');}
 const oldPersist=persist;
 persist=function(){SS('hub_bm_j',BM.jobb);SS('hub_bm_p',BM.privat);SS('hub_cd_j',CARDS.jobb);SS('hub_cd_p',CARDS.privat);SS('hub_sc_j',SECS.jobb);SS('hub_sc_p',SECS.privat);SS('hub_sec_colors',SEC_COLORS);SS('hub_view',VIEW);SS('hub_card_size',CARD_SIZE);SS('hub_sort_mode',SORT_MODE);SS('hub_theme_preset',THEME_PRESET);SS('hub_edit_mode',EDIT_MODE);SS('hub_collapsed_sections',COLLAPSED);SS('hub_use_count',USE_COUNT);SS('hub_calendar_items',CAL_ITEMS);};
 const oldSetLU=setLU;
@@ -581,13 +604,11 @@ function togglePin(tab,id){const c=CARDS[tab].find(x=>x.id===id);if(c){c.pinned=
 function toggleSection(tab,sec){const k=tab+'|'+sec;COLLAPSED[k]=!COLLAPSED[k];persist();renderCards(tab);markChanged();}
 const oldReorderItems=reorderItems;reorderItems=function(kind,tab,fromId,toId,section){oldReorderItems(kind,tab,fromId,toId,section);markChanged();};
 
-function applyHubSettings(){document.body.classList.toggle('edit-mode',!!EDIT_MODE);document.getElementById('edit-mode-btn')?.classList.toggle('on',!!EDIT_MODE);document.getElementById('edit-mode-btn').textContent=EDIT_MODE?'Ferdig':'Rediger hub';document.body.classList.remove('size-large','size-medium','size-compact','size-super');document.body.classList.add('size-'+CARD_SIZE);document.body.setAttribute('data-preset',THEME_PRESET);const ts=document.getElementById('theme-preset'),ss=document.getElementById('size-select'),so=document.getElementById('sort-select');if(ts)ts.value=THEME_PRESET;if(ss)ss.value=CARD_SIZE;if(so)so.value=SORT_MODE;persist();updateBackupAlert();}
+function applyHubSettings(){document.body.classList.toggle('edit-mode',!!EDIT_MODE);document.getElementById('edit-mode-btn')?.classList.toggle('on',!!EDIT_MODE);document.getElementById('edit-mode-btn').textContent=EDIT_MODE?'Ferdig':'Rediger hub';document.body.classList.remove('size-large','size-medium','size-compact','size-super','size-list');document.body.classList.add('size-'+CARD_SIZE);document.body.setAttribute('data-preset',THEME_PRESET);dark=THEME_PRESET==='espresso';applyTheme();const tl=document.getElementById('theme-label');if(tl)tl.textContent=THEME_PRESET==='espresso'?'Dark espresso':'Warm beige';document.querySelectorAll('.size-buttons button').forEach(b=>b.classList.toggle('active',b.dataset.size===CARD_SIZE));document.querySelectorAll('[data-fav-tab]').forEach(b=>b.classList.toggle('active',b.dataset.favTab===FAV_TAB));persist();updateBackupAlert();}
 document.getElementById('edit-mode-btn').onclick=()=>{EDIT_MODE=!EDIT_MODE;applyHubSettings();renderAll();};
-document.getElementById('theme-preset').onchange=e=>{THEME_PRESET=e.target.value;if(THEME_PRESET==='espresso')dark=true;applyTheme();applyHubSettings();markChanged();};
-document.getElementById('size-select').onchange=e=>{CARD_SIZE=e.target.value;applyHubSettings();markChanged();};
-document.getElementById('sort-select').onchange=e=>{SORT_MODE=e.target.value;applyHubSettings();renderAll();markChanged();};
-document.getElementById('backup-dismiss').onclick=()=>{CHANGE_COUNT=0;SS('hub_change_count',CHANGE_COUNT);updateBackupAlert();};
-document.getElementById('backup-export').onclick=()=>document.getElementById('export-btn').click();
+document.getElementById('theme-switch')?.addEventListener('click',()=>{THEME_PRESET=THEME_PRESET==='espresso'?'warm':'espresso';applyHubSettings();markChanged();});
+document.querySelectorAll('.size-buttons button').forEach(b=>b.addEventListener('click',()=>{CARD_SIZE=b.dataset.size;applyHubSettings();markChanged();}));
+document.querySelectorAll('[data-fav-tab]').forEach(b=>b.addEventListener('click',()=>{FAV_TAB=b.dataset.favTab;applyHubSettings();switchTab(FAV_TAB);markChanged();}));
 
 function renderCalendarList(){const el=document.getElementById('calendar-list');if(!el)return;if(!CAL_ITEMS.length){el.innerHTML='<div class="cal-empty">Ingen møter lagt inn for i dag.</div>';return;}el.innerHTML=CAL_ITEMS.slice().sort((a,b)=>a.time.localeCompare(b.time)).map(x=>`<div class="cal-item"><div class="cal-time">${ESC(x.time)}</div><div><div class="cal-title">${ESC(x.title)}</div><div class="cal-meta">${ESC(x.where||'')}</div></div><button class="dash-btn edit-only" onclick="removeCalendarItem('${x.id}')">Slett</button></div>`).join('');}
 function addCalendarItem(){const time=prompt('Tidspunkt, f.eks. 14:30');if(!time)return;const title=prompt('Tittel på møte/aktivitet');if(!title)return;const where=prompt('Sted/notat', '');CAL_ITEMS.push({id:uid(),time,title,where});persist();markChanged();renderCalendarList();}
@@ -609,13 +630,56 @@ loadWeather=async function(){await oldLoadWeather();try{const temp=document.quer
 
 // Improve export/import with new state and reset backup warning
 const oldExport=document.getElementById('export-btn').onclick;
-document.getElementById('export-btn').onclick=()=>{const data={version:3,exportedAt:new Date().toISOString(),BM,CARDS,SECS,SEC_COLORS,VIEW,CARD_SIZE,SORT_MODE,THEME_PRESET,EDIT_MODE,COLLAPSED,USE_COUNT,CAL_ITEMS,quickNote:qn.value,theme:dark?'dark':'light'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='min-hub-backup.json';a.click();URL.revokeObjectURL(a.href);CHANGE_COUNT=0;SS('hub_change_count',CHANGE_COUNT);updateBackupAlert();};
+document.getElementById('export-btn').onclick=()=>{const data={version:3,exportedAt:new Date().toISOString(),BM,CARDS,SECS,SEC_COLORS,VIEW,CARD_SIZE,SORT_MODE,THEME_PRESET,FAV_TAB,EDIT_MODE,COLLAPSED,USE_COUNT,CAL_ITEMS,quickNote:qn.value,theme:dark?'dark':'light'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='min-hub-backup.json';a.click();URL.revokeObjectURL(a.href);CHANGE_COUNT=0;SS('hub_change_count',CHANGE_COUNT);updateBackupAlert();};
 // PWA registration
 if('serviceWorker' in navigator){window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));}
 
-applyHubSettings();renderCalendarList();updateGreeting();loadCurrency();loadGithub();loadWoo();updateBackupAlert();
+
+// ── STARTSIDE-OPPGRADERING: quick actions, kommando-søk, fokus og nylig brukt ──
+const QUICK_ACTIONS={
+  jobb:[
+    {emoji:'📧',title:'Gmail',sub:'marcus@novooi',url:'https://mail.google.com/mail/u/2/#inbox'},
+    {emoji:'📅',title:'Kalender',sub:'Google Calendar',url:'https://calendar.google.com/calendar/u/2/r'},
+    {emoji:'📁',title:'Drive',sub:'Novooi-filer',url:'https://drive.google.com/drive/u/2/'},
+    {emoji:'✦',title:'Claude',sub:'AI-assistent',url:'https://claude.ai'},
+    {emoji:'🤖',title:'Agent Hub',sub:'Novooi tools',url:'https://novooi.github.io/NOVOOI-AGENTS/'},
+    {emoji:'📝',title:'Nytt dokument',sub:'Google Docs',url:'https://docs.new'}
+  ],
+  privat:[
+    {emoji:'▶️',title:'YouTube',sub:'Video og musikk',url:'https://youtube.com'},
+    {emoji:'🎛️',title:'Beat Vault',sub:'Personlig arkiv',url:'https://mekkis2002.github.io/MEKKIS-BEAT-VAULT/'},
+    {emoji:'🏦',title:'DNB Advisor',sub:'Økonomi',url:'https://mekkis2002.github.io/DNB-ADVISOR/'},
+    {emoji:'🏠',title:'Finn Agent',sub:'Bolig/annonser',url:'https://mekkis2002.github.io/FINN-SCRAPER/'},
+    {emoji:'🎮',title:'Valorant stats',sub:'Skolebolle',url:'https://mekkis2002.github.io/val-stats/'},
+    {emoji:'🎵',title:'SoundCloud',sub:'Musikk',url:'https://soundcloud.com/marcus-aas-607720'}
+  ]
+};
+let FOCUS_MODE=LS('hub_focus_mode')||false;
+function openTracked(url,title,emoji){window.open(url,'_blank','noopener');}
+function addRecent(item){}
+function renderQuickActions(){const el=document.getElementById('quick-actions');if(!el)return;el.innerHTML=(QUICK_ACTIONS[curTab]||QUICK_ACTIONS.jobb).map(a=>`<a class="qa-card" href="${ESA(a.url)}" target="_blank" title="${ESC(a.title)}" onclick="addRecent({url:'${ESA(a.url)}',title:'${ESA(a.title)}',emoji:'${ESA(a.emoji)}'})"><span class="qa-top"><span class="qa-emoji">${ESC(a.emoji)}</span><span class="qa-arrow" aria-hidden="true">↗</span></span><span class="qa-content"><span class="qa-title">${ESC(a.title)}</span></span></a>`).join('');}
+function renderRecent(){}
+function applyFocusMode(){document.body.classList.toggle('focus-mode',!!FOCUS_MODE);document.getElementById('focus-mode-btn')?.classList.toggle('on',!!FOCUS_MODE);SS('hub_focus_mode',FOCUS_MODE);}
+function commandUrl(raw){const q=raw.trim();if(!q)return null;const [cmd,...rest]=q.split(/\s+/);const term=rest.join(' ').trim();const enc=encodeURIComponent(term||'');const lower=cmd.toLowerCase();const map={g:`https://www.google.com/search?q=${enc}`,google:`https://www.google.com/search?q=${enc}`,yt:`https://www.youtube.com/results?search_query=${enc}`,youtube:`https://www.youtube.com/results?search_query=${enc}`,gh:`https://github.com/search?q=${enc}`,github:`https://github.com/search?q=${enc}`,mail:'https://mail.google.com/mail/u/2/#inbox',gmail:'https://mail.google.com/mail/u/2/#inbox',cal:'https://calendar.google.com/calendar/u/2/r',calendar:'https://calendar.google.com/calendar/u/2/r',drive:'https://drive.google.com/drive/u/2/',docs:'https://docs.new',sheet:'https://sheets.new',claude:'https://claude.ai',chatgpt:'https://chatgpt.com'};if(map[lower])return map[lower];return null;}
+si.placeholder='Søk eller skriv kommando: g, yt, gh, mail, cal, drive...';
+si.addEventListener('keydown',e=>{if(e.key!=='Enter')return;const raw=si.value.trim();const direct=commandUrl(raw);if(direct){e.preventDefault();window.open(direct,'_blank','noopener');si.value='';si.dispatchEvent(new Event('input'));return;}const all=[...BM.jobb,...BM.privat,...CARDS.jobb,...CARDS.privat];const hit=all.find(x=>(x.title+' '+(x.tags||'')+' '+(x.domain||'')).toLowerCase().includes(raw.toLowerCase()));if(hit&&hit.url){e.preventDefault();window.open(hit.url,'_blank','noopener');}});
+document.getElementById('focus-mode-btn')?.addEventListener('click',()=>{FOCUS_MODE=!FOCUS_MODE;applyFocusMode();});
+document.getElementById('note-open-btn')?.addEventListener('click',()=>{document.getElementById('note-widget')?.classList.toggle('open');qn?.focus();});
+document.getElementById('note-toggle')?.addEventListener('click',()=>document.getElementById('note-widget')?.classList.remove('open'));
+document.getElementById('settings-btn')?.addEventListener('click',e=>{e.stopPropagation();document.getElementById('settings-menu')?.classList.toggle('open');});
+document.addEventListener('click',e=>{if(!e.target.closest('.settings-wrap'))document.getElementById('settings-menu')?.classList.remove('open');});
+document.getElementById('settings-export')?.addEventListener('click',()=>document.getElementById('export-btn')?.click());
+document.getElementById('settings-import')?.addEventListener('click',()=>document.getElementById('import-btn')?.click());
+const __startPageSwitchTab=switchTab;switchTab=function(id){__startPageSwitchTab(id);renderQuickActions();};
+const __startPageRenderAll=renderAll;renderAll=function(){__startPageRenderAll();renderQuickActions();};
+const __startPagePersist=persist;persist=function(){__startPagePersist();SS('hub_fav_tab',FAV_TAB);SS('hub_focus_mode',FOCUS_MODE);};
+const __startPageApply=applyHubSettings;applyHubSettings=function(){__startPageApply();applyFocusMode();renderQuickActions();};
+document.addEventListener('keydown',e=>{if(document.activeElement.tagName==='INPUT'||document.activeElement.tagName==='TEXTAREA')return;if(e.key==='f'||e.key==='F'){FOCUS_MODE=!FOCUS_MODE;applyFocusMode();}if(e.key==='n'||e.key==='N'){document.getElementById('note-widget')?.classList.add('open');qn?.focus();}});
+
+applyHubSettings();updateGreeting();updateBackupAlert();
 
 renderAll();
+switchTab(FAV_TAB);
 loadWeather();
 </script>
 </body>
